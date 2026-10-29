@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stage Projector • Jigawa State Championship</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    body {
+      background: radial-gradient(circle at center, #0c1833 0%, #060c1a 100%);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 20px 32px;
+      overflow-x: hidden;
+    }
+    .stage-top-banner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid rgba(212, 175, 55, 0.4);
+      padding-bottom: 14px;
+    }
+    .stage-round-pill {
+      background: linear-gradient(135deg, #1e3a8a, #1e40af);
+      border: 2px solid #60a5fa;
+      padding: 8px 22px;
+      border-radius: 30px;
+      font-family: var(--font-title);
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: 0.08em;
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
+    }
+    .stage-center-headline { text-align: center; }
+    .stage-center-headline h1 {
+      font-family: var(--font-title);
+      font-size: 1.85rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #fff;
+      text-shadow: 0 0 25px rgba(245, 158, 11, 0.4);
+    }
+    .stage-center-headline p {
+      font-size: 0.88rem;
+      letter-spacing: 0.15em;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+    .stage-count-boxes { display: flex; gap: 12px; }
+    .stage-count-box {
+      background: rgba(13, 23, 42, 0.8);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 8px 16px;
+      text-align: center;
+      min-width: 90px;
+    }
+    .stage-count-box.active-box { border-color: var(--emerald-dark); }
+    .stage-count-box.elim-box { border-color: var(--crimson-dark); }
+    .stage-count-box .label { font-size: 0.65rem; text-transform: uppercase; color: var(--text-muted); font-weight: 800; }
+    .stage-count-box .val { font-family: var(--font-mono); font-size: 1.5rem; font-weight: 800; color: #fff; }
+
+    /* Next Speller Bar */
+    .stage-next-banner {
+      background: rgba(16, 28, 54, 0.9);
+      border: 1px solid #28406c;
+      border-radius: 12px;
+      padding: 10px 24px;
+      margin: 14px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+    .stage-next-banner strong { color: var(--gold-light); font-family: var(--font-title); }
+
+    /* 3-Column Arena */
+    .stage-body-grid {
+      display: grid;
+      grid-template-columns: 310px 1fr 330px;
+      gap: 20px;
+      align-items: center;
+      flex: 1;
+      margin: 10px 0;
+    }
+    .stage-panel {
+      background: rgba(13, 23, 42, 0.75);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: 16px;
+      padding: 16px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .stage-panel-title {
+      font-family: var(--font-title);
+      font-size: 0.92rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .roster-list-scroll {
+      flex: 1;
+      max-height: 460px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .roster-item-card {
+      background: #0a1325;
+      border: 1px solid #1c2b48;
+      border-radius: 8px;
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .roster-item-card.current {
+      background: #17284d;
+      border-color: var(--gold-primary);
+      box-shadow: 0 0 12px var(--gold-glow);
+    }
+    .roster-item-meta strong { font-size: 0.85rem; color: #fff; display: block; }
+    .roster-item-meta span { font-size: 0.72rem; color: var(--text-muted); }
+    .roster-item-badge {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: var(--bg-elevated);
+      color: var(--gold-light);
+    }
+
+    /* Center Stage Area */
+    .stage-center-podium {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 10px 20px;
+    }
+    .stage-crest-large {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 12px;
+      filter: drop-shadow(0 0 25px rgba(245, 158, 11, 0.45));
+    }
+    .stage-speller-title {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+    .stage-speller-name {
+      font-family: var(--font-title);
+      font-size: 2.8rem;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      color: #fff;
+      margin: 4px 0;
+      text-shadow: 0 4px 16px rgba(0, 0, 0, 0.8);
+    }
+    .stage-speller-school {
+      font-size: 1.25rem;
+      color: var(--gold-light);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .stage-speller-zone {
+      font-size: 0.85rem;
+      color: #a7f3d0;
+      background: rgba(16, 185, 129, 0.2);
+      border: 1px solid var(--emerald-dark);
+      padding: 3px 14px;
+      border-radius: 20px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    /* Giant Countdown Ring */
+    .stage-timer-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 10px 0 16px 0;
+    }
+    .stage-timer-circle {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      border: 6px solid var(--gold-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 3.8rem;
+      font-weight: 900;
+      color: #fff;
+      background: rgba(10, 19, 37, 0.85);
+      box-shadow: 0 0 35px var(--gold-glow);
+      transition: all 0.3s ease;
+    }
+    .stage-timer-circle.warning {
+      border-color: var(--gold-light);
+      color: var(--gold-light);
+      box-shadow: 0 0 40px rgba(251, 191, 36, 0.6);
+    }
+    .stage-timer-circle.danger {
+      border-color: var(--crimson-red);
+      color: var(--crimson-red);
+      box-shadow: 0 0 50px rgba(239, 68, 68, 0.8);
+      animation: pulse-danger 0.5s infinite alternate;
+    }
+
+    /* Word & Letters Spelled Board */
+    .stage-letters-board {
+      font-family: var(--font-mono);
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      min-height: 1.3em;
+      color: #fff;
+      text-transform: uppercase;
+      word-break: break-all;
+      margin: 10px 0;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    }
+    .stage-result-banner {
+      font-family: var(--font-title);
+      font-size: 2.8rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 10px 36px;
+      border-radius: 16px;
+      margin-top: 12px;
+      display: inline-block;
+      animation: pop-in 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .stage-result-banner.correct {
+      background: linear-gradient(135deg, #047857, #10b981);
+      color: #fff;
+      border: 3px solid #6ee7b7;
+      box-shadow: 0 0 50px var(--emerald-glow);
+    }
+    .stage-result-banner.incorrect {
+      background: linear-gradient(135deg, #b91c1c, #ef4444);
+      color: #fff;
+      border: 3px solid #fca5a5;
+      box-shadow: 0 0 50px var(--crimson-glow);
+    }
+    @keyframes pop-in {
+      0% { transform: scale(0.6); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .stage-footer {
+      border-top: 1px solid rgba(212, 175, 55, 0.3);
+      padding-top: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+    .stage-footer-sponsors {
+      font-family: var(--font-title);
+      color: var(--gold-light);
+      letter-spacing: 0.08em;
+      font-weight: 700;
+    }
+
+    /* Leaderboard Fullscreen Overlay View */
+    .leaderboard-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: #070c18;
+      z-index: 200;
+      padding: 40px;
+      overflow-y: auto;
+    }
+    .btn-toggle-view {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid var(--border-color);
+      color: var(--gold-light);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Banner -->
+  <header class="stage-top-banner">
+    <div class="stage-round-pill">
+      STAGE <span id="stageRoundNum">1</span>
+    </div>
+    <div class="stage-center-headline">
+      <h1 id="stageTitle">JIGAWA STATE SPELLING BEE</h1>
+      <p id="stageSubtitle">SPONSORED BY MINISTRY OF EDUCATION • ORGANIZED BY J-YEDA</p>
+    </div>
+    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+      <a href="/judge" target="_blank" class="btn-toggle-view" style="text-decoration: none; display: inline-flex; align-items: center; gap: 5px;" title="Open Judges Cockpit">
+        <span>👨‍⚖️</span> Cockpit
+      </a>
+      <a href="/speller" target="_blank" class="btn-toggle-view" style="text-decoration: none; display: inline-flex; align-items: center; gap: 5px;" title="Open Speller Screen">
+        <span>🧑‍🎓</span> Speller
+      </a>
+      <a href="/leaderboard" target="_blank" class="btn-toggle-view" style="text-decoration: none; display: inline-flex; align-items: center; gap: 5px;" title="Open Standings Leaderboard">
+        <span>📊</span> Standings
+      </a>
+      <a href="/tiebreaker" target="_blank" class="btn-toggle-view" style="text-decoration: none; display: inline-flex; align-items: center; gap: 5px; border-color: #f59e0b; color: #fbbf24;" title="Open Tiebreaker Arena">
+        <span>⚡</span> Tiebreaker
+      </a>
+      <button class="btn-toggle-view" id="btnToggleLeaderboard">🏆 Board</button>
+      <button class="btn-toggle-view" id="btnFullscreen" onclick="toggleFullScreen()">⛶ Fullscreen</button>
+      <div class="stage-count-boxes">
+        <div class="stage-count-box active-box">
+          <div class="label">ACTIVE</div>
+          <div class="val" id="stageActiveCount">0</div>
+        </div>
+        <div class="stage-count-box elim-box">
+          <div class="label">ELIMINATED</div>
+          <div class="val" id="stageElimCount">0</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Now Spelling Banner -->
+  <div class="stage-next-banner">
+    <div>NOW SPELLING: <strong id="stageActiveBanner">-- WAITING FOR NEXT SPELLER --</strong></div>
+    <div id="stageFormatBanner" style="font-size: 0.82rem; color: #93c5fd;">STAGE 1: PRELIMINARY / KNOCKOUT</div>
+  </div>
+
+  <!-- 3-Column Arena -->
+  <div class="stage-body-grid">
+    
+    <!-- Left Panel: Upcoming Spellers -->
+    <aside class="stage-panel">
+      <div class="stage-panel-title">Active &amp; Upcoming Queue</div>
+      <div class="roster-list-scroll" id="stageQueueList"></div>
+    </aside>
+
+    <!-- Center Stage Arena -->
+    <div class="stage-center-podium">
+      <img src="/images/eguru-logo.jpeg" alt="EGuru Spelling Bee" class="stage-crest-large" style="width: 105px; height: 105px; object-fit: contain; border-radius: 14px; margin: 0 auto 12px; display: block; border: 2px solid var(--brand-red); box-shadow: 0 0 20px rgba(204,27,27,0.35);">
+
+      <div class="stage-speller-title" id="stageQuestionTag">QUESTION #--</div>
+      <div class="stage-speller-name" id="stageSpellerName">--</div>
+      <div class="stage-speller-school" id="stageSpellerSchool">--</div>
+      <div class="stage-speller-zone" id="stageSpellerLga">JIGAWA STATE</div>
+
+      <!-- Giant Countdown Circle -->
+      <div class="stage-timer-wrap">
+        <div class="stage-timer-circle" id="stageTimerDigit">60</div>
+      </div>
+
+      <!-- Live Letters Spelled Board -->
+      <div class="stage-letters-board" id="stageLettersBoard"></div>
+      <div id="stageResultWrap"></div>
+    </div>
+
+    <!-- Right Panel: Live Stage Standings (Attempted & Marks) -->
+    <aside class="stage-panel">
+      <div class="stage-panel-title">Stage Marks &amp; Attempts</div>
+      <div class="roster-list-scroll" id="stageResultsFeed"></div>
+    </aside>
+
+  </div>
+
+  <!-- Stage Footer -->
+  <footer class="stage-footer">
+    <div class="stage-footer-sponsors" id="stageFooterSponsors">SPONSORED BY JIGAWA STATE MOE • ORGANIZED BY J-YEDA</div>
+    <div style="font-family: var(--font-mono); font-size: 0.78rem; color: #4ade80;">ENGINEERED BY KOWAGURUTECH</div>
+  </footer>
+
+  <!-- Fullscreen Leaderboard Modal -->
+  <div class="leaderboard-overlay hidden" id="leaderboardModal">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+      <div>
+        <h2 style="font-family: var(--font-title); font-size: 2rem; color: var(--gold-light);">Jigawa State Spelling Bee Championship</h2>
+        <p style="color: var(--text-muted); font-size: 1rem;">Official Tournament Leaderboard &amp; School Standings</p>
+      </div>
+      <button class="btn-toggle-view" id="btnCloseLeaderboard" style="padding: 10px 20px; font-size: 1rem;">✕ Return to Stage</button>
+    </div>
+
+    <div class="table-container" style="margin-bottom: 30px;">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>ID</th>
+            <th>Contestant Name</th>
+            <th>School</th>
+            <th>LGA / Zone</th>
+            <th>Correct Words</th>
+            <th>Total Points</th>
+          </tr>
+        </thead>
+        <tbody id="stageLeaderboardBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/audio.js"></script>
+  <script>
+    let AppState = null;
+    // Clock-skew correction — keeps timer in sync on machines with wrong clocks
+    let _clockOffset = 0;
+    function syncedNow() { return Date.now() + _clockOffset; }
+
+    const socket = io();
+
+    socket.on('connect', () => {
+      loadInitialState();
+    });
+
+    socket.on('STATE_UPDATE', (state) => {
+      if (state.serverTime) _clockOffset = state.serverTime - Date.now();
+      AppState = state;
+      renderStage();
+    });
+
+    async function loadInitialState() {
+      try {
+        const res = await fetch('/api/state');
+        if (res.ok) {
+          AppState = await res.json();
+          if (AppState.serverTime) _clockOffset = AppState.serverTime - Date.now();
+          renderStage();
+        }
+      } catch (e) {
+        console.error('Failed to load state:', e);
+      }
+    }
+    loadInitialState();
+    setInterval(loadInitialState, 2000);
+
+    function escapeHtml(str) {
+      return String(str || '').replace(/[&<>"']/g, c => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      }[c]));
+    }
+
+    function renderStage() {
+      if (!AppState) return;
+
+      const isTb = Boolean(AppState.tiebreakerActive);
+      const tb = AppState.tiebreakerData || {};
+
+      const currentStage = isTb ? (tb.stage || AppState.round || 1) : (AppState.round || 1);
+      const rule = (AppState.stageRules && AppState.stageRules[currentStage]) || AppState.currentStageRule || AppState.currentRule || {};
+      const stageName = rule.name ? rule.name.toUpperCase() : `STAGE ${currentStage}`;
+
+      if (isTb) {
+        document.getElementById('stageRoundNum').textContent = `${currentStage} TB`;
+        document.getElementById('stageTitle').textContent = `TIEBREAKER RUNOFF • ROUND ${tb.round || 1}`;
+        document.getElementById('stageSubtitle').textContent = `STAGE ${currentStage} TIEBREAKER • TARGET: ${tb.breakerLimit || 0} QUALIFIERS`;
+
+        const contestingCount = (tb.contestingStudentIds || []).length;
+        const passedCount = (tb.passedStudentIds || []).length;
+        document.getElementById('stageActiveCount').textContent = contestingCount;
+        document.getElementById('stageElimCount').textContent = passedCount;
+        const elimBox = document.querySelector('.stage-count-box.elim-box .label');
+        if (elimBox) elimBox.textContent = 'QUALIFIED';
+
+        document.getElementById('stageFormatBanner').textContent = `STAGE ${currentStage} TIEBREAKER RUNOFF • ROUND ${tb.round || 1} • 1 MARK PER WORD`;
+      } else {
+        document.getElementById('stageRoundNum').textContent = AppState.round;
+        document.getElementById('stageTitle').textContent = AppState.title.toUpperCase();
+        document.getElementById('stageSubtitle').textContent = AppState.subtitle.toUpperCase();
+
+        const totalStudents = AppState.students.length;
+        const activeStudents = AppState.students.filter(s => s.alive).length;
+        const elimStudents = totalStudents - activeStudents;
+
+        document.getElementById('stageActiveCount').textContent = activeStudents;
+        document.getElementById('stageElimCount').textContent = elimStudents;
+        const elimBox = document.querySelector('.stage-count-box.elim-box .label');
+        if (elimBox) elimBox.textContent = 'ELIMINATED';
+
+        document.getElementById('stageFormatBanner').textContent = `${stageName} • ${rule.description ? rule.description.toUpperCase() : '25 MARKS PER WORD'}`;
+      }
+
+      const activeSpellerId = isTb ? Number(tb.activeSpellerId) : Number(AppState.activeSpellerId);
+      const activeQuestionNum = isTb ? tb.activeQuestionNum : AppState.activeQuestionNum;
+      const activeWord = (AppState.words || {})[activeQuestionNum];
+      const active = (AppState.students || []).find(s => Number(s.id) === activeSpellerId);
+
+      const stageActiveBanner = document.getElementById('stageActiveBanner');
+      const stageQTag = document.getElementById('stageQuestionTag');
+      const stageSpellerName = document.getElementById('stageSpellerName');
+      const stageSpellerSchool = document.getElementById('stageSpellerSchool');
+      const stageSpellerLga = document.getElementById('stageSpellerLga');
+
+      if (active) {
+        const stats = (active.roundStats && active.roundStats[currentStage]) || { attempts: 0, correct: 0 };
+        const stageMarks = (active.scores && active.scores[currentStage]) || (stats.correct * (AppState.pointsPerWord || 25));
+        
+        if (isTb) {
+          stageActiveBanner.textContent = `#${String(active.id).padStart(3, '0')} - ${active.name.toUpperCase()} (${active.school.toUpperCase()}) [TIE RUNOFF]`;
+          stageQTag.textContent = activeQuestionNum ? `TIEBREAKER QUESTION #${activeQuestionNum}` : 'TIEBREAKER QUESTION';
+          stageSpellerName.textContent = active.name;
+          stageSpellerSchool.textContent = active.school;
+          stageSpellerLga.textContent = `${(active.lga || 'Jigawa').toUpperCase()} ZONE • TIEBREAKER RUNOFF • TARGET: ${tb.breakerLimit || 0} ADVANCING`;
+        } else {
+          stageActiveBanner.textContent = `#${String(active.id).padStart(3, '0')} - ${active.name.toUpperCase()} (${active.school.toUpperCase()})`;
+          stageQTag.textContent = activeQuestionNum ? `QUESTION #${activeQuestionNum}` : 'QUESTION IN PROGRESS';
+          stageSpellerName.textContent = active.name;
+          stageSpellerSchool.textContent = active.school;
+          stageSpellerLga.textContent = `${(active.lga || 'Jigawa').toUpperCase()} ZONE • STAGE ${AppState.round} • ${stats.attempts} ATTEMPTS • ${stageMarks} MARKS`;
+        }
+      } else {
+        stageActiveBanner.textContent = '-- WAITING FOR NEXT SPELLER --';
+        stageQTag.textContent = isTb ? 'READY FOR TIEBREAKER' : 'READY FOR STAGE';
+        stageSpellerName.textContent = isTb ? 'Tiebreaker In Progress' : 'Welcome Contestants';
+        stageSpellerSchool.textContent = 'Jigawa State Annual Spelling Bee';
+        stageSpellerLga.textContent = 'MINISTRY OF EDUCATION';
+      }
+
+      // Live Letters Board
+      const stageLetters = document.getElementById('stageLettersBoard');
+      const stageResultWrap = document.getElementById('stageResultWrap');
+      const currentSpelling = isTb ? (tb.currentSpelling || '') : (AppState.currentSpelling || '');
+      const adjResult = isTb ? tb.adjudicationResult : AppState.adjudicationResult;
+
+      if (stageLetters) {
+        const isRevealed = AppState.stageWordRevealed || AppState.stageRevealMode === 'always';
+        if (adjResult === 'correct') {
+          stageLetters.innerHTML = `<span style="color: #34d399; font-size: 3.2rem; letter-spacing: 0.2em;">${escapeHtml(activeWord ? activeWord.word : (currentSpelling || ''))}</span>`;
+        } else if (adjResult === 'incorrect') {
+          const spelledText = currentSpelling ? escapeHtml(currentSpelling) : '(NO SPELLING ENTERED)';
+          const correctText = activeWord ? escapeHtml(activeWord.word) : '';
+          stageLetters.innerHTML = `
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+              <div style="font-size: 1.85rem; font-family: var(--font-mono); font-weight: 800; color: #f87171; letter-spacing: 0.12em;">
+                <span style="font-size: 0.72rem; color: #fca5a5; display: block; letter-spacing: 0.08em; font-weight: 700; text-transform: uppercase;">CONTESTANT TYPED:</span>
+                ${spelledText}
+              </div>
+              <div style="font-size: 2.3rem; font-family: var(--font-mono); font-weight: 900; color: #34d399; letter-spacing: 0.14em;">
+                <span style="font-size: 0.72rem; color: #86efac; display: block; letter-spacing: 0.08em; font-weight: 700; text-transform: uppercase;">CORRECT SPELLING:</span>
+                ${correctText}
+              </div>
+            </div>
+          `;
+        } else {
+          if (isRevealed && activeWord) {
+            stageLetters.innerHTML = `<span style="color: #fff;">${escapeHtml(activeWord.word)}</span>`;
+          } else {
+            const displayStr = currentSpelling || (activeWord ? '_ '.repeat(activeWord.word.length).trim() : '');
+            stageLetters.innerHTML = `<span style="color: var(--gold-light);">${escapeHtml(displayStr)}</span>`;
+          }
+        }
+      }
+
+      // Result Reveal Banner
+      if (stageResultWrap) {
+        if (adjResult === 'correct') {
+          const markText = isTb ? '+1 MARK' : `+${AppState.pointsPerWord || 25} MARKS`;
+          stageResultWrap.innerHTML = `<div class="stage-result-banner correct">✓ CORRECT! (${markText})</div>`;
+        } else if (adjResult === 'incorrect') {
+          stageResultWrap.innerHTML = `<div class="stage-result-banner incorrect">✗ INCORRECT (0 MARKS)</div>`;
+        } else {
+          stageResultWrap.innerHTML = '';
+        }
+      }
+
+      // Upcoming Queue
+      const queueContainer = document.getElementById('stageQueueList');
+      if (queueContainer) {
+        if (isTb) {
+          const tbContestants = (tb.contestingStudentIds || []).map(id => (AppState.students || []).find(s => s.id === id)).filter(Boolean);
+          queueContainer.innerHTML = tbContestants.map(s => {
+            const isCur = s.id === activeSpellerId;
+            const attempt = tb.roundAttempts && tb.roundAttempts[s.id];
+            let badgeText = isCur ? 'ON STAGE' : 'IN RUNOFF';
+            let badgeColor = isCur ? 'var(--gold-light)' : '#93c5fd';
+            if (attempt) {
+              if (attempt.result === 'correct') {
+                badgeText = '✓ CORRECT (+1)';
+                badgeColor = '#34d399';
+              } else {
+                badgeText = '✗ MISSED';
+                badgeColor = '#f87171';
+              }
+            }
+            return `
+              <div class="roster-item-card ${isCur ? 'current' : ''}">
+                <div class="roster-item-meta">
+                  <strong>#${String(s.id).padStart(3, '0')} ${escapeHtml(s.name)}</strong>
+                  <span>${escapeHtml(s.school)}</span>
+                </div>
+                <div class="roster-item-badge" style="color: ${badgeColor};">${badgeText}</div>
+              </div>
+            `;
+          }).join('');
+        } else {
+          const activeList = AppState.students.filter(s => s.alive);
+          queueContainer.innerHTML = activeList.map(s => {
+            const isCur = Number(s.id) === Number(activeSpellerId);
+            return `
+              <div class="roster-item-card ${isCur ? 'current' : ''}">
+                <div class="roster-item-meta">
+                  <strong>#${String(s.id).padStart(3, '0')} ${escapeHtml(s.name)}</strong>
+                  <span>${escapeHtml(s.school)}</span>
+                </div>
+                <div class="roster-item-badge">${isCur ? 'ON STAGE' : 'IN QUEUE'}</div>
+              </div>
+            `;
+          }).join('');
+        }
+      }
+
+      // Live Stage Attempted & Marks Feed (No premature OUT!)
+      const feedContainer = document.getElementById('stageResultsFeed');
+      if (feedContainer) {
+        const ptsPerWord = AppState.pointsPerWord || 25;
+        const activeList = isTb 
+          ? (tb.contestingStudentIds || []).map(id => (AppState.students || []).find(s => s.id === id)).filter(Boolean)
+          : AppState.students.filter(s => s.alive);
+
+        const stageRanks = activeList.map(s => {
+          const stats = (s.roundStats && s.roundStats[currentStage]) || { attempts: 0, correct: 0 };
+          const marks = (s.scores && s.scores[currentStage]) || (stats.correct * ptsPerWord);
+          return {
+            id: s.id,
+            name: s.name,
+            school: s.school,
+            attempts: stats.attempts,
+            correct: stats.correct,
+            marks: marks,
+            isCur: s.id === activeSpellerId
+          };
+        });
+
+        stageRanks.sort((a, b) => b.marks - a.marks || b.correct - a.correct || a.id - b.id);
+
+        if (stageRanks.length === 0) {
+          feedContainer.innerHTML = `<div style="text-align: center; color: var(--text-muted); padding: 20px; font-size: 0.85rem;">No active contestants in this stage.</div>`;
+        } else {
+          feedContainer.innerHTML = stageRanks.map((s, idx) => `
+            <div class="roster-item-card ${s.isCur ? 'current' : ''}" style="border-left: 3px solid ${s.marks > 0 ? '#34d399' : '#d97706'};">
+              <div class="roster-item-meta">
+                <strong>#${idx + 1} ${escapeHtml(s.name)}</strong>
+                <span>${escapeHtml(s.school)} • <b>${s.attempts} attempted</b></span>
+              </div>
+              <div style="text-align: right;">
+                <div style="font-family: var(--font-mono); font-weight: 800; font-size: 0.95rem; color: #fff;">${s.marks} pts</div>
+                <div style="font-size: 0.65rem; color: #34d399; font-weight: 700; text-transform: uppercase;">COMPETING</div>
+              </div>
+            </div>
+          `).join('');
+        }
+      }
+
+      // Standings Modal Data
+      renderStageLeaderboard();
+    }
+
+    function renderStageLeaderboard() {
+      const tbody = document.getElementById('stageLeaderboardBody');
+      if (!tbody || !AppState) return;
+
+      const sorted = [...AppState.students].sort((a, b) => {
+        const ptA = Object.values(a.scores || {}).reduce((x, y) => x + (Number(y) || 0), 0);
+        const ptB = Object.values(b.scores || {}).reduce((x, y) => x + (Number(y) || 0), 0);
+        return ptB - ptA || (b.correctCount || 0) - (a.correctCount || 0);
+      });
+
+      tbody.innerHTML = sorted.map((s, idx) => {
+        const total = Object.values(s.scores || {}).reduce((x, y) => x + (Number(y) || 0), 0);
+        return `
+          <tr class="${s.alive ? '' : 'out'}">
+            <td><b>${idx + 1}</b></td>
+            <td>#${String(s.id).padStart(3, '0')}</td>
+            <td><strong>${escapeHtml(s.name)}</strong></td>
+            <td>${escapeHtml(s.school)}</td>
+            <td>${escapeHtml(s.lga || 'Jigawa')}</td>
+            <td>${s.correctCount || 0}</td>
+            <td><strong style="color: var(--gold-light); font-size: 1.1rem;">${total} pts</strong></td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function getSecondsRemaining() {
+      if (!AppState) return 60;
+      const isTb = Boolean(AppState.tiebreakerActive);
+      const tb = AppState.tiebreakerData || {};
+
+      if (isTb) {
+        if (tb.timerPausedRemaining !== null && tb.timerPausedRemaining !== undefined) {
+          return Math.max(0, tb.timerPausedRemaining);
+        }
+        if (!tb.timerRunning || !tb.timerEnd) {
+          return AppState.timerDuration || 60;
+        }
+        return Math.max(0, Math.ceil((tb.timerEnd - syncedNow()) / 1000));
+      }
+
+      if (AppState.timerPausedRemaining !== null && AppState.timerPausedRemaining !== undefined) {
+        return Math.max(0, AppState.timerPausedRemaining);
+      }
+      if (!AppState.timerRunning || !AppState.timerEnd) {
+        return AppState.timerDuration || 60;
+      }
+      return Math.max(0, Math.ceil((AppState.timerEnd - syncedNow()) / 1000));
+    }
+
+    let lastSec = null;
+    function timerTick() {
+      const isTb = Boolean(AppState && AppState.tiebreakerActive);
+      const tb = (AppState && AppState.tiebreakerData) || {};
+      const isRunning = isTb ? Boolean(tb.timerRunning) : Boolean(AppState && AppState.timerRunning);
+
+      const sec = getSecondsRemaining();
+      const circle = document.getElementById('stageTimerDigit');
+      if (circle) {
+        circle.textContent = sec;
+        const warn = AppState ? (AppState.timerWarning || 10) : 10;
+        circle.classList.toggle('warning', sec <= warn && sec > 0);
+        circle.classList.toggle('danger', sec === 0);
+      }
+      if (AppState && isRunning && sec !== lastSec) {
+        lastSec = sec;
+        const warn = AppState.timerWarning || 10;
+        if (sec <= warn && sec > 0) SoundEngine.playTick();
+        else if (sec === 0) SoundEngine.playWarningBell();
+      }
+    }
+    setInterval(timerTick, 250);
+
+    // Modal toggle
+    document.getElementById('btnToggleLeaderboard').addEventListener('click', () => {
+      document.getElementById('leaderboardModal').classList.remove('hidden');
+    });
+    document.getElementById('btnCloseLeaderboard').addEventListener('click', () => {
+      document.getElementById('leaderboardModal').classList.add('hidden');
+    });
+
+    function toggleFullScreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else {
+        document.exitFullscreen().catch(() => {});
+      }
+    }
+  </script>
+</body>
+</html>

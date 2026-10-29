@@ -1,0 +1,5002 @@
+[
+  {
+    "num": 1,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "SEPARATE",
+    "pos": "Adjective",
+    "origin": "ENG (English Language)",
+    "def": "Apart; not joined",
+    "sentence": "Please spell the word: SEPARATE."
+  },
+  {
+    "num": 2,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "DIAMETER",
+    "pos": "Noun",
+    "origin": "MTH (Mathematics)",
+    "def": "A straight line across a circle through its centre",
+    "sentence": "Please spell the word: DIAMETER."
+  },
+  {
+    "num": 3,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "TRIANGLE",
+    "pos": "Noun",
+    "origin": "MTH (Mathematics)",
+    "def": "A shape with three sides",
+    "sentence": "Please spell the word: TRIANGLE."
+  },
+  {
+    "num": 4,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "FRACTION",
+    "pos": "Noun",
+    "origin": "MTH (Mathematics)",
+    "def": "A part of a whole number",
+    "sentence": "Please spell the word: FRACTION."
+  },
+  {
+    "num": 5,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "SOLUTION",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "A liquid in which a substance has dissolved",
+    "sentence": "Please spell the word: SOLUTION."
+  },
+  {
+    "num": 6,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "COMPOUND",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "A substance of two or more elements chemically joined",
+    "sentence": "Please spell the word: COMPOUND."
+  },
+  {
+    "num": 7,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "BATTERY",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "A device that stores energy and supplies current",
+    "sentence": "Please spell the word: BATTERY."
+  },
+  {
+    "num": 8,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "CASSAVA",
+    "pos": "Noun",
+    "origin": "AGR (Agricultural Science)",
+    "def": "A starchy root crop",
+    "sentence": "Please spell the word: CASSAVA."
+  },
+  {
+    "num": 9,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "GRAMMAR",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "The rules of a language",
+    "sentence": "Please spell the word: GRAMMAR."
+  },
+  {
+    "num": 10,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "SYNONYM",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "A word with the same meaning as another",
+    "sentence": "Please spell the word: SYNONYM."
+  },
+  {
+    "num": 11,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "PATTERN",
+    "pos": "Noun",
+    "origin": "HOM (Home Economics)",
+    "def": "A guide or design for making something",
+    "sentence": "Please spell the word: PATTERN."
+  },
+  {
+    "num": 12,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "POTTERY",
+    "pos": "Noun",
+    "origin": "ART (Creative Arts)",
+    "def": "Objects made from baked clay",
+    "sentence": "Please spell the word: POTTERY."
+  },
+  {
+    "num": 13,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "CHARITY",
+    "pos": "Noun",
+    "origin": "REL (Religious Studies)",
+    "def": "Help given to those in need",
+    "sentence": "Please spell the word: CHARITY."
+  },
+  {
+    "num": 14,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "PARABLE",
+    "pos": "Noun",
+    "origin": "REL (Religious Studies)",
+    "def": "A short story teaching a lesson",
+    "sentence": "Please spell the word: PARABLE."
+  },
+  {
+    "num": 15,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "PERIMETER",
+    "pos": "Noun",
+    "origin": "MTH (Mathematics)",
+    "def": "The distance around a shape",
+    "sentence": "Please spell the word: PERIMETER."
+  },
+  {
+    "num": 16,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "RECTANGLE",
+    "pos": "Noun",
+    "origin": "MTH (Mathematics)",
+    "def": "A four-sided shape with four right angles",
+    "sentence": "Please spell the word: RECTANGLE."
+  },
+  {
+    "num": 17,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "VIBRATION",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "A rapid back-and-forth movement",
+    "sentence": "Please spell the word: VIBRATION."
+  },
+  {
+    "num": 18,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "CONDUCTOR",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "A material that lets heat or electricity pass",
+    "sentence": "Please spell the word: CONDUCTOR."
+  },
+  {
+    "num": 19,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "INSULATOR",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "A material that blocks heat or electricity",
+    "sentence": "Please spell the word: INSULATOR."
+  },
+  {
+    "num": 20,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "RECYCLING",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "Processing used materials into new products",
+    "sentence": "Please spell the word: RECYCLING."
+  },
+  {
+    "num": 21,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "NUTRITION",
+    "pos": "Noun",
+    "origin": "HOM (Home Economics)",
+    "def": "The process of obtaining food for growth",
+    "sentence": "Please spell the word: NUTRITION."
+  },
+  {
+    "num": 22,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "DIGESTION",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "The breaking down of food in the body",
+    "sentence": "Please spell the word: DIGESTION."
+  },
+  {
+    "num": 23,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "LIVESTOCK",
+    "pos": "Noun",
+    "origin": "AGR (Agricultural Science)",
+    "def": "Animals kept on a farm",
+    "sentence": "Please spell the word: LIVESTOCK."
+  },
+  {
+    "num": 24,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "GROUNDNUT",
+    "pos": "Noun",
+    "origin": "AGR (Agricultural Science)",
+    "def": "A peanut",
+    "sentence": "Please spell the word: GROUNDNUT."
+  },
+  {
+    "num": 25,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "INFECTION",
+    "pos": "Noun",
+    "origin": "PHE (Physical & Health Education)",
+    "def": "The entry of germs into the body",
+    "sentence": "Please spell the word: INFECTION."
+  },
+  {
+    "num": 26,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "ATHLETICS",
+    "pos": "Noun",
+    "origin": "PHE (Physical & Health Education)",
+    "def": "Track and field sports",
+    "sentence": "Please spell the word: ATHLETICS."
+  },
+  {
+    "num": 27,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "DEMOCRACY",
+    "pos": "Noun",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "Government by the people",
+    "sentence": "Please spell the word: DEMOCRACY."
+  },
+  {
+    "num": 28,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "TRADITION",
+    "pos": "Noun",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "A custom passed down over generations",
+    "sentence": "Please spell the word: TRADITION."
+  },
+  {
+    "num": 29,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "INTEGRITY",
+    "pos": "Noun",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "Strong moral principles",
+    "sentence": "Please spell the word: INTEGRITY."
+  },
+  {
+    "num": 30,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "ADJECTIVE",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "A word that describes a noun",
+    "sentence": "Please spell the word: ADJECTIVE."
+  },
+  {
+    "num": 31,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "TAILORING",
+    "pos": "Noun",
+    "origin": "HOM (Home Economics)",
+    "def": "The making of clothes to fit",
+    "sentence": "Please spell the word: TAILORING."
+  },
+  {
+    "num": 32,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "REHEARSAL",
+    "pos": "Noun",
+    "origin": "ART (Creative Arts)",
+    "def": "A practice before a performance",
+    "sentence": "Please spell the word: REHEARSAL."
+  },
+  {
+    "num": 33,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "PARALLEL",
+    "pos": "Adjective",
+    "origin": "MTH (Mathematics)",
+    "def": "Always the same distance apart",
+    "sentence": "Please spell the word: PARALLEL."
+  },
+  {
+    "num": 34,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "EQUATION",
+    "pos": "Noun",
+    "origin": "MTH (Mathematics)",
+    "def": "A statement that two expressions are equal",
+    "sentence": "Please spell the word: EQUATION."
+  },
+  {
+    "num": 35,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "RAINFALL",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "The amount of rain that falls in a place",
+    "sentence": "Please spell the word: RAINFALL."
+  },
+  {
+    "num": 36,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "IMMUNITY",
+    "pos": "Noun",
+    "origin": "PHE (Physical & Health Education)",
+    "def": "The body's ability to resist disease",
+    "sentence": "Please spell the word: IMMUNITY."
+  },
+  {
+    "num": 37,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "PASSWORD",
+    "pos": "Noun",
+    "origin": "DIG (Digital Technology)",
+    "def": "A secret word that gives access",
+    "sentence": "Please spell the word: PASSWORD."
+  },
+  {
+    "num": 38,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "BUSINESS",
+    "pos": "Noun",
+    "origin": "BUS (Business Studies)",
+    "def": "An organisation that sells goods or services",
+    "sentence": "Please spell the word: BUSINESS."
+  },
+  {
+    "num": 39,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "ANCESTOR",
+    "pos": "Noun",
+    "origin": "HIS (History)",
+    "def": "A person from whom one is descended",
+    "sentence": "Please spell the word: ANCESTOR."
+  },
+  {
+    "num": 40,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "SENTENCE",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "A group of words expressing a complete thought",
+    "sentence": "Please spell the word: SENTENCE."
+  },
+  {
+    "num": 41,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "METAPHOR",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "A figure of speech saying one thing is another",
+    "sentence": "Please spell the word: METAPHOR."
+  },
+  {
+    "num": 42,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "DIALOGUE",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "A conversation in writing or drama",
+    "sentence": "Please spell the word: DIALOGUE."
+  },
+  {
+    "num": 43,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "AUDIENCE",
+    "pos": "Noun",
+    "origin": "ART (Creative Arts)",
+    "def": "People who watch or listen to a performance",
+    "sentence": "Please spell the word: AUDIENCE."
+  },
+  {
+    "num": 44,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "GOVERNMENT",
+    "pos": "Noun",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "The body that rules a country or state",
+    "sentence": "Please spell the word: GOVERNMENT."
+  },
+  {
+    "num": 45,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "VEGETATION",
+    "pos": "Noun",
+    "origin": "AGR (Agricultural Science)",
+    "def": "Plants growing in an area",
+    "sentence": "Please spell the word: VEGETATION."
+  },
+  {
+    "num": 46,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "PLANTATION",
+    "pos": "Noun",
+    "origin": "AGR (Agricultural Science)",
+    "def": "A large farm growing one main crop",
+    "sentence": "Please spell the word: PLANTATION."
+  },
+  {
+    "num": 47,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "SANITATION",
+    "pos": "Noun",
+    "origin": "PHE (Physical & Health Education)",
+    "def": "Systems that keep surroundings clean and healthy",
+    "sentence": "Please spell the word: SANITATION."
+  },
+  {
+    "num": 48,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "FEDERATION",
+    "pos": "Noun",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "A union of states under one central government",
+    "sentence": "Please spell the word: FEDERATION."
+  },
+  {
+    "num": 49,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "LEADERSHIP",
+    "pos": "Noun",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "The ability to guide others",
+    "sentence": "Please spell the word: LEADERSHIP."
+  },
+  {
+    "num": 50,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "PATRIOTISM",
+    "pos": "Noun",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "Love for and loyalty to one's country",
+    "sentence": "Please spell the word: PATRIOTISM."
+  },
+  {
+    "num": 51,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "LABORATORY",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "A room for scientific experiments",
+    "sentence": "Please spell the word: LABORATORY."
+  },
+  {
+    "num": 52,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "DICTIONARY",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "A book listing words and their meanings",
+    "sentence": "Please spell the word: DICTIONARY."
+  },
+  {
+    "num": 53,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "VOCABULARY",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "All the words a person knows",
+    "sentence": "Please spell the word: VOCABULARY."
+  },
+  {
+    "num": 54,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "INGREDIENT",
+    "pos": "Noun",
+    "origin": "HOM (Home Economics)",
+    "def": "A food item used in a recipe",
+    "sentence": "Please spell the word: INGREDIENT."
+  },
+  {
+    "num": 55,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "EMBROIDERY",
+    "pos": "Noun",
+    "origin": "HOM (Home Economics)",
+    "def": "Decorative stitching on cloth",
+    "sentence": "Please spell the word: EMBROIDERY."
+  },
+  {
+    "num": 56,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "EXHIBITION",
+    "pos": "Noun",
+    "origin": "ART (Creative Arts)",
+    "def": "A public display of works",
+    "sentence": "Please spell the word: EXHIBITION."
+  },
+  {
+    "num": 57,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "PILGRIMAGE",
+    "pos": "Noun",
+    "origin": "REL (Religious Studies)",
+    "def": "A journey to a sacred place",
+    "sentence": "Please spell the word: PILGRIMAGE."
+  },
+  {
+    "num": 58,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "GENEROSITY",
+    "pos": "Noun",
+    "origin": "REL (Religious Studies)",
+    "def": "Willingness to give freely",
+    "sentence": "Please spell the word: GENEROSITY."
+  },
+  {
+    "num": 59,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "CALCULATOR",
+    "pos": "Noun",
+    "origin": "MTH (Mathematics)",
+    "def": "A device for doing arithmetic",
+    "sentence": "Please spell the word: CALCULATOR."
+  },
+  {
+    "num": 60,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "NECESSARY",
+    "pos": "Adjective",
+    "origin": "ENG (English Language)",
+    "def": "Needed; essential",
+    "sentence": "Please spell the word: NECESSARY."
+  },
+  {
+    "num": 61,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "POLLUTION",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "Harmful substances in the environment",
+    "sentence": "Please spell the word: POLLUTION."
+  },
+  {
+    "num": 62,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "ECOSYSTEM",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "Living things and their surroundings working together",
+    "sentence": "Please spell the word: ECOSYSTEM."
+  },
+  {
+    "num": 63,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "COMMUNITY",
+    "pos": "Noun",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "A group of people living in one area",
+    "sentence": "Please spell the word: COMMUNITY."
+  },
+  {
+    "num": 64,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "CALIPHATE",
+    "pos": "Noun",
+    "origin": "HIS (History)",
+    "def": "A state governed by a caliph",
+    "sentence": "Please spell the word: CALIPHATE."
+  },
+  {
+    "num": 65,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "TOLERANCE",
+    "pos": "Noun",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "Willingness to accept different views",
+    "sentence": "Please spell the word: TOLERANCE."
+  },
+  {
+    "num": 66,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "OBEDIENCE",
+    "pos": "Noun",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "Willingness to follow rules",
+    "sentence": "Please spell the word: OBEDIENCE."
+  },
+  {
+    "num": 67,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "PARAGRAPH",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "A section of writing dealing with one idea",
+    "sentence": "Please spell the word: PARAGRAPH."
+  },
+  {
+    "num": 68,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "NARRATIVE",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "A spoken or written account of events",
+    "sentence": "Please spell the word: NARRATIVE."
+  },
+  {
+    "num": 69,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "CHARACTER",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "A person in a story",
+    "sentence": "Please spell the word: CHARACTER."
+  },
+  {
+    "num": 70,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "SCULPTURE",
+    "pos": "Noun",
+    "origin": "ART (Creative Arts)",
+    "def": "A three-dimensional work of art",
+    "sentence": "Please spell the word: SCULPTURE."
+  },
+  {
+    "num": 71,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "LANDSCAPE",
+    "pos": "Noun",
+    "origin": "ART (Creative Arts)",
+    "def": "A picture of natural scenery",
+    "sentence": "Please spell the word: LANDSCAPE."
+  },
+  {
+    "num": 72,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "ORCHESTRA",
+    "pos": "Noun",
+    "origin": "ART (Creative Arts)",
+    "def": "A large group of instrumental musicians",
+    "sentence": "Please spell the word: ORCHESTRA."
+  },
+  {
+    "num": 73,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "SCRIPTURE",
+    "pos": "Noun",
+    "origin": "REL (Religious Studies)",
+    "def": "Sacred writings",
+    "sentence": "Please spell the word: SCRIPTURE."
+  },
+  {
+    "num": 74,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "TERRITORY",
+    "pos": "Noun",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "An area of land under a ruler",
+    "sentence": "Please spell the word: TERRITORY."
+  },
+  {
+    "num": 75,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "ENVIRONMENT",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "The natural surroundings in which living things exist",
+    "sentence": "Please spell the word: ENVIRONMENT."
+  },
+  {
+    "num": 76,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "SUBTRACTION",
+    "pos": "Noun",
+    "origin": "MTH (Mathematics)",
+    "def": "The taking away of one number from another",
+    "sentence": "Please spell the word: SUBTRACTION."
+  },
+  {
+    "num": 77,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "MEASUREMENT",
+    "pos": "Noun",
+    "origin": "MTH (Mathematics)",
+    "def": "A size or amount found by measuring",
+    "sentence": "Please spell the word: MEASUREMENT."
+  },
+  {
+    "num": 78,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "TEMPERATURE",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "How hot or cold something is",
+    "sentence": "Please spell the word: TEMPERATURE."
+  },
+  {
+    "num": 79,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "EVAPORATION",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "The change of a liquid into vapour",
+    "sentence": "Please spell the word: EVAPORATION."
+  },
+  {
+    "num": 80,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "ELECTRICITY",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "Energy produced by charged particles",
+    "sentence": "Please spell the word: ELECTRICITY."
+  },
+  {
+    "num": 81,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "RESPIRATION",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "The release of energy from food in cells",
+    "sentence": "Please spell the word: RESPIRATION."
+  },
+  {
+    "num": 82,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "CIRCULATION",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "The movement of blood around the body",
+    "sentence": "Please spell the word: CIRCULATION."
+  },
+  {
+    "num": 83,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "GERMINATION",
+    "pos": "Noun",
+    "origin": "AGR (Agricultural Science)",
+    "def": "The sprouting of a seed",
+    "sentence": "Please spell the word: GERMINATION."
+  },
+  {
+    "num": 84,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "CULTIVATION",
+    "pos": "Noun",
+    "origin": "AGR (Agricultural Science)",
+    "def": "The preparing and growing of crops",
+    "sentence": "Please spell the word: CULTIVATION."
+  },
+  {
+    "num": 85,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "FLEXIBILITY",
+    "pos": "Noun",
+    "origin": "PHE (Physical & Health Education)",
+    "def": "The ability to bend easily",
+    "sentence": "Please spell the word: FLEXIBILITY."
+  },
+  {
+    "num": 86,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "SPREADSHEET",
+    "pos": "Noun",
+    "origin": "DIG (Digital Technology)",
+    "def": "A computer table for calculating figures",
+    "sentence": "Please spell the word: SPREADSHEET."
+  },
+  {
+    "num": 87,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "TRANSACTION",
+    "pos": "Noun",
+    "origin": "BUS (Business Studies)",
+    "def": "An act of buying or selling",
+    "sentence": "Please spell the word: TRANSACTION."
+  },
+  {
+    "num": 88,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "CITIZENSHIP",
+    "pos": "Noun",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "The status of being a citizen",
+    "sentence": "Please spell the word: CITIZENSHIP."
+  },
+  {
+    "num": 89,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "NATIONALISM",
+    "pos": "Noun",
+    "origin": "HIS (History)",
+    "def": "Strong devotion to one's nation",
+    "sentence": "Please spell the word: NATIONALISM."
+  },
+  {
+    "num": 90,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "COOPERATION",
+    "pos": "Noun",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "Working together for a shared goal",
+    "sentence": "Please spell the word: COOPERATION."
+  },
+  {
+    "num": 91,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "PREPOSITION",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "A word showing position or direction",
+    "sentence": "Please spell the word: PREPOSITION."
+  },
+  {
+    "num": 92,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "CONJUNCTION",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "A word that joins words or clauses",
+    "sentence": "Please spell the word: CONJUNCTION."
+  },
+  {
+    "num": 93,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "PUNCTUATION",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "Marks used to make writing clear",
+    "sentence": "Please spell the word: PUNCTUATION."
+  },
+  {
+    "num": 94,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "PERSPECTIVE",
+    "pos": "Noun",
+    "origin": "ART (Creative Arts)",
+    "def": "A way of showing depth in a drawing",
+    "sentence": "Please spell the word: PERSPECTIVE."
+  },
+  {
+    "num": 95,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "IRRIGATION",
+    "pos": "Noun",
+    "origin": "AGR (Agricultural Science)",
+    "def": "Supplying water to farmland",
+    "sentence": "Please spell the word: IRRIGATION."
+  },
+  {
+    "num": 96,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "GYMNASTICS",
+    "pos": "Noun",
+    "origin": "PHE (Physical & Health Education)",
+    "def": "Exercises requiring strength and balance",
+    "sentence": "Please spell the word: GYMNASTICS."
+  },
+  {
+    "num": 97,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "TECHNOLOGY",
+    "pos": "Noun",
+    "origin": "DIG (Digital Technology)",
+    "def": "Tools and methods that solve practical problems",
+    "sentence": "Please spell the word: TECHNOLOGY."
+  },
+  {
+    "num": 98,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "DISCIPLINE",
+    "pos": "Noun",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "Self-control and orderly conduct",
+    "sentence": "Please spell the word: DISCIPLINE."
+  },
+  {
+    "num": 99,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "SPORTSMANSHIP",
+    "pos": "Noun",
+    "origin": "PHE (Physical & Health Education)",
+    "def": "Fair and polite behaviour in games",
+    "sentence": "Please spell the word: SPORTSMANSHIP."
+  },
+  {
+    "num": 100,
+    "round": 1,
+    "round_label": "Round 1 (Simplest)",
+    "word": "ADVERTISEMENT",
+    "pos": "Noun",
+    "origin": "BUS (Business Studies)",
+    "def": "A public notice promoting a product",
+    "sentence": "Please spell the word: ADVERTISEMENT."
+  },
+  {
+    "num": 101,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "WEIRD",
+    "pos": "Adjective",
+    "origin": "ENG (English Language)",
+    "def": "Strange",
+    "sentence": "Please spell the word: WEIRD."
+  },
+  {
+    "num": 102,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "YACHT",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "A sailing boat for pleasure or racing",
+    "sentence": "Please spell the word: YACHT."
+  },
+  {
+    "num": 103,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "XYLEM",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "Tissue that carries water in plants",
+    "sentence": "Please spell the word: XYLEM."
+  },
+  {
+    "num": 104,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "STOMATA",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "Tiny pores on the surface of leaves",
+    "sentence": "Please spell the word: STOMATA."
+  },
+  {
+    "num": 105,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "OSMOSIS",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "Movement of water through a membrane",
+    "sentence": "Please spell the word: OSMOSIS."
+  },
+  {
+    "num": 106,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "RHYTHM",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "A regular pattern of beats or sounds",
+    "sentence": "Please spell the word: RHYTHM."
+  },
+  {
+    "num": 107,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "QUEUE",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "A line of people waiting",
+    "sentence": "Please spell the word: QUEUE."
+  },
+  {
+    "num": 108,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "SOLENOID",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "A coil of wire that acts as a magnet when current flows",
+    "sentence": "Please spell the word: SOLENOID."
+  },
+  {
+    "num": 109,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "AGRONOMY",
+    "pos": "Noun",
+    "origin": "AGR (Agricultural Science)",
+    "def": "The science of soil management and crop production",
+    "sentence": "Please spell the word: AGRONOMY."
+  },
+  {
+    "num": 110,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "MARASMUS",
+    "pos": "Noun",
+    "origin": "HOM (Home Economics)",
+    "def": "Severe wasting caused by lack of food",
+    "sentence": "Please spell the word: MARASMUS."
+  },
+  {
+    "num": 111,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "MARINADE",
+    "pos": "Noun",
+    "origin": "HOM (Home Economics)",
+    "def": "A seasoned liquid for soaking food",
+    "sentence": "Please spell the word: MARINADE."
+  },
+  {
+    "num": 112,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "OXYMORON",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "Two contradictory words used together",
+    "sentence": "Please spell the word: OXYMORON."
+  },
+  {
+    "num": 113,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "AMMETER",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "An instrument measuring electric current",
+    "sentence": "Please spell the word: AMMETER."
+  },
+  {
+    "num": 114,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "IGNEOUS",
+    "pos": "Adjective",
+    "origin": "SCI (Basic Science)",
+    "def": "Formed from cooled molten rock",
+    "sentence": "Please spell the word: IGNEOUS."
+  },
+  {
+    "num": 115,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "TRACHEA",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "The windpipe",
+    "sentence": "Please spell the word: TRACHEA."
+  },
+  {
+    "num": 116,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "PHLOEM",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "Tissue that carries food in plants",
+    "sentence": "Please spell the word: PHLOEM."
+  },
+  {
+    "num": 117,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "PRIVILEGE",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "A special right or advantage",
+    "sentence": "Please spell the word: PRIVILEGE."
+  },
+  {
+    "num": 118,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "TRAPEZIUM",
+    "pos": "Noun",
+    "origin": "MTH (Mathematics)",
+    "def": "A four-sided shape with one pair of parallel sides",
+    "sentence": "Please spell the word: TRAPEZIUM."
+  },
+  {
+    "num": 119,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "INDICATOR",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "A substance showing acidity or alkalinity by colour",
+    "sentence": "Please spell the word: INDICATOR."
+  },
+  {
+    "num": 120,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "JUDICIARY",
+    "pos": "Noun",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "The arm of government that interprets laws",
+    "sentence": "Please spell the word: JUDICIARY."
+  },
+  {
+    "num": 121,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "EXTORTION",
+    "pos": "Noun",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "Obtaining money by force or threats",
+    "sentence": "Please spell the word: EXTORTION."
+  },
+  {
+    "num": 122,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "SYMBIOSIS",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "A close relationship between different organisms",
+    "sentence": "Please spell the word: SYMBIOSIS."
+  },
+  {
+    "num": 123,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "VOLTMETER",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "An instrument measuring voltage",
+    "sentence": "Please spell the word: VOLTMETER."
+  },
+  {
+    "num": 124,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "DECATHLON",
+    "pos": "Noun",
+    "origin": "PHE (Physical & Health Education)",
+    "def": "An athletic contest with ten events",
+    "sentence": "Please spell the word: DECATHLON."
+  },
+  {
+    "num": 125,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "HYPERBOLE",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "Deliberate exaggeration",
+    "sentence": "Please spell the word: HYPERBOLE."
+  },
+  {
+    "num": 126,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "ETYMOLOGY",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "The study of word origins",
+    "sentence": "Please spell the word: ETYMOLOGY."
+  },
+  {
+    "num": 127,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "RESILIENT",
+    "pos": "Adjective",
+    "origin": "ENG (English Language)",
+    "def": "Able to recover quickly",
+    "sentence": "Please spell the word: RESILIENT."
+  },
+  {
+    "num": 128,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "NOSTALGIA",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "A longing for the past",
+    "sentence": "Please spell the word: NOSTALGIA."
+  },
+  {
+    "num": 129,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "EXUBERANT",
+    "pos": "Adjective",
+    "origin": "ENG (English Language)",
+    "def": "Full of energy and excitement",
+    "sentence": "Please spell the word: EXUBERANT."
+  },
+  {
+    "num": 130,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "PRAGMATIC",
+    "pos": "Adjective",
+    "origin": "ENG (English Language)",
+    "def": "Dealing with things sensibly and practically",
+    "sentence": "Please spell the word: PRAGMATIC."
+  },
+  {
+    "num": 131,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "RELUCTANT",
+    "pos": "Adjective",
+    "origin": "ENG (English Language)",
+    "def": "Unwilling",
+    "sentence": "Please spell the word: RELUCTANT."
+  },
+  {
+    "num": 132,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "HYDRAULIC",
+    "pos": "Adjective",
+    "origin": "TEC (Basic Technology)",
+    "def": "Operated by liquid pressure",
+    "sentence": "Please spell the word: HYDRAULIC."
+  },
+  {
+    "num": 133,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "ISOMETRIC",
+    "pos": "Adjective",
+    "origin": "TEC (Basic Technology)",
+    "def": "Drawn to show three dimensions",
+    "sentence": "Please spell the word: ISOMETRIC."
+  },
+  {
+    "num": 134,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "VENTRICLE",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "A lower chamber of the heart",
+    "sentence": "Please spell the word: VENTRICLE."
+  },
+  {
+    "num": 135,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "ELOQUENT",
+    "pos": "Adjective",
+    "origin": "ENG (English Language)",
+    "def": "Fluent and persuasive in speech",
+    "sentence": "Please spell the word: ELOQUENT."
+  },
+  {
+    "num": 136,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "MNEMONIC",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "A device that aids memory",
+    "sentence": "Please spell the word: MNEMONIC."
+  },
+  {
+    "num": 137,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "HYPOTENUSE",
+    "pos": "Noun",
+    "origin": "MTH (Mathematics)",
+    "def": "The longest side of a right-angled triangle",
+    "sentence": "Please spell the word: HYPOTENUSE."
+  },
+  {
+    "num": 138,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "COMBUSTION",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "The process of burning",
+    "sentence": "Please spell the word: COMBUSTION."
+  },
+  {
+    "num": 139,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "ENCRYPTION",
+    "pos": "Noun",
+    "origin": "DIG (Digital Technology)",
+    "def": "Coding data to keep it private",
+    "sentence": "Please spell the word: ENCRYPTION."
+  },
+  {
+    "num": 140,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "PLAGIARISM",
+    "pos": "Noun",
+    "origin": "DIG (Digital Technology)",
+    "def": "Passing off another's work as one's own",
+    "sentence": "Please spell the word: PLAGIARISM."
+  },
+  {
+    "num": 141,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "REFERENDUM",
+    "pos": "Noun",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "A direct public vote on one issue",
+    "sentence": "Please spell the word: REFERENDUM."
+  },
+  {
+    "num": 142,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "FRAUDULENT",
+    "pos": "Adjective",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "Involving deliberate deception",
+    "sentence": "Please spell the word: FRAUDULENT."
+  },
+  {
+    "num": 143,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "REFRACTION",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "The bending of light as it passes between media",
+    "sentence": "Please spell the word: REFRACTION."
+  },
+  {
+    "num": 144,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "APICULTURE",
+    "pos": "Noun",
+    "origin": "AGR (Agricultural Science)",
+    "def": "The keeping of bees",
+    "sentence": "Please spell the word: APICULTURE."
+  },
+  {
+    "num": 145,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "CARICATURE",
+    "pos": "Noun",
+    "origin": "ART (Creative Arts)",
+    "def": "An exaggerated drawing of a person",
+    "sentence": "Please spell the word: CARICATURE."
+  },
+  {
+    "num": 146,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "DENOUEMENT",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "The final resolution of a plot",
+    "sentence": "Please spell the word: DENOUEMENT."
+  },
+  {
+    "num": 147,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "MENINGITIS",
+    "pos": "Noun",
+    "origin": "PHE (Physical & Health Education)",
+    "def": "Inflammation of the membranes around the brain",
+    "sentence": "Please spell the word: MENINGITIS."
+  },
+  {
+    "num": 148,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "BENEVOLENT",
+    "pos": "Adjective",
+    "origin": "ENG (English Language)",
+    "def": "Kind and generous",
+    "sentence": "Please spell the word: BENEVOLENT."
+  },
+  {
+    "num": 149,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "FLAMBOYANT",
+    "pos": "Adjective",
+    "origin": "ART (Creative Arts)",
+    "def": "Brightly colourful and attention-seeking",
+    "sentence": "Please spell the word: FLAMBOYANT."
+  },
+  {
+    "num": 150,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "DENOTATION",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "The literal meaning of a word",
+    "sentence": "Please spell the word: DENOTATION."
+  },
+  {
+    "num": 151,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "MICROMETER",
+    "pos": "Noun",
+    "origin": "TEC (Basic Technology)",
+    "def": "A gauge for tiny measurements",
+    "sentence": "Please spell the word: MICROMETER."
+  },
+  {
+    "num": 152,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "ENTHUSIASM",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "Intense eager interest",
+    "sentence": "Please spell the word: ENTHUSIASM."
+  },
+  {
+    "num": 153,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "EXAGGERATE",
+    "pos": "Verb",
+    "origin": "ENG (English Language)",
+    "def": "To describe as greater than it is",
+    "sentence": "Please spell the word: EXAGGERATE."
+  },
+  {
+    "num": 154,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "RESTAURANT",
+    "pos": "Noun",
+    "origin": "HOM (Home Economics)",
+    "def": "A place where meals are bought and eaten",
+    "sentence": "Please spell the word: RESTAURANT."
+  },
+  {
+    "num": 155,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "DEFINITELY",
+    "pos": "Adverb",
+    "origin": "ENG (English Language)",
+    "def": "Without doubt",
+    "sentence": "Please spell the word: DEFINITELY."
+  },
+  {
+    "num": 156,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "MEMORANDUM",
+    "pos": "Noun",
+    "origin": "BUS (Business Studies)",
+    "def": "A short written message or note",
+    "sentence": "Please spell the word: MEMORANDUM."
+  },
+  {
+    "num": 157,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "STATISTICS",
+    "pos": "Noun",
+    "origin": "MTH (Mathematics)",
+    "def": "The study of collected numerical data",
+    "sentence": "Please spell the word: STATISTICS."
+  },
+  {
+    "num": 158,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "PROPORTION",
+    "pos": "Noun",
+    "origin": "MTH (Mathematics)",
+    "def": "A comparison of parts to a whole",
+    "sentence": "Please spell the word: PROPORTION."
+  },
+  {
+    "num": 159,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "PERCENTAGE",
+    "pos": "Noun",
+    "origin": "MTH (Mathematics)",
+    "def": "A fraction out of one hundred",
+    "sentence": "Please spell the word: PERCENTAGE."
+  },
+  {
+    "num": 160,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "EXPERIMENT",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "A test carried out to discover something",
+    "sentence": "Please spell the word: EXPERIMENT."
+  },
+  {
+    "num": 161,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "CONCLUSION",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "A judgement reached after investigation",
+    "sentence": "Please spell the word: CONCLUSION."
+  },
+  {
+    "num": 162,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "HYPOTHESIS",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "A proposed explanation to be tested",
+    "sentence": "Please spell the word: HYPOTHESIS."
+  },
+  {
+    "num": 163,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "FILTRATION",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "Separating solids from liquids using a filter",
+    "sentence": "Please spell the word: FILTRATION."
+  },
+  {
+    "num": 164,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "SOLUBILITY",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "The ability to dissolve",
+    "sentence": "Please spell the word: SOLUBILITY."
+  },
+  {
+    "num": 165,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "EXTINCTION",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "The complete dying out of a species",
+    "sentence": "Please spell the word: EXTINCTION."
+  },
+  {
+    "num": 166,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "ENDANGERED",
+    "pos": "Adjective",
+    "origin": "SCI (Basic Science)",
+    "def": "At risk of becoming extinct",
+    "sentence": "Please spell the word: ENDANGERED."
+  },
+  {
+    "num": 167,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "ANTIBIOTIC",
+    "pos": "Noun",
+    "origin": "PHE (Physical & Health Education)",
+    "def": "A medicine that kills bacteria",
+    "sentence": "Please spell the word: ANTIBIOTIC."
+  },
+  {
+    "num": 168,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "WAVELENGTH",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "The distance between successive wave crests",
+    "sentence": "Please spell the word: WAVELENGTH."
+  },
+  {
+    "num": 169,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "AUTOMATION",
+    "pos": "Noun",
+    "origin": "DIG (Digital Technology)",
+    "def": "Use of machines to do work automatically",
+    "sentence": "Please spell the word: AUTOMATION."
+  },
+  {
+    "num": 170,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "ISOSCELES",
+    "pos": "Adjective",
+    "origin": "MTH (Mathematics)",
+    "def": "Having two equal sides",
+    "sentence": "Please spell the word: ISOSCELES."
+  },
+  {
+    "num": 171,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "CORROSION",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "Gradual destruction of metal by chemical action",
+    "sentence": "Please spell the word: CORROSION."
+  },
+  {
+    "num": 172,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "HIERARCHY",
+    "pos": "Noun",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "A system of ranking by authority",
+    "sentence": "Please spell the word: HIERARCHY."
+  },
+  {
+    "num": 173,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "CASSEROLE",
+    "pos": "Noun",
+    "origin": "HOM (Home Economics)",
+    "def": "A dish baked slowly in a covered pot",
+    "sentence": "Please spell the word: CASSEROLE."
+  },
+  {
+    "num": 174,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "SAXOPHONE",
+    "pos": "Noun",
+    "origin": "ART (Creative Arts)",
+    "def": "A curved brass wind instrument",
+    "sentence": "Please spell the word: SAXOPHONE."
+  },
+  {
+    "num": 175,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "SOLILOQUY",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "A speech in which a character speaks thoughts aloud",
+    "sentence": "Please spell the word: SOLILOQUY."
+  },
+  {
+    "num": 176,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "HOMOPHONE",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "A word that sounds like another",
+    "sentence": "Please spell the word: HOMOPHONE."
+  },
+  {
+    "num": 177,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "EPHEMERAL",
+    "pos": "Adjective",
+    "origin": "ENG (English Language)",
+    "def": "Lasting a very short time",
+    "sentence": "Please spell the word: EPHEMERAL."
+  },
+  {
+    "num": 178,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "PERENNIAL",
+    "pos": "Adjective",
+    "origin": "AGR (Agricultural Science)",
+    "def": "Lasting for many years",
+    "sentence": "Please spell the word: PERENNIAL."
+  },
+  {
+    "num": 179,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "CACOPHONY",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "A harsh mixture of loud sounds",
+    "sentence": "Please spell the word: CACOPHONY."
+  },
+  {
+    "num": 180,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "ECCENTRIC",
+    "pos": "Adjective",
+    "origin": "ENG (English Language)",
+    "def": "Unconventional and slightly odd",
+    "sentence": "Please spell the word: ECCENTRIC."
+  },
+  {
+    "num": 181,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "DIAPHRAGM",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "The muscle beneath the lungs",
+    "sentence": "Please spell the word: DIAPHRAGM."
+  },
+  {
+    "num": 182,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "CAPILLARY",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "A tiny blood vessel",
+    "sentence": "Please spell the word: CAPILLARY."
+  },
+  {
+    "num": 183,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "POTASSIUM",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "A soft metal needed by the body",
+    "sentence": "Please spell the word: POTASSIUM."
+  },
+  {
+    "num": 184,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "FASCINATE",
+    "pos": "Verb",
+    "origin": "ENG (English Language)",
+    "def": "To attract and hold attention",
+    "sentence": "Please spell the word: FASCINATE."
+  },
+  {
+    "num": 185,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "GUARANTEE",
+    "pos": "Noun",
+    "origin": "BUS (Business Studies)",
+    "def": "A promise that something will be done",
+    "sentence": "Please spell the word: GUARANTEE."
+  },
+  {
+    "num": 186,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "HINDRANCE",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "Something that gets in the way",
+    "sentence": "Please spell the word: HINDRANCE."
+  },
+  {
+    "num": 187,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "INTERRUPT",
+    "pos": "Verb",
+    "origin": "ENG (English Language)",
+    "def": "To break into a speaker's talk",
+    "sentence": "Please spell the word: INTERRUPT."
+  },
+  {
+    "num": 188,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "REFERENCE",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "A mention or source of information",
+    "sentence": "Please spell the word: REFERENCE."
+  },
+  {
+    "num": 189,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "UNANIMOUS",
+    "pos": "Adjective",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "Agreed by everyone",
+    "sentence": "Please spell the word: UNANIMOUS."
+  },
+  {
+    "num": 190,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "FREQUENCY",
+    "pos": "Noun",
+    "origin": "MTH (Mathematics)",
+    "def": "How often something occurs",
+    "sentence": "Please spell the word: FREQUENCY."
+  },
+  {
+    "num": 191,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "DIVISIBLE",
+    "pos": "Adjective",
+    "origin": "MTH (Mathematics)",
+    "def": "Able to be divided without a remainder",
+    "sentence": "Please spell the word: DIVISIBLE."
+  },
+  {
+    "num": 192,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "TELESCOPE",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "An instrument for viewing distant objects",
+    "sentence": "Please spell the word: TELESCOPE."
+  },
+  {
+    "num": 193,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "PROCESSOR",
+    "pos": "Noun",
+    "origin": "DIG (Digital Technology)",
+    "def": "The part of a computer that carries out instructions",
+    "sentence": "Please spell the word: PROCESSOR."
+  },
+  {
+    "num": 194,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "COMMODITY",
+    "pos": "Noun",
+    "origin": "BUS (Business Studies)",
+    "def": "A useful or valuable good that is traded",
+    "sentence": "Please spell the word: COMMODITY."
+  },
+  {
+    "num": 195,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "INSURANCE",
+    "pos": "Noun",
+    "origin": "BUS (Business Studies)",
+    "def": "Protection against loss in return for payment",
+    "sentence": "Please spell the word: INSURANCE."
+  },
+  {
+    "num": 196,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "APPARATUS",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "Equipment used for a particular task",
+    "sentence": "Please spell the word: APPARATUS."
+  },
+  {
+    "num": 197,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "FRANCHISE",
+    "pos": "Noun",
+    "origin": "BUS (Business Studies)",
+    "def": "Permission to sell a company's products",
+    "sentence": "Please spell the word: FRANCHISE."
+  },
+  {
+    "num": 198,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "AMPHIBIAN",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "A creature that lives on land and in water",
+    "sentence": "Please spell the word: AMPHIBIAN."
+  },
+  {
+    "num": 199,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "FALLOWING",
+    "pos": "Noun",
+    "origin": "AGR (Agricultural Science)",
+    "def": "Leaving land unplanted to restore fertility",
+    "sentence": "Please spell the word: FALLOWING."
+  },
+  {
+    "num": 200,
+    "round": 2,
+    "round_label": "Round 2",
+    "word": "SIMMERING",
+    "pos": "Noun",
+    "origin": "HOM (Home Economics)",
+    "def": "Cooking gently just below boiling",
+    "sentence": "Please spell the word: SIMMERING."
+  },
+  {
+    "num": 201,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "ENDURANCE",
+    "pos": "Noun",
+    "origin": "PHE (Physical & Health Education)",
+    "def": "The power to last through hardship",
+    "sentence": "Please spell the word: ENDURANCE."
+  },
+  {
+    "num": 202,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "REVERENCE",
+    "pos": "Noun",
+    "origin": "REL (Religious Studies)",
+    "def": "Deep respect",
+    "sentence": "Please spell the word: REVERENCE."
+  },
+  {
+    "num": 203,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "MONOLOGUE",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "A long speech by one person",
+    "sentence": "Please spell the word: MONOLOGUE."
+  },
+  {
+    "num": 204,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "BIOGRAPHY",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "The life story of someone written by another",
+    "sentence": "Please spell the word: BIOGRAPHY."
+  },
+  {
+    "num": 205,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "VENGEANCE",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "Punishment given in return for wrong",
+    "sentence": "Please spell the word: VENGEANCE."
+  },
+  {
+    "num": 206,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "AMBIGUITY",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "Uncertainty of meaning",
+    "sentence": "Please spell the word: AMBIGUITY."
+  },
+  {
+    "num": 207,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "BILINGUAL",
+    "pos": "Adjective",
+    "origin": "ENG (English Language)",
+    "def": "Able to use two languages",
+    "sentence": "Please spell the word: BILINGUAL."
+  },
+  {
+    "num": 208,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "INFERENCE",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "A conclusion drawn from evidence",
+    "sentence": "Please spell the word: INFERENCE."
+  },
+  {
+    "num": 209,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "CHRONICLE",
+    "pos": "Noun",
+    "origin": "HIS (History)",
+    "def": "A record of events in order",
+    "sentence": "Please spell the word: CHRONICLE."
+  },
+  {
+    "num": 210,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "VIGILANCE",
+    "pos": "Noun",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "Careful watchfulness",
+    "sentence": "Please spell the word: VIGILANCE."
+  },
+  {
+    "num": 211,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "RENEWABLE",
+    "pos": "Adjective",
+    "origin": "SCI (Basic Science)",
+    "def": "Able to be replaced naturally",
+    "sentence": "Please spell the word: RENEWABLE."
+  },
+  {
+    "num": 212,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "SATELLITE",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "An object orbiting a planet",
+    "sentence": "Please spell the word: SATELLITE."
+  },
+  {
+    "num": 213,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "EXCRETION",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "The removal of waste from the body",
+    "sentence": "Please spell the word: EXCRETION."
+  },
+  {
+    "num": 214,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "WINNOWING",
+    "pos": "Noun",
+    "origin": "AGR (Agricultural Science)",
+    "def": "Blowing chaff from grain",
+    "sentence": "Please spell the word: WINNOWING."
+  },
+  {
+    "num": 215,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "SCARECROW",
+    "pos": "Noun",
+    "origin": "AGR (Agricultural Science)",
+    "def": "A figure that scares birds from crops",
+    "sentence": "Please spell the word: SCARECROW."
+  },
+  {
+    "num": 216,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "QUADRATIC",
+    "pos": "Adjective",
+    "origin": "MTH (Mathematics)",
+    "def": "Involving a squared variable",
+    "sentence": "Please spell the word: QUADRATIC."
+  },
+  {
+    "num": 217,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "SCISSORS",
+    "pos": "Noun",
+    "origin": "HOM (Home Economics)",
+    "def": "A cutting tool with two blades",
+    "sentence": "Please spell the word: SCISSORS."
+  },
+  {
+    "num": 218,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "EUPHORIA",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "Intense happiness",
+    "sentence": "Please spell the word: EUPHORIA."
+  },
+  {
+    "num": 219,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "SEQUENCE",
+    "pos": "Noun",
+    "origin": "MTH (Mathematics)",
+    "def": "An ordered series",
+    "sentence": "Please spell the word: SEQUENCE."
+  },
+  {
+    "num": 220,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "ELLIPSIS",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "Three dots showing omitted words",
+    "sentence": "Please spell the word: ELLIPSIS."
+  },
+  {
+    "num": 221,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "SYLLABUS",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "An outline of a course of study",
+    "sentence": "Please spell the word: SYLLABUS."
+  },
+  {
+    "num": 222,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "SUBLIMATION",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "Change of a solid directly into gas",
+    "sentence": "Please spell the word: SUBLIMATION."
+  },
+  {
+    "num": 223,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "SOVEREIGNTY",
+    "pos": "Noun",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "Supreme power of a state to govern itself",
+    "sentence": "Please spell the word: SOVEREIGNTY."
+  },
+  {
+    "num": 224,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "LEGISLATURE",
+    "pos": "Noun",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "The arm of government that makes laws",
+    "sentence": "Please spell the word: LEGISLATURE."
+  },
+  {
+    "num": 225,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "MONOCULTURE",
+    "pos": "Noun",
+    "origin": "AGR (Agricultural Science)",
+    "def": "Growing a single crop over a large area",
+    "sentence": "Please spell the word: MONOCULTURE."
+  },
+  {
+    "num": 226,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "KWASHIORKOR",
+    "pos": "Noun",
+    "origin": "HOM (Home Economics)",
+    "def": "A disease caused by severe protein shortage",
+    "sentence": "Please spell the word: KWASHIORKOR."
+  },
+  {
+    "num": 227,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "BUREAUCRACY",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "A system of official rules and procedures",
+    "sentence": "Please spell the word: BUREAUCRACY."
+  },
+  {
+    "num": 228,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "CLANDESTINE",
+    "pos": "Adjective",
+    "origin": "ENG (English Language)",
+    "def": "Kept secret",
+    "sentence": "Please spell the word: CLANDESTINE."
+  },
+  {
+    "num": 229,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "SERENDIPITY",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "Happy discovery by chance",
+    "sentence": "Please spell the word: SERENDIPITY."
+  },
+  {
+    "num": 230,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "PASTORALIST",
+    "pos": "Noun",
+    "origin": "AGR (Agricultural Science)",
+    "def": "A person who herds animals for a living",
+    "sentence": "Please spell the word: PASTORALIST."
+  },
+  {
+    "num": 231,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "SEDIMENTARY",
+    "pos": "Adjective",
+    "origin": "SCI (Basic Science)",
+    "def": "Formed from deposited material",
+    "sentence": "Please spell the word: SEDIMENTARY."
+  },
+  {
+    "num": 232,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "RADIOACTIVE",
+    "pos": "Adjective",
+    "origin": "SCI (Basic Science)",
+    "def": "Giving off harmful radiation",
+    "sentence": "Please spell the word: RADIOACTIVE."
+  },
+  {
+    "num": 233,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "METEOROLOGY",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "The study of weather",
+    "sentence": "Please spell the word: METEOROLOGY."
+  },
+  {
+    "num": 234,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "CONTROVERSY",
+    "pos": "Noun",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "A public disagreement",
+    "sentence": "Please spell the word: CONTROVERSY."
+  },
+  {
+    "num": 235,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "INDEPENDENT",
+    "pos": "Adjective",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "Not controlled by others",
+    "sentence": "Please spell the word: INDEPENDENT."
+  },
+  {
+    "num": 236,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "DENOMINATOR",
+    "pos": "Noun",
+    "origin": "MTH (Mathematics)",
+    "def": "The bottom number of a fraction",
+    "sentence": "Please spell the word: DENOMINATOR."
+  },
+  {
+    "num": 237,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "PROBABILITY",
+    "pos": "Noun",
+    "origin": "MTH (Mathematics)",
+    "def": "The chance that something will happen",
+    "sentence": "Please spell the word: PROBABILITY."
+  },
+  {
+    "num": 238,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "CONSECUTIVE",
+    "pos": "Adjective",
+    "origin": "MTH (Mathematics)",
+    "def": "Following one after another",
+    "sentence": "Please spell the word: CONSECUTIVE."
+  },
+  {
+    "num": 239,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "THERMOMETER",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "An instrument for measuring temperature",
+    "sentence": "Please spell the word: THERMOMETER."
+  },
+  {
+    "num": 240,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "OBSERVATION",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "The act of watching carefully",
+    "sentence": "Please spell the word: OBSERVATION."
+  },
+  {
+    "num": 241,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "MOTHERBOARD",
+    "pos": "Noun",
+    "origin": "DIG (Digital Technology)",
+    "def": "The main circuit board of a computer",
+    "sentence": "Please spell the word: MOTHERBOARD."
+  },
+  {
+    "num": 242,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "CREDIBILITY",
+    "pos": "Noun",
+    "origin": "DIG (Digital Technology)",
+    "def": "The quality of being trusted",
+    "sentence": "Please spell the word: CREDIBILITY."
+  },
+  {
+    "num": 243,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "PARTNERSHIP",
+    "pos": "Noun",
+    "origin": "BUS (Business Studies)",
+    "def": "A business owned by two or more people",
+    "sentence": "Please spell the word: PARTNERSHIP."
+  },
+  {
+    "num": 244,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "COOPERATIVE",
+    "pos": "Noun",
+    "origin": "BUS (Business Studies)",
+    "def": "A business owned and run by its members",
+    "sentence": "Please spell the word: COOPERATIVE."
+  },
+  {
+    "num": 245,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "DEVELOPMENT",
+    "pos": "Noun",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "Growth or progress",
+    "sentence": "Please spell the word: DEVELOPMENT."
+  },
+  {
+    "num": 246,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "NEGOTIATION",
+    "pos": "Noun",
+    "origin": "BUS (Business Studies)",
+    "def": "Discussion aimed at reaching agreement",
+    "sentence": "Please spell the word: NEGOTIATION."
+  },
+  {
+    "num": 247,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "BOOKKEEPING",
+    "pos": "Noun",
+    "origin": "BUS (Business Studies)",
+    "def": "The recording of financial transactions",
+    "sentence": "Please spell the word: BOOKKEEPING."
+  },
+  {
+    "num": 248,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "STAKEHOLDER",
+    "pos": "Noun",
+    "origin": "BUS (Business Studies)",
+    "def": "A person with an interest in a business",
+    "sentence": "Please spell the word: STAKEHOLDER."
+  },
+  {
+    "num": 249,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "FUNDAMENTAL",
+    "pos": "Adjective",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "Basic and essential",
+    "sentence": "Please spell the word: FUNDAMENTAL."
+  },
+  {
+    "num": 250,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "NATIONALITY",
+    "pos": "Noun",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "Membership of a particular nation",
+    "sentence": "Please spell the word: NATIONALITY."
+  },
+  {
+    "num": 251,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "COLONIALISM",
+    "pos": "Noun",
+    "origin": "HIS (History)",
+    "def": "Control of one territory by another country",
+    "sentence": "Please spell the word: COLONIALISM."
+  },
+  {
+    "num": 252,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "IMPERIALISM",
+    "pos": "Noun",
+    "origin": "HIS (History)",
+    "def": "Extending a country's power over others",
+    "sentence": "Please spell the word: IMPERIALISM."
+  },
+  {
+    "num": 253,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "TRANSFORMER",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "A device that changes the voltage of electricity",
+    "sentence": "Please spell the word: TRANSFORMER."
+  },
+  {
+    "num": 254,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "PRECIPITATE",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "A solid formed in a liquid during a reaction",
+    "sentence": "Please spell the word: PRECIPITATE."
+  },
+  {
+    "num": 255,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "PROPAGATION",
+    "pos": "Noun",
+    "origin": "AGR (Agricultural Science)",
+    "def": "The multiplication of plants",
+    "sentence": "Please spell the word: PROPAGATION."
+  },
+  {
+    "num": 256,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "SHELTERBELT",
+    "pos": "Noun",
+    "origin": "AGR (Agricultural Science)",
+    "def": "A row of trees that protects crops from wind",
+    "sentence": "Please spell the word: SHELTERBELT."
+  },
+  {
+    "num": 257,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "VENTILATION",
+    "pos": "Noun",
+    "origin": "HOM (Home Economics)",
+    "def": "The supply of fresh air to a room",
+    "sentence": "Please spell the word: VENTILATION."
+  },
+  {
+    "num": 258,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "HOSPITALITY",
+    "pos": "Noun",
+    "origin": "HOM (Home Economics)",
+    "def": "Friendly treatment of guests",
+    "sentence": "Please spell the word: HOSPITALITY."
+  },
+  {
+    "num": 259,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "DEHYDRATION",
+    "pos": "Noun",
+    "origin": "PHE (Physical & Health Education)",
+    "def": "Harmful loss of body water",
+    "sentence": "Please spell the word: DEHYDRATION."
+  },
+  {
+    "num": 260,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "PROTAGONIST",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "The main character",
+    "sentence": "Please spell the word: PROTAGONIST."
+  },
+  {
+    "num": 261,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "PARENTHESIS",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "A word or phrase in brackets",
+    "sentence": "Please spell the word: PARENTHESIS."
+  },
+  {
+    "num": 262,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "SUBORDINATE",
+    "pos": "Adjective",
+    "origin": "ENG (English Language)",
+    "def": "Dependent on a main clause",
+    "sentence": "Please spell the word: SUBORDINATE."
+  },
+  {
+    "num": 263,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "IMPLICATION",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "A suggested meaning",
+    "sentence": "Please spell the word: IMPLICATION."
+  },
+  {
+    "num": 264,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "EXAMINATION",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "A formal test",
+    "sentence": "Please spell the word: EXAMINATION."
+  },
+  {
+    "num": 265,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "EMPOWERMENT",
+    "pos": "Noun",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "Giving people power over their lives",
+    "sentence": "Please spell the word: EMPOWERMENT."
+  },
+  {
+    "num": 266,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "BRICKLAYING",
+    "pos": "Noun",
+    "origin": "TEC (Basic Technology)",
+    "def": "Building with bricks",
+    "sentence": "Please spell the word: BRICKLAYING."
+  },
+  {
+    "num": 267,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "ELECTRICIAN",
+    "pos": "Noun",
+    "origin": "TEC (Basic Technology)",
+    "def": "A person who installs electrical systems",
+    "sentence": "Please spell the word: ELECTRICIAN."
+  },
+  {
+    "num": 268,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "COMPETITION",
+    "pos": "Noun",
+    "origin": "BUS (Business Studies)",
+    "def": "Rivalry between sellers",
+    "sentence": "Please spell the word: COMPETITION."
+  },
+  {
+    "num": 269,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "WATERLOGGED",
+    "pos": "Adjective",
+    "origin": "AGR (Agricultural Science)",
+    "def": "Soaked with water",
+    "sentence": "Please spell the word: WATERLOGGED."
+  },
+  {
+    "num": 270,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "LIEUTENANT",
+    "pos": "Noun",
+    "origin": "HIS (History)",
+    "def": "A junior military officer",
+    "sentence": "Please spell the word: LIEUTENANT."
+  },
+  {
+    "num": 271,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "CHRONOLOGY",
+    "pos": "Noun",
+    "origin": "HIS (History)",
+    "def": "The arrangement of events in time order",
+    "sentence": "Please spell the word: CHRONOLOGY."
+  },
+  {
+    "num": 272,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "CHROMOSOME",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "A thread-like carrier of genes in a cell",
+    "sentence": "Please spell the word: CHROMOSOME."
+  },
+  {
+    "num": 273,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "UPHOLSTERY",
+    "pos": "Noun",
+    "origin": "HOM (Home Economics)",
+    "def": "The padding and covering of furniture",
+    "sentence": "Please spell the word: UPHOLSTERY."
+  },
+  {
+    "num": 274,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "CONCUSSION",
+    "pos": "Noun",
+    "origin": "PHE (Physical & Health Education)",
+    "def": "A brain injury caused by a blow",
+    "sentence": "Please spell the word: CONCUSSION."
+  },
+  {
+    "num": 275,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "MASQUERADE",
+    "pos": "Noun",
+    "origin": "ART (Creative Arts)",
+    "def": "A performance in which people wear masks",
+    "sentence": "Please spell the word: MASQUERADE."
+  },
+  {
+    "num": 276,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "SILHOUETTE",
+    "pos": "Noun",
+    "origin": "ART (Creative Arts)",
+    "def": "A dark outline against a light background",
+    "sentence": "Please spell the word: SILHOUETTE."
+  },
+  {
+    "num": 277,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "RHINOCEROS",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "A large horned mammal",
+    "sentence": "Please spell the word: RHINOCEROS."
+  },
+  {
+    "num": 278,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "QUARANTINE",
+    "pos": "Noun",
+    "origin": "PHE (Physical & Health Education)",
+    "def": "Isolation to stop the spread of disease",
+    "sentence": "Please spell the word: QUARANTINE."
+  },
+  {
+    "num": 279,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "INDIGENOUS",
+    "pos": "Adjective",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "Native to a particular place",
+    "sentence": "Please spell the word: INDIGENOUS."
+  },
+  {
+    "num": 280,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "NONCHALANT",
+    "pos": "Adjective",
+    "origin": "ENG (English Language)",
+    "def": "Calm and unconcerned",
+    "sentence": "Please spell the word: NONCHALANT."
+  },
+  {
+    "num": 281,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "MELANCHOLY",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "A deep, lasting sadness",
+    "sentence": "Please spell the word: MELANCHOLY."
+  },
+  {
+    "num": 282,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "METICULOUS",
+    "pos": "Adjective",
+    "origin": "ENG (English Language)",
+    "def": "Showing great attention to detail",
+    "sentence": "Please spell the word: METICULOUS."
+  },
+  {
+    "num": 283,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "INEVITABLE",
+    "pos": "Adjective",
+    "origin": "ENG (English Language)",
+    "def": "Certain to happen",
+    "sentence": "Please spell the word: INEVITABLE."
+  },
+  {
+    "num": 284,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "AUTONOMOUS",
+    "pos": "Adjective",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "Self-governing",
+    "sentence": "Please spell the word: AUTONOMOUS."
+  },
+  {
+    "num": 285,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "GRAMMARIAN",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "An expert in grammar",
+    "sentence": "Please spell the word: GRAMMARIAN."
+  },
+  {
+    "num": 286,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "PHENOMENON",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "An observable fact or event",
+    "sentence": "Please spell the word: PHENOMENON."
+  },
+  {
+    "num": 287,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "XENOPHOBIA",
+    "pos": "Noun",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "Fear or hatred of foreigners",
+    "sentence": "Please spell the word: XENOPHOBIA."
+  },
+  {
+    "num": 288,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "PHOSPHORUS",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "A non-metal element essential to life",
+    "sentence": "Please spell the word: PHOSPHORUS."
+  },
+  {
+    "num": 289,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "COLLATERAL",
+    "pos": "Noun",
+    "origin": "BUS (Business Studies)",
+    "def": "Property pledged as security for a loan",
+    "sentence": "Please spell the word: COLLATERAL."
+  },
+  {
+    "num": 290,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "COMPASSION",
+    "pos": "Noun",
+    "origin": "REL (Religious Studies)",
+    "def": "Deep sympathy for those who suffer",
+    "sentence": "Please spell the word: COMPASSION."
+  },
+  {
+    "num": 291,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "REPENTANCE",
+    "pos": "Noun",
+    "origin": "REL (Religious Studies)",
+    "def": "Sincere regret for wrongdoing",
+    "sentence": "Please spell the word: REPENTANCE."
+  },
+  {
+    "num": 292,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "INEQUALITY",
+    "pos": "Noun",
+    "origin": "MTH (Mathematics)",
+    "def": "A statement that two values are not equal",
+    "sentence": "Please spell the word: INEQUALITY."
+  },
+  {
+    "num": 293,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "HEMISPHERE",
+    "pos": "Noun",
+    "origin": "MTH (Mathematics)",
+    "def": "Half of a sphere",
+    "sentence": "Please spell the word: HEMISPHERE."
+  },
+  {
+    "num": 294,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "ACCOUNTANT",
+    "pos": "Noun",
+    "origin": "BUS (Business Studies)",
+    "def": "A person who keeps financial records",
+    "sentence": "Please spell the word: ACCOUNTANT."
+  },
+  {
+    "num": 295,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "INNOVATION",
+    "pos": "Noun",
+    "origin": "BUS (Business Studies)",
+    "def": "A new idea or method",
+    "sentence": "Please spell the word: INNOVATION."
+  },
+  {
+    "num": 296,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "PERIPHERAL",
+    "pos": "Noun",
+    "origin": "DIG (Digital Technology)",
+    "def": "A device connected to a computer",
+    "sentence": "Please spell the word: PERIPHERAL."
+  },
+  {
+    "num": 297,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "CORRUPTION",
+    "pos": "Noun",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "Dishonest use of power for personal gain",
+    "sentence": "Please spell the word: CORRUPTION."
+  },
+  {
+    "num": 298,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "SETTLEMENT",
+    "pos": "Noun",
+    "origin": "HIS (History)",
+    "def": "A place where people establish a community",
+    "sentence": "Please spell the word: SETTLEMENT."
+  },
+  {
+    "num": 299,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "MISSIONARY",
+    "pos": "Noun",
+    "origin": "HIS (History)",
+    "def": "A person sent to spread a religion",
+    "sentence": "Please spell the word: MISSIONARY."
+  },
+  {
+    "num": 300,
+    "round": 3,
+    "round_label": "Round 3 (Semi-Final)",
+    "word": "ABSTINENCE",
+    "pos": "Noun",
+    "origin": "PHE (Physical & Health Education)",
+    "def": "Deliberately staying away from something",
+    "sentence": "Please spell the word: ABSTINENCE."
+  },
+  {
+    "num": 301,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "PERCUSSION",
+    "pos": "Noun",
+    "origin": "ART (Creative Arts)",
+    "def": "Instruments played by striking",
+    "sentence": "Please spell the word: PERCUSSION."
+  },
+  {
+    "num": 302,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "TYPOGRAPHY",
+    "pos": "Noun",
+    "origin": "ART (Creative Arts)",
+    "def": "The style and arrangement of printed letters",
+    "sentence": "Please spell the word: TYPOGRAPHY."
+  },
+  {
+    "num": 303,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "APOSTROPHE",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "A mark showing possession or omission",
+    "sentence": "Please spell the word: APOSTROPHE."
+  },
+  {
+    "num": 304,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "POSSESSIVE",
+    "pos": "Adjective",
+    "origin": "ENG (English Language)",
+    "def": "Showing ownership",
+    "sentence": "Please spell the word: POSSESSIVE."
+  },
+  {
+    "num": 305,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "IRRELEVANT",
+    "pos": "Adjective",
+    "origin": "ENG (English Language)",
+    "def": "Not connected to the matter",
+    "sentence": "Please spell the word: IRRELEVANT."
+  },
+  {
+    "num": 306,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "PARAPHRASE",
+    "pos": "Verb",
+    "origin": "ENG (English Language)",
+    "def": "To restate in different words",
+    "sentence": "Please spell the word: PARAPHRASE."
+  },
+  {
+    "num": 307,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "ANNOTATION",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "A note added to explain a text",
+    "sentence": "Please spell the word: ANNOTATION."
+  },
+  {
+    "num": 308,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "CURRICULUM",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "The subjects studied in a school",
+    "sentence": "Please spell the word: CURRICULUM."
+  },
+  {
+    "num": 309,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "MANUSCRIPT",
+    "pos": "Noun",
+    "origin": "HIS (History)",
+    "def": "A handwritten document",
+    "sentence": "Please spell the word: MANUSCRIPT."
+  },
+  {
+    "num": 310,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "AMBASSADOR",
+    "pos": "Noun",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "An official representative of a country abroad",
+    "sentence": "Please spell the word: AMBASSADOR."
+  },
+  {
+    "num": 311,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "OPPOSITION",
+    "pos": "Noun",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "The party opposing the government",
+    "sentence": "Please spell the word: OPPOSITION."
+  },
+  {
+    "num": 312,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "PERISHABLE",
+    "pos": "Adjective",
+    "origin": "HOM (Home Economics)",
+    "def": "Likely to spoil quickly",
+    "sentence": "Please spell the word: PERISHABLE."
+  },
+  {
+    "num": 313,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "TECHNICIAN",
+    "pos": "Noun",
+    "origin": "TEC (Basic Technology)",
+    "def": "A person skilled in practical work",
+    "sentence": "Please spell the word: TECHNICIAN."
+  },
+  {
+    "num": 314,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "PROGRAMMER",
+    "pos": "Noun",
+    "origin": "DIG (Digital Technology)",
+    "def": "A person who writes code",
+    "sentence": "Please spell the word: PROGRAMMER."
+  },
+  {
+    "num": 315,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "FORMATTING",
+    "pos": "Noun",
+    "origin": "DIG (Digital Technology)",
+    "def": "Arranging the layout of a document",
+    "sentence": "Please spell the word: FORMATTING."
+  },
+  {
+    "num": 316,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "PROFITABLE",
+    "pos": "Adjective",
+    "origin": "BUS (Business Studies)",
+    "def": "Yielding profit",
+    "sentence": "Please spell the word: PROFITABLE."
+  },
+  {
+    "num": 317,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "EMBARRASS",
+    "pos": "Verb",
+    "origin": "ENG (English Language)",
+    "def": "To make someone feel awkward",
+    "sentence": "Please spell the word: EMBARRASS."
+  },
+  {
+    "num": 318,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "AMBIGUOUS",
+    "pos": "Adjective",
+    "origin": "ENG (English Language)",
+    "def": "Open to more than one meaning",
+    "sentence": "Please spell the word: AMBIGUOUS."
+  },
+  {
+    "num": 319,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "FLAMMABLE",
+    "pos": "Adjective",
+    "origin": "SCI (Basic Science)",
+    "def": "Easily set on fire",
+    "sentence": "Please spell the word: FLAMMABLE."
+  },
+  {
+    "num": 320,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "ETIQUETTE",
+    "pos": "Noun",
+    "origin": "HOM (Home Economics)",
+    "def": "Accepted rules of polite behaviour",
+    "sentence": "Please spell the word: ETIQUETTE."
+  },
+  {
+    "num": 321,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "XYLOPHONE",
+    "pos": "Noun",
+    "origin": "ART (Creative Arts)",
+    "def": "A musical instrument with wooden bars",
+    "sentence": "Please spell the word: XYLOPHONE."
+  },
+  {
+    "num": 322,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "EUPHEMISM",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "A mild word for something unpleasant",
+    "sentence": "Please spell the word: EUPHEMISM."
+  },
+  {
+    "num": 323,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "CHRYSALIS",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "The pupa stage of a butterfly",
+    "sentence": "Please spell the word: CHRYSALIS."
+  },
+  {
+    "num": 324,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "PNEUMONIA",
+    "pos": "Noun",
+    "origin": "PHE (Physical & Health Education)",
+    "def": "A lung infection",
+    "sentence": "Please spell the word: PNEUMONIA."
+  },
+  {
+    "num": 325,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "TENACIOUS",
+    "pos": "Adjective",
+    "origin": "ENG (English Language)",
+    "def": "Holding firmly; persistent",
+    "sentence": "Please spell the word: TENACIOUS."
+  },
+  {
+    "num": 326,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "ASSONANCE",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "Repetition of vowel sounds",
+    "sentence": "Please spell the word: ASSONANCE."
+  },
+  {
+    "num": 327,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "PSEUDONYM",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "A false name used by a writer",
+    "sentence": "Please spell the word: PSEUDONYM."
+  },
+  {
+    "num": 328,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "PNEUMATIC",
+    "pos": "Adjective",
+    "origin": "TEC (Basic Technology)",
+    "def": "Operated by compressed air",
+    "sentence": "Please spell the word: PNEUMATIC."
+  },
+  {
+    "num": 329,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "APPLIANCE",
+    "pos": "Noun",
+    "origin": "HOM (Home Economics)",
+    "def": "A machine used in the home",
+    "sentence": "Please spell the word: APPLIANCE."
+  },
+  {
+    "num": 330,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "COMMITTEE",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "A group appointed to do a task",
+    "sentence": "Please spell the word: COMMITTEE."
+  },
+  {
+    "num": 331,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "PHYSICIAN",
+    "pos": "Noun",
+    "origin": "PHE (Physical & Health Education)",
+    "def": "A doctor of medicine",
+    "sentence": "Please spell the word: PHYSICIAN."
+  },
+  {
+    "num": 332,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "MALLEABLE",
+    "pos": "Adjective",
+    "origin": "TEC (Basic Technology)",
+    "def": "Able to be hammered into shape",
+    "sentence": "Please spell the word: MALLEABLE."
+  },
+  {
+    "num": 333,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "BIODIVERSITY",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "The variety of life in an area",
+    "sentence": "Please spell the word: BIODIVERSITY."
+  },
+  {
+    "num": 334,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "JURISDICTION",
+    "pos": "Noun",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "The official power to make legal decisions",
+    "sentence": "Please spell the word: JURISDICTION."
+  },
+  {
+    "num": 335,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "CONSTITUENCY",
+    "pos": "Noun",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "A district represented by an elected member",
+    "sentence": "Please spell the word: CONSTITUENCY."
+  },
+  {
+    "num": 336,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "AMALGAMATION",
+    "pos": "Noun",
+    "origin": "HIS (History)",
+    "def": "The joining of two or more bodies into one",
+    "sentence": "Please spell the word: AMALGAMATION."
+  },
+  {
+    "num": 337,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "PROTECTORATE",
+    "pos": "Noun",
+    "origin": "HIS (History)",
+    "def": "A territory controlled by a stronger state",
+    "sentence": "Please spell the word: PROTECTORATE."
+  },
+  {
+    "num": 338,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "HORTICULTURE",
+    "pos": "Noun",
+    "origin": "AGR (Agricultural Science)",
+    "def": "The growing of fruits, vegetables and flowers",
+    "sentence": "Please spell the word: HORTICULTURE."
+  },
+  {
+    "num": 339,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "TUBERCULOSIS",
+    "pos": "Noun",
+    "origin": "PHE (Physical & Health Education)",
+    "def": "A bacterial disease mainly affecting the lungs",
+    "sentence": "Please spell the word: TUBERCULOSIS."
+  },
+  {
+    "num": 340,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "FERMENTATION",
+    "pos": "Noun",
+    "origin": "HOM (Home Economics)",
+    "def": "Chemical change caused by yeast or bacteria",
+    "sentence": "Please spell the word: FERMENTATION."
+  },
+  {
+    "num": 341,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "EMANCIPATION",
+    "pos": "Noun",
+    "origin": "HIS (History)",
+    "def": "Freedom from slavery or restriction",
+    "sentence": "Please spell the word: EMANCIPATION."
+  },
+  {
+    "num": 342,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "CONDENSATION",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "The change of vapour into liquid",
+    "sentence": "Please spell the word: CONDENSATION."
+  },
+  {
+    "num": 343,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "CARBOHYDRATE",
+    "pos": "Noun",
+    "origin": "HOM (Home Economics)",
+    "def": "A nutrient that gives energy",
+    "sentence": "Please spell the word: CARBOHYDRATE."
+  },
+  {
+    "num": 344,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "REPRODUCTION",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "The process of producing offspring",
+    "sentence": "Please spell the word: REPRODUCTION."
+  },
+  {
+    "num": 345,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "COORDINATION",
+    "pos": "Noun",
+    "origin": "PHE (Physical & Health Education)",
+    "def": "Smooth working together of body parts",
+    "sentence": "Please spell the word: COORDINATION."
+  },
+  {
+    "num": 346,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "CONSTITUTION",
+    "pos": "Noun",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "The basic law of a country",
+    "sentence": "Please spell the word: CONSTITUTION."
+  },
+  {
+    "num": 347,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "INTERSECTION",
+    "pos": "Noun",
+    "origin": "MTH (Mathematics)",
+    "def": "The point where lines cross",
+    "sentence": "Please spell the word: INTERSECTION."
+  },
+  {
+    "num": 348,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "CONSERVATION",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "Protecting natural resources",
+    "sentence": "Please spell the word: CONSERVATION."
+  },
+  {
+    "num": 349,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "PRESENTATION",
+    "pos": "Noun",
+    "origin": "DIG (Digital Technology)",
+    "def": "A talk supported by slides",
+    "sentence": "Please spell the word: PRESENTATION."
+  },
+  {
+    "num": 350,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "DEPRECIATION",
+    "pos": "Noun",
+    "origin": "BUS (Business Studies)",
+    "def": "Loss of value over time",
+    "sentence": "Please spell the word: DEPRECIATION."
+  },
+  {
+    "num": 351,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "AUTHENTICITY",
+    "pos": "Noun",
+    "origin": "DIG (Digital Technology)",
+    "def": "The quality of being genuine",
+    "sentence": "Please spell the word: AUTHENTICITY."
+  },
+  {
+    "num": 352,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "TRANSPARENCY",
+    "pos": "Noun",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "Openness in public dealings",
+    "sentence": "Please spell the word: TRANSPARENCY."
+  },
+  {
+    "num": 353,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "INVERTEBRATE",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "An animal without a backbone",
+    "sentence": "Please spell the word: INVERTEBRATE."
+  },
+  {
+    "num": 354,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "MALNUTRITION",
+    "pos": "Noun",
+    "origin": "HOM (Home Economics)",
+    "def": "Poor health caused by an unbalanced diet",
+    "sentence": "Please spell the word: MALNUTRITION."
+  },
+  {
+    "num": 355,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "REFRIGERATOR",
+    "pos": "Noun",
+    "origin": "HOM (Home Economics)",
+    "def": "An appliance that keeps food cold",
+    "sentence": "Please spell the word: REFRIGERATOR."
+  },
+  {
+    "num": 356,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "CONGREGATION",
+    "pos": "Noun",
+    "origin": "REL (Religious Studies)",
+    "def": "A gathering of people for worship",
+    "sentence": "Please spell the word: CONGREGATION."
+  },
+  {
+    "num": 357,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "ABBREVIATION",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "A shortened form of a word",
+    "sentence": "Please spell the word: ABBREVIATION."
+  },
+  {
+    "num": 358,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "PERSPIRATION",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "Sweat",
+    "sentence": "Please spell the word: PERSPIRATION."
+  },
+  {
+    "num": 359,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "MENSTRUATION",
+    "pos": "Noun",
+    "origin": "PHE (Physical & Health Education)",
+    "def": "The monthly discharge of blood in women",
+    "sentence": "Please spell the word: MENSTRUATION."
+  },
+  {
+    "num": 360,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "CALISTHENICS",
+    "pos": "Noun",
+    "origin": "PHE (Physical & Health Education)",
+    "def": "Exercises for fitness and grace",
+    "sentence": "Please spell the word: CALISTHENICS."
+  },
+  {
+    "num": 361,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "NUTRITIONIST",
+    "pos": "Noun",
+    "origin": "HOM (Home Economics)",
+    "def": "An expert on food and health",
+    "sentence": "Please spell the word: NUTRITIONIST."
+  },
+  {
+    "num": 362,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "PRESERVATION",
+    "pos": "Noun",
+    "origin": "HOM (Home Economics)",
+    "def": "Keeping food from spoiling",
+    "sentence": "Please spell the word: PRESERVATION."
+  },
+  {
+    "num": 363,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "CONTAMINATED",
+    "pos": "Adjective",
+    "origin": "HOM (Home Economics)",
+    "def": "Made impure",
+    "sentence": "Please spell the word: CONTAMINATED."
+  },
+  {
+    "num": 364,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "DISTRIBUTION",
+    "pos": "Noun",
+    "origin": "BUS (Business Studies)",
+    "def": "Delivery of goods to sellers",
+    "sentence": "Please spell the word: DISTRIBUTION."
+  },
+  {
+    "num": 365,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "MAINTENANCE",
+    "pos": "Noun",
+    "origin": "TEC (Basic Technology)",
+    "def": "The act of keeping something in good condition",
+    "sentence": "Please spell the word: MAINTENANCE."
+  },
+  {
+    "num": 366,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "EQUILATERAL",
+    "pos": "Adjective",
+    "origin": "MTH (Mathematics)",
+    "def": "Having all sides equal",
+    "sentence": "Please spell the word: EQUILATERAL."
+  },
+  {
+    "num": 367,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "COEFFICIENT",
+    "pos": "Noun",
+    "origin": "MTH (Mathematics)",
+    "def": "A number multiplying a variable",
+    "sentence": "Please spell the word: COEFFICIENT."
+  },
+  {
+    "num": 368,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "AQUACULTURE",
+    "pos": "Noun",
+    "origin": "AGR (Agricultural Science)",
+    "def": "The farming of fish and other water life",
+    "sentence": "Please spell the word: AQUACULTURE."
+  },
+  {
+    "num": 369,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "FLUORESCENT",
+    "pos": "Adjective",
+    "origin": "SCI (Basic Science)",
+    "def": "Giving off bright light when energised",
+    "sentence": "Please spell the word: FLUORESCENT."
+  },
+  {
+    "num": 370,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "BELLIGERENT",
+    "pos": "Adjective",
+    "origin": "ENG (English Language)",
+    "def": "Hostile and aggressive",
+    "sentence": "Please spell the word: BELLIGERENT."
+  },
+  {
+    "num": 371,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "PESSIMISTIC",
+    "pos": "Adjective",
+    "origin": "ENG (English Language)",
+    "def": "Expecting the worst",
+    "sentence": "Please spell the word: PESSIMISTIC."
+  },
+  {
+    "num": 372,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "REMINISCENT",
+    "pos": "Adjective",
+    "origin": "ENG (English Language)",
+    "def": "Reminding one of something",
+    "sentence": "Please spell the word: REMINISCENT."
+  },
+  {
+    "num": 373,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "PERCEPTIBLE",
+    "pos": "Adjective",
+    "origin": "ENG (English Language)",
+    "def": "Able to be noticed",
+    "sentence": "Please spell the word: PERCEPTIBLE."
+  },
+  {
+    "num": 374,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "ORTHOGRAPHY",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "The correct way of spelling",
+    "sentence": "Please spell the word: ORTHOGRAPHY."
+  },
+  {
+    "num": 375,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "LINGUISTICS",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "The scientific study of language",
+    "sentence": "Please spell the word: LINGUISTICS."
+  },
+  {
+    "num": 376,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "ANACHRONISM",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "Something placed in the wrong time period",
+    "sentence": "Please spell the word: ANACHRONISM."
+  },
+  {
+    "num": 377,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "CONNOTATION",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "An idea suggested by a word",
+    "sentence": "Please spell the word: CONNOTATION."
+  },
+  {
+    "num": 378,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "CHOLESTEROL",
+    "pos": "Noun",
+    "origin": "HOM (Home Economics)",
+    "def": "A fatty substance in the blood",
+    "sentence": "Please spell the word: CHOLESTEROL."
+  },
+  {
+    "num": 379,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "IMPEACHMENT",
+    "pos": "Noun",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "A charge of serious misconduct against an official",
+    "sentence": "Please spell the word: IMPEACHMENT."
+  },
+  {
+    "num": 380,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "INALIENABLE",
+    "pos": "Adjective",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "Not able to be taken away",
+    "sentence": "Please spell the word: INALIENABLE."
+  },
+  {
+    "num": 381,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "LITHOSPHERE",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "The rigid outer layer of the Earth",
+    "sentence": "Please spell the word: LITHOSPHERE."
+  },
+  {
+    "num": 382,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "TROPOSPHERE",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "The lowest layer of the atmosphere",
+    "sentence": "Please spell the word: TROPOSPHERE."
+  },
+  {
+    "num": 383,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "METAMORPHIC",
+    "pos": "Adjective",
+    "origin": "SCI (Basic Science)",
+    "def": "Changed by heat and pressure",
+    "sentence": "Please spell the word: METAMORPHIC."
+  },
+  {
+    "num": 384,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "POLLINATION",
+    "pos": "Noun",
+    "origin": "AGR (Agricultural Science)",
+    "def": "The transfer of pollen to a flower",
+    "sentence": "Please spell the word: POLLINATION."
+  },
+  {
+    "num": 385,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "VACCINATION",
+    "pos": "Noun",
+    "origin": "PHE (Physical & Health Education)",
+    "def": "An injection that protects against disease",
+    "sentence": "Please spell the word: VACCINATION."
+  },
+  {
+    "num": 386,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "DESCRIPTIVE",
+    "pos": "Adjective",
+    "origin": "ENG (English Language)",
+    "def": "Giving a detailed picture in words",
+    "sentence": "Please spell the word: DESCRIPTIVE."
+  },
+  {
+    "num": 387,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "FORGIVENESS",
+    "pos": "Noun",
+    "origin": "REL (Religious Studies)",
+    "def": "Pardoning someone who has wronged you",
+    "sentence": "Please spell the word: FORGIVENESS."
+  },
+  {
+    "num": 388,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "OPPORTUNITY",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "A favourable chance",
+    "sentence": "Please spell the word: OPPORTUNITY."
+  },
+  {
+    "num": 389,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "PROGRAMMING",
+    "pos": "Noun",
+    "origin": "DIG (Digital Technology)",
+    "def": "Writing instructions for computers",
+    "sentence": "Please spell the word: PROGRAMMING."
+  },
+  {
+    "num": 390,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "CHIEFTAINCY",
+    "pos": "Noun",
+    "origin": "HIS (History)",
+    "def": "The office of a traditional chief",
+    "sentence": "Please spell the word: CHIEFTAINCY."
+  },
+  {
+    "num": 391,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "DRESSMAKING",
+    "pos": "Noun",
+    "origin": "HOM (Home Economics)",
+    "def": "The making of women's clothes",
+    "sentence": "Please spell the word: DRESSMAKING."
+  },
+  {
+    "num": 392,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "COMMANDMENT",
+    "pos": "Noun",
+    "origin": "REL (Religious Studies)",
+    "def": "A divine rule",
+    "sentence": "Please spell the word: COMMANDMENT."
+  },
+  {
+    "num": 393,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "INSCRIPTION",
+    "pos": "Noun",
+    "origin": "HIS (History)",
+    "def": "Writing carved on a surface",
+    "sentence": "Please spell the word: INSCRIPTION."
+  },
+  {
+    "num": 394,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "SUSTAINABLE",
+    "pos": "Adjective",
+    "origin": "SCI (Basic Science)",
+    "def": "Able to continue without harming resources",
+    "sentence": "Please spell the word: SUSTAINABLE."
+  },
+  {
+    "num": 395,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "SCAFFOLDING",
+    "pos": "Noun",
+    "origin": "TEC (Basic Technology)",
+    "def": "A temporary frame for builders",
+    "sentence": "Please spell the word: SCAFFOLDING."
+  },
+  {
+    "num": 396,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "MERCHANDISE",
+    "pos": "Noun",
+    "origin": "BUS (Business Studies)",
+    "def": "Goods for sale",
+    "sentence": "Please spell the word: MERCHANDISE."
+  },
+  {
+    "num": 397,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "CONSCIENCE",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "An inner sense of right and wrong",
+    "sentence": "Please spell the word: CONSCIENCE."
+  },
+  {
+    "num": 398,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "MILLENNIUM",
+    "pos": "Noun",
+    "origin": "HIS (History)",
+    "def": "A period of one thousand years",
+    "sentence": "Please spell the word: MILLENNIUM."
+  },
+  {
+    "num": 399,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "PSYCHOLOGY",
+    "pos": "Noun",
+    "origin": "PHE (Physical & Health Education)",
+    "def": "The study of the mind and behaviour",
+    "sentence": "Please spell the word: PSYCHOLOGY."
+  },
+  {
+    "num": 400,
+    "round": 4,
+    "round_label": "Round 4 (Final)",
+    "word": "UBIQUITOUS",
+    "pos": "Adjective",
+    "origin": "ENG (English Language)",
+    "def": "Present everywhere",
+    "sentence": "Please spell the word: UBIQUITOUS."
+  },
+  {
+    "num": 401,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "SCRUPULOUS",
+    "pos": "Adjective",
+    "origin": "ENG (English Language)",
+    "def": "Very careful about doing right",
+    "sentence": "Please spell the word: SCRUPULOUS."
+  },
+  {
+    "num": 402,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "GREGARIOUS",
+    "pos": "Adjective",
+    "origin": "ENG (English Language)",
+    "def": "Fond of company",
+    "sentence": "Please spell the word: GREGARIOUS."
+  },
+  {
+    "num": 403,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "IMPECCABLE",
+    "pos": "Adjective",
+    "origin": "ENG (English Language)",
+    "def": "Flawless",
+    "sentence": "Please spell the word: IMPECCABLE."
+  },
+  {
+    "num": 404,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "COLLOQUIAL",
+    "pos": "Adjective",
+    "origin": "ENG (English Language)",
+    "def": "Used in informal conversation",
+    "sentence": "Please spell the word: COLLOQUIAL."
+  },
+  {
+    "num": 405,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "PERPENDICULAR",
+    "pos": "Adjective",
+    "origin": "MTH (Mathematics)",
+    "def": "At a right angle to a line",
+    "sentence": "Please spell the word: PERPENDICULAR."
+  },
+  {
+    "num": 406,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "DEFORESTATION",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "The clearing of forests",
+    "sentence": "Please spell the word: DEFORESTATION."
+  },
+  {
+    "num": 407,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "CYBERSECURITY",
+    "pos": "Noun",
+    "origin": "DIG (Digital Technology)",
+    "def": "Protection of computers and data from attack",
+    "sentence": "Please spell the word: CYBERSECURITY."
+  },
+  {
+    "num": 408,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "TRANSPIRATION",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "Loss of water vapour from plant leaves",
+    "sentence": "Please spell the word: TRANSPIRATION."
+  },
+  {
+    "num": 409,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "ELECTROMAGNET",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "A magnet powered by electric current",
+    "sentence": "Please spell the word: ELECTROMAGNET."
+  },
+  {
+    "num": 410,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "AFFORESTATION",
+    "pos": "Noun",
+    "origin": "AGR (Agricultural Science)",
+    "def": "The planting of trees on bare land",
+    "sentence": "Please spell the word: AFFORESTATION."
+  },
+  {
+    "num": 411,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "FORESHADOWING",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "A hint of what will happen later",
+    "sentence": "Please spell the word: FORESHADOWING."
+  },
+  {
+    "num": 412,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "POLIOMYELITIS",
+    "pos": "Noun",
+    "origin": "PHE (Physical & Health Education)",
+    "def": "A viral disease that can cause paralysis",
+    "sentence": "Please spell the word: POLIOMYELITIS."
+  },
+  {
+    "num": 413,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "JUXTAPOSITION",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "Placing things side by side for contrast",
+    "sentence": "Please spell the word: JUXTAPOSITION."
+  },
+  {
+    "num": 414,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "PRONUNCIATION",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "The way a word is spoken",
+    "sentence": "Please spell the word: PRONUNCIATION."
+  },
+  {
+    "num": 415,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "COMPREHENSION",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "Understanding of a text",
+    "sentence": "Please spell the word: COMPREHENSION."
+  },
+  {
+    "num": 416,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "CONTAMINATION",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "The making of something impure",
+    "sentence": "Please spell the word: CONTAMINATION."
+  },
+  {
+    "num": 417,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "PRECIPITATION",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "Rain, snow or hail falling from clouds",
+    "sentence": "Please spell the word: PRECIPITATION."
+  },
+  {
+    "num": 418,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "PERSEVERANCE",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "Steady persistence despite difficulty",
+    "sentence": "Please spell the word: PERSEVERANCE."
+  },
+  {
+    "num": 419,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "DISTILLATION",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "Purifying a liquid by boiling and condensing",
+    "sentence": "Please spell the word: DISTILLATION."
+  },
+  {
+    "num": 420,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "ONOMATOPOEIA",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "A word that imitates a sound",
+    "sentence": "Please spell the word: ONOMATOPOEIA."
+  },
+  {
+    "num": 421,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "KALEIDOSCOPE",
+    "pos": "Noun",
+    "origin": "ART (Creative Arts)",
+    "def": "A tube showing changing coloured patterns",
+    "sentence": "Please spell the word: KALEIDOSCOPE."
+  },
+  {
+    "num": 422,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "CRYPTOGRAPHY",
+    "pos": "Noun",
+    "origin": "DIG (Digital Technology)",
+    "def": "The art of writing and solving codes",
+    "sentence": "Please spell the word: CRYPTOGRAPHY."
+  },
+  {
+    "num": 423,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "IDIOSYNCRASY",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "A person's peculiar habit or trait",
+    "sentence": "Please spell the word: IDIOSYNCRASY."
+  },
+  {
+    "num": 424,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "ALLITERATION",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "Repetition of the same initial sound",
+    "sentence": "Please spell the word: ALLITERATION."
+  },
+  {
+    "num": 425,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "BIBLIOGRAPHY",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "A list of sources used in writing",
+    "sentence": "Please spell the word: BIBLIOGRAPHY."
+  },
+  {
+    "num": 426,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "MITOCHONDRIA",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "Cell parts that release energy",
+    "sentence": "Please spell the word: MITOCHONDRIA."
+  },
+  {
+    "num": 427,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "ELECTROLYSIS",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "Splitting a compound using electricity",
+    "sentence": "Please spell the word: ELECTROLYSIS."
+  },
+  {
+    "num": 428,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "PHOTOVOLTAIC",
+    "pos": "Adjective",
+    "origin": "TEC (Basic Technology)",
+    "def": "Producing electricity from light",
+    "sentence": "Please spell the word: PHOTOVOLTAIC."
+  },
+  {
+    "num": 429,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "ORTHOGRAPHIC",
+    "pos": "Adjective",
+    "origin": "TEC (Basic Technology)",
+    "def": "Showing an object in flat views",
+    "sentence": "Please spell the word: ORTHOGRAPHIC."
+  },
+  {
+    "num": 430,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "ASSIMILATION",
+    "pos": "Noun",
+    "origin": "HIS (History)",
+    "def": "Absorption into another culture",
+    "sentence": "Please spell the word: ASSIMILATION."
+  },
+  {
+    "num": 431,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "STRATOSPHERE",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "The atmospheric layer above the troposphere",
+    "sentence": "Please spell the word: STRATOSPHERE."
+  },
+  {
+    "num": 432,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "MICROFINANCE",
+    "pos": "Noun",
+    "origin": "BUS (Business Studies)",
+    "def": "Small loans for poor entrepreneurs",
+    "sentence": "Please spell the word: MICROFINANCE."
+  },
+  {
+    "num": 433,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "ENTREPRENEUR",
+    "pos": "Noun",
+    "origin": "BUS (Business Studies)",
+    "def": "A person who starts and runs a business",
+    "sentence": "Please spell the word: ENTREPRENEUR."
+  },
+  {
+    "num": 434,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "INDEPENDENCE",
+    "pos": "Noun",
+    "origin": "HIS (History)",
+    "def": "Freedom from outside control",
+    "sentence": "Please spell the word: INDEPENDENCE."
+  },
+  {
+    "num": 435,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "ACCELERATION",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "The rate of change of speed",
+    "sentence": "Please spell the word: ACCELERATION."
+  },
+  {
+    "num": 436,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "ILLUSTRATION",
+    "pos": "Noun",
+    "origin": "ART (Creative Arts)",
+    "def": "A picture that explains a text",
+    "sentence": "Please spell the word: ILLUSTRATION."
+  },
+  {
+    "num": 437,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "RESURRECTION",
+    "pos": "Noun",
+    "origin": "REL (Religious Studies)",
+    "def": "Rising from the dead",
+    "sentence": "Please spell the word: RESURRECTION."
+  },
+  {
+    "num": 438,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "OCCUPATIONAL",
+    "pos": "Adjective",
+    "origin": "TEC (Basic Technology)",
+    "def": "Relating to a job",
+    "sentence": "Please spell the word: OCCUPATIONAL."
+  },
+  {
+    "num": 439,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "SIMULTANEOUS",
+    "pos": "Adjective",
+    "origin": "MTH (Mathematics)",
+    "def": "Happening at the same time",
+    "sentence": "Please spell the word: SIMULTANEOUS."
+  },
+  {
+    "num": 440,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "ARCHAEOLOGY",
+    "pos": "Noun",
+    "origin": "HIS (History)",
+    "def": "The study of the past through remains",
+    "sentence": "Please spell the word: ARCHAEOLOGY."
+  },
+  {
+    "num": 441,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "CALLIGRAPHY",
+    "pos": "Noun",
+    "origin": "ART (Creative Arts)",
+    "def": "The art of beautiful handwriting",
+    "sentence": "Please spell the word: CALLIGRAPHY."
+  },
+  {
+    "num": 442,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "SUSCEPTIBLE",
+    "pos": "Adjective",
+    "origin": "ENG (English Language)",
+    "def": "Likely to be affected by something",
+    "sentence": "Please spell the word: SUSCEPTIBLE."
+  },
+  {
+    "num": 443,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "UNNECESSARY",
+    "pos": "Adjective",
+    "origin": "ENG (English Language)",
+    "def": "Not needed",
+    "sentence": "Please spell the word: UNNECESSARY."
+  },
+  {
+    "num": 444,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "TOUCHSCREEN",
+    "pos": "Noun",
+    "origin": "DIG (Digital Technology)",
+    "def": "A display operated by touch",
+    "sentence": "Please spell the word: TOUCHSCREEN."
+  },
+  {
+    "num": 445,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "ADOLESCENCE",
+    "pos": "Noun",
+    "origin": "PHE (Physical & Health Education)",
+    "def": "The period between childhood and adulthood",
+    "sentence": "Please spell the word: ADOLESCENCE."
+  },
+  {
+    "num": 446,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "OCCURRENCE",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "Something that happens",
+    "sentence": "Please spell the word: OCCURRENCE."
+  },
+  {
+    "num": 447,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "RECONCILIATION",
+    "pos": "Noun",
+    "origin": "HIS (History)",
+    "def": "The restoring of friendly relations",
+    "sentence": "Please spell the word: RECONCILIATION."
+  },
+  {
+    "num": 448,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "MULTIPLICATION",
+    "pos": "Noun",
+    "origin": "MTH (Mathematics)",
+    "def": "Repeated addition of the same number",
+    "sentence": "Please spell the word: MULTIPLICATION."
+  },
+  {
+    "num": 449,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "RESPONSIBILITY",
+    "pos": "Noun",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "A duty one is expected to carry out",
+    "sentence": "Please spell the word: RESPONSIBILITY."
+  },
+  {
+    "num": 450,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "MISINFORMATION",
+    "pos": "Noun",
+    "origin": "DIG (Digital Technology)",
+    "def": "False information spread unintentionally",
+    "sentence": "Please spell the word: MISINFORMATION."
+  },
+  {
+    "num": 451,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "RECONSTRUCTION",
+    "pos": "Noun",
+    "origin": "HIS (History)",
+    "def": "The act of rebuilding",
+    "sentence": "Please spell the word: RECONSTRUCTION."
+  },
+  {
+    "num": 452,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "CONSTITUTIONAL",
+    "pos": "Adjective",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "In accordance with a constitution",
+    "sentence": "Please spell the word: CONSTITUTIONAL."
+  },
+  {
+    "num": 453,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "REHABILITATION",
+    "pos": "Noun",
+    "origin": "PHE (Physical & Health Education)",
+    "def": "Restoring someone to normal life",
+    "sentence": "Please spell the word: REHABILITATION."
+  },
+  {
+    "num": 454,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "AUTHENTICATION",
+    "pos": "Noun",
+    "origin": "DIG (Digital Technology)",
+    "def": "Proving one's identity",
+    "sentence": "Please spell the word: AUTHENTICATION."
+  },
+  {
+    "num": 455,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "QUADRILATERAL",
+    "pos": "Noun",
+    "origin": "MTH (Mathematics)",
+    "def": "A shape with four straight sides",
+    "sentence": "Please spell the word: QUADRILATERAL."
+  },
+  {
+    "num": 456,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "CIRCUMFERENCE",
+    "pos": "Noun",
+    "origin": "MTH (Mathematics)",
+    "def": "The distance around a circle",
+    "sentence": "Please spell the word: CIRCUMFERENCE."
+  },
+  {
+    "num": 457,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "PARALLELOGRAM",
+    "pos": "Noun",
+    "origin": "MTH (Mathematics)",
+    "def": "A four-sided shape with opposite sides parallel",
+    "sentence": "Please spell the word: PARALLELOGRAM."
+  },
+  {
+    "num": 458,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "METAMORPHOSIS",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "A complete change in an animal's body form",
+    "sentence": "Please spell the word: METAMORPHOSIS."
+  },
+  {
+    "num": 459,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "RESUSCITATION",
+    "pos": "Noun",
+    "origin": "PHE (Physical & Health Education)",
+    "def": "Restoring someone to consciousness or breathing",
+    "sentence": "Please spell the word: RESUSCITATION."
+  },
+  {
+    "num": 460,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "INDISPENSABLE",
+    "pos": "Adjective",
+    "origin": "ENG (English Language)",
+    "def": "Absolutely necessary",
+    "sentence": "Please spell the word: INDISPENSABLE."
+  },
+  {
+    "num": 461,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "CONDESCENDING",
+    "pos": "Adjective",
+    "origin": "ENG (English Language)",
+    "def": "Behaving as though superior",
+    "sentence": "Please spell the word: CONDESCENDING."
+  },
+  {
+    "num": 462,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "SOPHISTICATED",
+    "pos": "Adjective",
+    "origin": "ENG (English Language)",
+    "def": "Highly developed or refined",
+    "sentence": "Please spell the word: SOPHISTICATED."
+  },
+  {
+    "num": 463,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "APPROXIMATION",
+    "pos": "Noun",
+    "origin": "MTH (Mathematics)",
+    "def": "A value close to the exact one",
+    "sentence": "Please spell the word: APPROXIMATION."
+  },
+  {
+    "num": 464,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "CYBERBULLYING",
+    "pos": "Noun",
+    "origin": "DIG (Digital Technology)",
+    "def": "Using the internet to harass someone",
+    "sentence": "Please spell the word: CYBERBULLYING."
+  },
+  {
+    "num": 465,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "AUTOBIOGRAPHY",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "A person's own life story",
+    "sentence": "Please spell the word: AUTOBIOGRAPHY."
+  },
+  {
+    "num": 466,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "INTERROGATIVE",
+    "pos": "Adjective",
+    "origin": "ENG (English Language)",
+    "def": "Asking a question",
+    "sentence": "Please spell the word: INTERROGATIVE."
+  },
+  {
+    "num": 467,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "INCONVENIENCE",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "Trouble or difficulty",
+    "sentence": "Please spell the word: INCONVENIENCE."
+  },
+  {
+    "num": 468,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "CHRONOLOGICAL",
+    "pos": "Adjective",
+    "origin": "HIS (History)",
+    "def": "Arranged in order of time",
+    "sentence": "Please spell the word: CHRONOLOGICAL."
+  },
+  {
+    "num": 469,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "BIODEGRADABLE",
+    "pos": "Adjective",
+    "origin": "SCI (Basic Science)",
+    "def": "Able to rot naturally",
+    "sentence": "Please spell the word: BIODEGRADABLE."
+  },
+  {
+    "num": 470,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "CONSTELLATION",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "A pattern of stars",
+    "sentence": "Please spell the word: CONSTELLATION."
+  },
+  {
+    "num": 471,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "ACQUAINTANCE",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "A person one knows slightly",
+    "sentence": "Please spell the word: ACQUAINTANCE."
+  },
+  {
+    "num": 472,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "CHOREOGRAPHY",
+    "pos": "Noun",
+    "origin": "ART (Creative Arts)",
+    "def": "The designing of dance movements",
+    "sentence": "Please spell the word: CHOREOGRAPHY."
+  },
+  {
+    "num": 473,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "SURVEILLANCE",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "Close observation of a person or place",
+    "sentence": "Please spell the word: SURVEILLANCE."
+  },
+  {
+    "num": 474,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "OSTENTATIOUS",
+    "pos": "Adjective",
+    "origin": "ENG (English Language)",
+    "def": "Designed to impress; showy",
+    "sentence": "Please spell the word: OSTENTATIOUS."
+  },
+  {
+    "num": 475,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "IRRESISTIBLE",
+    "pos": "Adjective",
+    "origin": "ENG (English Language)",
+    "def": "Too attractive to resist",
+    "sentence": "Please spell the word: IRRESISTIBLE."
+  },
+  {
+    "num": 476,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "OCCASIONALLY",
+    "pos": "Adverb",
+    "origin": "ENG (English Language)",
+    "def": "Now and then",
+    "sentence": "Please spell the word: OCCASIONALLY."
+  },
+  {
+    "num": 477,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "MISCHIEVOUS",
+    "pos": "Adjective",
+    "origin": "ENG (English Language)",
+    "def": "Playfully naughty",
+    "sentence": "Please spell the word: MISCHIEVOUS."
+  },
+  {
+    "num": 478,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "DESERTIFICATION",
+    "pos": "Noun",
+    "origin": "AGR (Agricultural Science)",
+    "def": "The turning of fertile land into desert",
+    "sentence": "Please spell the word: DESERTIFICATION."
+  },
+  {
+    "num": 479,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "PERSONIFICATION",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "Giving human traits to a non-human thing",
+    "sentence": "Please spell the word: PERSONIFICATION."
+  },
+  {
+    "num": 480,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "TROUBLESHOOTING",
+    "pos": "Noun",
+    "origin": "DIG (Digital Technology)",
+    "def": "Finding and fixing faults",
+    "sentence": "Please spell the word: TROUBLESHOOTING."
+  },
+  {
+    "num": 481,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "CARDIOVASCULAR",
+    "pos": "Adjective",
+    "origin": "PHE (Physical & Health Education)",
+    "def": "Relating to the heart and blood vessels",
+    "sentence": "Please spell the word: CARDIOVASCULAR."
+  },
+  {
+    "num": 482,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "PHILANTHROPIST",
+    "pos": "Noun",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "A person who donates to improve others' lives",
+    "sentence": "Please spell the word: PHILANTHROPIST."
+  },
+  {
+    "num": 483,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "ACCOUNTABILITY",
+    "pos": "Noun",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "Being answerable for one's actions",
+    "sentence": "Please spell the word: ACCOUNTABILITY."
+  },
+  {
+    "num": 484,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "CLASSIFICATION",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "The arrangement of things into groups",
+    "sentence": "Please spell the word: CLASSIFICATION."
+  },
+  {
+    "num": 485,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "DISCRIMINATION",
+    "pos": "Noun",
+    "origin": "SOC (Social & Civic Studies)",
+    "def": "Unfair treatment of a group",
+    "sentence": "Please spell the word: DISCRIMINATION."
+  },
+  {
+    "num": 486,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "APPRENTICESHIP",
+    "pos": "Noun",
+    "origin": "TEC (Basic Technology)",
+    "def": "Learning a trade under an expert",
+    "sentence": "Please spell the word: APPRENTICESHIP."
+  },
+  {
+    "num": 487,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "ACCOMMODATION",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "A place to stay",
+    "sentence": "Please spell the word: ACCOMMODATION."
+  },
+  {
+    "num": 488,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "QUESTIONNAIRE",
+    "pos": "Noun",
+    "origin": "ENG (English Language)",
+    "def": "A set of written questions for gathering data",
+    "sentence": "Please spell the word: QUESTIONNAIRE."
+  },
+  {
+    "num": 489,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "RIGHTEOUSNESS",
+    "pos": "Noun",
+    "origin": "REL (Religious Studies)",
+    "def": "Being morally right",
+    "sentence": "Please spell the word: RIGHTEOUSNESS."
+  },
+  {
+    "num": 490,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "CHLOROPHYLL",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "The green pigment in plants",
+    "sentence": "Please spell the word: CHLOROPHYLL."
+  },
+  {
+    "num": 491,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "MICROCONTROLLER",
+    "pos": "Noun",
+    "origin": "DIG (Digital Technology)",
+    "def": "A tiny computer on a single chip",
+    "sentence": "Please spell the word: MICROCONTROLLER."
+  },
+  {
+    "num": 492,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "PHOTOSYNTHESIS",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "The process by which plants make food using light",
+    "sentence": "Please spell the word: PHOTOSYNTHESIS."
+  },
+  {
+    "num": 493,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "QUINTESSENTIAL",
+    "pos": "Adjective",
+    "origin": "ENG (English Language)",
+    "def": "A perfect example of something",
+    "sentence": "Please spell the word: QUINTESSENTIAL."
+  },
+  {
+    "num": 494,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "CHROMATOGRAPHY",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "A method of separating mixtures by colour",
+    "sentence": "Please spell the word: CHROMATOGRAPHY."
+  },
+  {
+    "num": 495,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "ARCHAEOLOGICAL",
+    "pos": "Adjective",
+    "origin": "HIS (History)",
+    "def": "Relating to excavated remains",
+    "sentence": "Please spell the word: ARCHAEOLOGICAL."
+  },
+  {
+    "num": 496,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "MISCELLANEOUS",
+    "pos": "Adjective",
+    "origin": "ENG (English Language)",
+    "def": "Of various kinds",
+    "sentence": "Please spell the word: MISCELLANEOUS."
+  },
+  {
+    "num": 497,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "CONSCIENTIOUS",
+    "pos": "Adjective",
+    "origin": "ENG (English Language)",
+    "def": "Careful and hardworking",
+    "sentence": "Please spell the word: CONSCIENTIOUS."
+  },
+  {
+    "num": 498,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "SURREPTITIOUS",
+    "pos": "Adjective",
+    "origin": "ENG (English Language)",
+    "def": "Done secretly",
+    "sentence": "Please spell the word: SURREPTITIOUS."
+  },
+  {
+    "num": 499,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "ENTREPRENEURSHIP",
+    "pos": "Noun",
+    "origin": "BUS (Business Studies)",
+    "def": "The activity of starting new businesses",
+    "sentence": "Please spell the word: ENTREPRENEURSHIP."
+  },
+  {
+    "num": 500,
+    "round": 5,
+    "round_label": "Reserve (Tie-Breaker)",
+    "word": "BIOLUMINESCENCE",
+    "pos": "Noun",
+    "origin": "SCI (Basic Science)",
+    "def": "Light produced by living organisms",
+    "sentence": "Please spell the word: BIOLUMINESCENCE."
+  }
+]

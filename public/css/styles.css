@@ -1,0 +1,278 @@
+/* ============================================================
+   EGURU SPELLING BEE — GLOBAL DESIGN SYSTEM
+   Brand Colors: Black, Red, Green (from EGuru & KowaguruTech)
+   ============================================================ */
+
+:root {
+  /* Core Brand Colors */
+  --brand-black:      #0a0a0a;
+  --brand-red:        #cc1b1b;
+  --brand-red-light:  #e63333;
+  --brand-red-deep:   #8b0000;
+  --brand-red-glow:   rgba(204, 27, 27, 0.35);
+  --brand-green:      #1a7a1a;
+  --brand-green-light:#22a822;
+  --brand-green-deep: #0f5e0f;
+  --brand-green-glow: rgba(26, 122, 26, 0.35);
+
+  /* Backgrounds (deep black with slight green tint) */
+  --bg-dark:      #060808;
+  --bg-card:      #0e1410;
+  --bg-elevated:  #162018;
+  --bg-glass:     rgba(10, 18, 12, 0.88);
+
+  /* Borders */
+  --border-color: #1e3020;
+  --border-red:   #cc1b1b;
+  --border-green: #1a7a1a;
+
+  /* Text */
+  --text-main:    #f0f4f1;
+  --text-muted:   #7a9480;
+  --text-red:     #f87171;
+  --text-green:   #4ade80;
+
+  /* Accent glows */
+  --red-glow:     rgba(204, 27, 27, 0.4);
+  --green-glow:   rgba(26, 122, 26, 0.4);
+
+  /* Fonts */
+  --font-body:  'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-title: 'Cinzel', Georgia, serif;
+  --font-mono:  'JetBrains Mono', monospace;
+
+  /* Compatibility aliases for brand alignment */
+  --gold-primary:     #22a822;
+  --gold-light:       #4ade80;
+  --gold-dark:        #1a7a1a;
+  --gold-glow:        rgba(34, 168, 34, 0.35);
+  --border-gold:      #1a7a1a;
+  --royal-blue:       #0e1410;
+  --royal-light:      #162018;
+  --royal-dark:       #060808;
+  --emerald-green:    #1a7a1a;
+  --emerald-dark:     #0f5e0f;
+  --emerald-glow:     rgba(26, 122, 26, 0.4);
+  --crimson-red:      #cc1b1b;
+  --crimson-dark:     #8b0000;
+  --crimson-glow:     rgba(204, 27, 27, 0.4);
+}
+
+/* Reset */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  min-height: 100vh;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar { width: 7px; height: 7px; }
+::-webkit-scrollbar-track { background: var(--bg-dark); }
+::-webkit-scrollbar-thumb { background: var(--brand-green-deep); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--brand-red-deep); }
+
+/* Utilities */
+.hidden { display: none !important; }
+
+/* Badges */
+.badge-pill {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 20px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.badge-pill.green  { border-color: var(--brand-green); color: var(--text-green); background: rgba(26, 122, 26, 0.18); }
+.badge-pill.red    { border-color: var(--brand-red);   color: var(--text-red);   background: rgba(204, 27, 27, 0.18); }
+.badge-pill.emerald { border-color: var(--brand-green); color: var(--text-green); background: rgba(26, 122, 26, 0.18); }
+.badge-pill.crimson { border-color: var(--brand-red);   color: var(--text-red);   background: rgba(204, 27, 27, 0.18); }
+.badge-pill.gold    { border-color: #7a5e10; color: #d4a017; background: rgba(122, 94, 16, 0.2); }
+
+.badge-subeb {
+  background: rgba(26, 122, 26, 0.25);
+  color: var(--text-green);
+  font-family: var(--font-body);
+  font-size: 0.63rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 4px;
+  border: 1px solid var(--brand-green);
+  letter-spacing: 0.05em;
+}
+
+/* ─── TOP NAVIGATION BAR ─── */
+.app-header {
+  background: linear-gradient(180deg, #0c1410 0%, #060808 100%);
+  border-bottom: 2px solid #1e3020;
+  padding: 8px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* Brand box with EGuru logo + text */
+.brand-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.brand-logo {
+  height: 48px;
+  width: auto;
+  filter: drop-shadow(0 0 8px rgba(204, 27, 27, 0.5));
+  border-radius: 6px;
+}
+.brand-text h1 {
+  font-family: var(--font-title);
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.brand-text p {
+  font-size: 0.73rem;
+  color: var(--text-green);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* Nav link buttons */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav-link-btn {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+.nav-link-btn:hover {
+  border-color: var(--brand-red);
+  color: var(--text-red);
+}
+.nav-link-btn.active {
+  background: var(--brand-red);
+  border-color: var(--brand-red-light);
+  color: #fff;
+}
+
+/* ─── CARD & CONTAINER ─── */
+.card-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+.card-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-color);
+}
+.card-title {
+  font-family: var(--font-title);
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--brand-red-light);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ─── DATA TABLES ─── */
+.table-container {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 12px;
+}
+table.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+table.data-table th {
+  background: #090d0a;
+  padding: 12px 14px;
+  text-align: left;
+  font-family: var(--font-title);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--brand-red-light);
+  border-bottom: 2px solid var(--border-color);
+}
+table.data-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border-color);
+  color: #dce8de;
+}
+table.data-table tr:hover td {
+  background: rgba(26, 122, 26, 0.06);
+}
+table.data-table tr.out td {
+  color: #94a3b8;
+  /* Removed line-through so contestant names remain completely clear and legible */
+}
+table.data-table tr.out strong {
+  color: #cbd5e1;
+}
+
+/* ─── FORM CONTROLS ─── */
+.form-control {
+  background: #090e0a;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 9px 12px;
+  color: #fff;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.form-control:focus {
+  border-color: var(--brand-green);
+  box-shadow: 0 0 0 2px rgba(26, 122, 26, 0.25);
+}
+
+/* ─── PRINT ─── */
+@media print {
+  body { background: #fff !important; color: #000 !important; }
+  .app-header, .nav-links { display: none !important; }
+  table.data-table th { background: #eee !important; color: #000 !important; }
+  table.data-table td { color: #000 !important; border-bottom: 1px solid #ddd !important; }
+}

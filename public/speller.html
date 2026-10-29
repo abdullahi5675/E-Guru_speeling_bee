@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Speller Screen • Jigawa State Championship</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brand-black:       #060808;
+      --brand-red:         #cc1b1b;
+      --brand-red-light:   #ef4444;
+      --brand-red-deep:    #7f1d1d;
+      --brand-green:       #1a7a1a;
+      --brand-green-light: #22c55e;
+      --gold-primary:      #f59e0b;
+      --gold-light:        #fbbf24;
+      --bg-dark:           #060808;
+      --bg-card:           #0c1410;
+      --bg-elevated:       #111c15;
+      --border-col:        #1e3223;
+      --border-accent:     #2b4832;
+      --text-main:         #f0f4f1;
+      --text-muted:        #789680;
+      --font-body:         'Plus Jakarta Sans', system-ui, sans-serif;
+      --font-title:        'Cinzel', Georgia, serif;
+      --font-mono:         'JetBrains Mono', monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    .hidden {
+      display: none !important;
+    }
+
+    body {
+      background: radial-gradient(circle at 50% 25%, #0c1811 0%, #060808 100%);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* ─── TOP HEADER STRIP ─── */
+    .top-strip {
+      background: linear-gradient(90deg, #09100c 0%, #0f1a13 100%);
+      border-bottom: 2px solid var(--brand-red);
+      padding: 10px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+    .top-strip img { height: 44px; border-radius: 6px; border: 1.5px solid var(--brand-red); }
+    .top-strip .brand-header-text {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .top-strip h1 {
+      font-family: var(--font-title);
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: 0.06em;
+    }
+    .top-strip p {
+      font-size: 0.72rem;
+      color: var(--gold-light);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .stage-badge-pill {
+      background: linear-gradient(135deg, #991b1b, #dc2626);
+      color: #fff;
+      font-family: var(--font-title);
+      font-size: 0.88rem;
+      font-weight: 800;
+      padding: 6px 20px;
+      border-radius: 20px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1px solid #f87171;
+      box-shadow: 0 0 14px rgba(220, 38, 38, 0.35);
+    }
+    .top-controls {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .nav-link-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border-col);
+      color: var(--text-main);
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.76rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .nav-link-btn:hover {
+      background: rgba(255, 255, 255, 0.16);
+      border-color: var(--brand-red);
+      color: #fff;
+    }
+    .btn-fullscreen {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border-col);
+      color: var(--text-main);
+      padding: 6px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.76rem;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      transition: all 0.2s;
+    }
+    .btn-fullscreen:hover { background: rgba(255, 255, 255, 0.16); }
+    .conn-dot {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      font-family: var(--font-mono);
+      color: #4ade80;
+    }
+    .conn-dot span.dot {
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: #22c55e;
+      display: inline-block;
+      box-shadow: 0 0 10px #22c55e;
+    }
+
+    /* ─── MAIN CONTENT CONTAINER ─── */
+    .content-area {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 32px;
+    }
+
+    /* ─── WAITING VIEW ─── */
+    #viewWaiting {
+      text-align: center;
+      padding: 40px;
+    }
+    .waiting-pulse-circle {
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      border: 3px solid var(--brand-green);
+      margin: 0 auto 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      box-shadow: 0 0 25px rgba(34, 197, 94, 0.25);
+      animation: pulse-slow 2.5s ease-in-out infinite;
+    }
+    @keyframes pulse-slow {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(34, 197, 94, 0.2); }
+      50% { transform: scale(1.05); box-shadow: 0 0 35px rgba(34, 197, 94, 0.35); }
+    }
+    .waiting-title {
+      font-family: var(--font-title);
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: #fff;
+    }
+    .waiting-sub {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-top: 8px;
+    }
+
+    /* ================================================================
+       TWO-COLUMN ACTIVE ARENA:
+       LEFT: CONTESTANT & QUESTION PLACEHOLDER
+       RIGHT: TIME ONLY (COUNT ONLY THE TIME)
+       SEPARATED BY GENEROUS GAP - BORDERS DO NOT TOUCH
+       ================================================================ */
+    .speller-arena-container {
+      width: 100%;
+      max-width: 1420px;
+      margin: 0 auto;
+    }
+    .speller-two-col-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.95fr;
+      gap: 40px; /* Generous gap preventing borders from touching */
+      align-items: stretch;
+    }
+    @media (max-width: 1020px) {
+      .speller-two-col-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+    }
+
+    /* ── PLACEHOLDER CARD 1: CONTESTANT & QUESTION ── */
+    .contestant-card-placeholder {
+      background: linear-gradient(145deg, #0b140f, #101c14);
+      border: 2px solid var(--border-accent);
+      border-radius: 20px;
+      padding: 28px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+      position: relative;
+    }
+    
+    .panel-section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border-col);
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .q-tag-pill {
+      font-family: var(--font-mono);
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: #fff;
+      background: linear-gradient(135deg, #b45309, #d97706);
+      border: 1.5px solid var(--gold-light);
+      padding: 6px 18px;
+      border-radius: 12px;
+      letter-spacing: 0.06em;
+      box-shadow: 0 4px 12px rgba(217, 119, 6, 0.3);
+    }
+    .stage-tag-pill {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: #4ade80;
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid var(--brand-green);
+      padding: 6px 14px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Contestant Identity */
+    .contestant-hero-box {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+    .speller-num-avatar {
+      width: 74px;
+      height: 74px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #991b1b, #dc2626);
+      border: 2px solid #f87171;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(220, 38, 38, 0.4);
+      flex-shrink: 0;
+    }
+    .contestant-text-meta {
+      overflow: hidden;
+    }
+    .contestant-fullname {
+      font-family: var(--font-title);
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.15;
+      letter-spacing: 0.02em;
+    }
+    .contestant-schoolname {
+      font-size: 1.15rem;
+      color: var(--gold-light);
+      font-weight: 700;
+      margin-top: 4px;
+    }
+    .contestant-zone-badge {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      color: #86efac;
+      background: rgba(34, 197, 94, 0.16);
+      border: 1px solid var(--brand-green);
+      padding: 3px 12px;
+      border-radius: 6px;
+      letter-spacing: 0.04em;
+    }
+
+    /* Question Grid & Progress in Left Card */
+    .question-status-container {
+      background: #080d0a;
+      border: 1px solid var(--border-col);
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin-top: 10px;
+    }
+    .q-grid-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .q-avail-tag {
+      font-size: 0.8rem;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      color: #4ade80;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .q-used-tag {
+      font-size: 0.8rem;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      color: #ef4444; /* Crisp red for used words */
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .question-mini-grid {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      gap: 4px;
+      width: 100%;
+      margin-top: 6px;
+    }
+    
+    .q-num-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      font-weight: 800;
+      border-radius: 4px;
+      border: 1px solid transparent;
+      padding: 5px 0;
+      user-select: none;
+      transition: all 0.15s ease;
+    }
+    .q-num-box.available {
+      background: rgba(34, 197, 94, 0.12);
+      border-color: #1a7a1a;
+      color: #4ade80;
+    }
+    .q-num-box.used {
+      background: rgba(127, 29, 29, 0.2);
+      border-color: #7f1d1d;
+      color: #ef4444; /* Clean legible red */
+      opacity: 0.75;
+    }
+    .q-num-box.active-current {
+      background: linear-gradient(135deg, #b45309, #d97706);
+      border-color: var(--gold-light);
+      color: #fff;
+      transform: scale(1.08);
+      box-shadow: 0 0 10px rgba(245, 158, 11, 0.4);
+    }
+
+    .contestant-panel-footer {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 18px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border-col);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* ── PLACEHOLDER CARD 2: DEDICATED TIME ONLY ── */
+    .timer-card-placeholder {
+      background: linear-gradient(145deg, #09120c, #0e1b12);
+      border: 2px solid #23462b;
+      border-radius: 20px;
+      padding: 32px 36px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+      position: relative;
+      /* Subtle contained glow that will NOT wash out or touch the left card */
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .timer-card-placeholder.timer-running {
+      border-color: #22c55e;
+      box-shadow: 0 0 20px rgba(34, 197, 94, 0.25);
+    }
+    .timer-card-placeholder.timer-warning {
+      border-color: #f59e0b;
+      box-shadow: 0 0 22px rgba(245, 158, 11, 0.3);
+    }
+    .timer-card-placeholder.timer-danger {
+      border-color: #ef4444;
+      box-shadow: 0 0 24px rgba(239, 68, 68, 0.35);
+    }
+    .timer-card-placeholder.result-correct {
+      border-color: #22c55e;
+      box-shadow: 0 0 28px rgba(34, 197, 94, 0.4);
+    }
+    .timer-card-placeholder.result-incorrect {
+      border-color: #ef4444;
+      box-shadow: 0 0 28px rgba(239, 68, 68, 0.4);
+    }
+
+    .timer-panel-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-title);
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--gold-light);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* COUNT ONLY THE TIME */
+    .timer-digits-box {
+      margin: 16px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .giant-clock-num {
+      font-family: var(--font-mono);
+      font-size: 8.5rem;
+      font-weight: 900;
+      line-height: 1;
+      color: #fff;
+      transition: color 0.2s, text-shadow 0.2s;
+    }
+    .giant-clock-num.warning {
+      color: #fbbf24;
+      text-shadow: 0 0 30px rgba(251, 191, 36, 0.5);
+    }
+    .giant-clock-num.danger {
+      color: #ef4444;
+      text-shadow: 0 0 30px rgba(239, 68, 68, 0.6);
+      animation: pulse-danger 0.5s infinite alternate;
+    }
+    @keyframes pulse-danger {
+      from { transform: scale(1); }
+      to   { transform: scale(1.04); }
+    }
+    .seconds-unit-label {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--text-muted);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    /* Turn Adjudication Pill */
+    .timer-status-wrapper {
+      width: 100%;
+    }
+    .status-pill-big {
+      width: 100%;
+      font-size: 1.15rem;
+      font-weight: 800;
+      padding: 14px 20px;
+      border-radius: 12px;
+      display: inline-block;
+      letter-spacing: 0.04em;
+      background: #080e0a;
+      color: var(--text-muted);
+      border: 1.5px solid var(--border-col);
+      transition: all 0.25s ease;
+    }
+    .status-pill-big.listening {
+      background: rgba(30, 58, 138, 0.25);
+      border-color: #3b82f6;
+      color: #93c5fd;
+    }
+    .status-pill-big.correct {
+      background: linear-gradient(135deg, #14532d, #16a34a);
+      border-color: #4ade80;
+      color: #fff;
+      box-shadow: 0 0 24px rgba(34, 197, 94, 0.35);
+    }
+    .status-pill-big.incorrect {
+      background: linear-gradient(135deg, #7f1d1d, #dc2626);
+      border-color: #f87171;
+      color: #fff;
+      box-shadow: 0 0 24px rgba(220, 38, 38, 0.35);
+    }
+
+    .timer-panel-footer {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      margin-top: 14px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border-col);
+      width: 100%;
+    }
+
+    /* ─── BOTTOM SPONSOR FOOTER ─── */
+    .bottom-credit {
+      border-top: 1px solid var(--border-col);
+      padding: 10px 28px;
+      background: #050706;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+    .bottom-credit strong { color: #fff; }
+    .bottom-credit .kowaguru {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: #4ade80;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── TOP STRIP ── -->
+  <div class="top-strip">
+    <div class="brand-header-text">
+      <img src="/images/eguru-logo.jpeg" alt="EGuru Spelling Bee">
+      <div>
+        <h1>JIGAWA STATE SPELLING BEE CHAMPIONSHIP</h1>
+        <p>Ministry of Education &bull; Organized by J-YEDA &bull; Powered by KowaguruTech</p>
+      </div>
+    </div>
+    
+    <div class="stage-badge-pill" id="topRoundBadge">STAGE 1 • PRELIMINARY</div>
+
+    <div class="top-controls">
+      <a href="/judge" target="_blank" class="nav-link-btn" title="Open Judges Cockpit">
+        <span>👨‍⚖️</span> Cockpit
+      </a>
+      <a href="/projector" target="_blank" class="nav-link-btn" title="Open Stage Projector">
+        <span>🖥️</span> Projector
+      </a>
+      <a href="/leaderboard" target="_blank" class="nav-link-btn" title="Open Standings Leaderboard">
+        <span>📊</span> Standings
+      </a>
+      <a href="/tiebreaker" target="_blank" class="nav-link-btn" style="border-color: #f59e0b; color: #fbbf24;" title="Open Tiebreaker Cockpit">
+        <span>⚡</span> Tiebreaker
+      </a>
+      <button class="btn-fullscreen" onclick="toggleFullScreen()">⛶ Fullscreen</button>
+      <div class="conn-dot">
+        <span class="dot"></span>
+        <span id="connLabel">LIVE SYNC</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── MAIN CONTENT AREA ── -->
+  <div class="content-area">
+
+    <!-- ── WAITING VIEW (no contestants loaded yet) ── -->
+    <div id="viewWaiting" class="hidden">
+      <div class="waiting-pulse-circle">🐝</div>
+      <div class="waiting-title">Jigawa State Spelling Bee</div>
+      <div class="waiting-sub" style="margin-top: 10px;">Waiting for the competition stage to begin...</div>
+      <div class="waiting-sub" style="margin-top: 6px; font-size: 0.88rem; color: var(--gold-light);">
+        Sponsored by <b>Jigawa State Ministry of Education</b> &bull; Organized by <b>J-YEDA</b>
+      </div>
+    </div>
+
+    <!-- ── ACTIVE TWO-COLUMN ARENA ── -->
+    <div id="viewActive" class="speller-arena-container">
+      <div class="speller-two-col-grid">
+
+        <!-- ── LEFT PLACEHOLDER: CONTESTANT & QUESTION ── -->
+        <div class="contestant-card-placeholder" id="contestantPanel">
+          <div>
+            <!-- Question & Stage Header -->
+            <div class="panel-section-header">
+              <div class="q-tag-pill" id="activeQTag">QUESTION #001</div>
+              <div class="stage-tag-pill" id="activeStageTag">STAGE 1 • PRELIMINARY</div>
+            </div>
+
+            <!-- Contestant Hero Info -->
+            <div class="contestant-hero-box">
+              <div class="speller-num-avatar" id="activeSpellerBadge">#001</div>
+              <div class="contestant-text-meta">
+                <h2 class="contestant-fullname" id="activeSpellerName">Loading Contestant...</h2>
+                <p class="contestant-schoolname" id="activeSpellerSchool">Loading School...</p>
+                <div class="contestant-zone-badge" id="activeSpellerZone">JIGAWA STATE</div>
+              </div>
+            </div>
+
+            <!-- Question Selection & Stage Status -->
+            <div class="question-status-container">
+              <div class="q-grid-header-row">
+                <span class="q-avail-tag" id="availCount">100 Available</span>
+                <span class="q-used-tag" id="usedCount">0 Completed</span>
+              </div>
+              <!-- Question Grid showing green available and red used words -->
+              <div class="question-mini-grid" id="questionPickerGrid"></div>
+            </div>
+          </div>
+
+          <!-- Left Card Footer -->
+          <div class="contestant-panel-footer">
+            <span>💡</span>
+            <span id="contestantFooterNote">Contestant is active on stage. Listen carefully to the Pronouncer.</span>
+          </div>
+        </div>
+
+        <!-- ── RIGHT PLACEHOLDER: COUNT ONLY THE TIME ── -->
+        <div class="timer-card-placeholder" id="timerPanel">
+          <div class="timer-panel-header">
+            <span>⏱️</span>
+            <span>TIME REMAINING</span>
+          </div>
+
+          <!-- Giant Countdown Digits (COUNT ONLY TIME) -->
+          <div class="timer-digits-box">
+            <div class="giant-clock-num" id="giantClock">60</div>
+            <div class="seconds-unit-label">SECONDS COUNTDOWN</div>
+          </div>
+
+          <!-- Turn Adjudication Status Pill -->
+          <div class="timer-status-wrapper">
+            <div class="status-pill-big" id="statusPill">Listen to the Pronouncer...</div>
+          </div>
+
+          <!-- Timer Card Footer -->
+          <div class="timer-panel-footer">
+            <span>Official Stage Countdown Clock &bull; Downstage Kiosk</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── BOTTOM SPONSOR FOOTER ── -->
+  <div class="bottom-credit">
+    <span>Sponsored by <b>Jigawa State Ministry of Education</b> &bull; Organized by <b>J-YEDA</b></span>
+    <span class="kowaguru">⚡ Official Software by KowaguruTech</span>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      let AppState = null;
+      // Clock-skew correction — keeps timer in sync on machines with wrong clocks
+      let _clockOffset = 0;
+      function syncedNow() { return Date.now() + _clockOffset; }
+
+      const socket = io();
+      socket.on('connect', () => {
+        document.getElementById('connLabel').textContent = 'LIVE SYNC';
+        loadInitialState();
+      });
+      socket.on('disconnect', () => document.getElementById('connLabel').textContent = 'RECONNECTING…');
+      socket.on('STATE_UPDATE', (state) => {
+        if (state.serverTime) _clockOffset = state.serverTime - Date.now();
+        AppState = state;
+        render();
+      });
+
+      async function loadInitialState() {
+        try {
+          const res = await fetch('/api/state');
+          if (res.ok) {
+            AppState = await res.json();
+            if (AppState.serverTime) _clockOffset = AppState.serverTime - Date.now();
+            render();
+          }
+        } catch (e) {
+          console.error('Failed to load initial state:', e);
+        }
+      }
+      loadInitialState();
+      setInterval(loadInitialState, 2000);
+
+      // ── Timer calculation helper
+      function getSecondsRemaining() {
+        if (!AppState) return 60;
+        const isTb = Boolean(AppState.tiebreakerActive);
+        const tb = AppState.tiebreakerData || {};
+
+        if (isTb) {
+          if (tb.timerPausedRemaining != null) return Math.max(0, tb.timerPausedRemaining);
+          if (!tb.timerRunning || !tb.timerEnd) return AppState.timerDuration || 60;
+          return Math.max(0, Math.ceil((tb.timerEnd - syncedNow()) / 1000));
+        }
+
+        if (AppState.timerPausedRemaining != null) return Math.max(0, AppState.timerPausedRemaining);
+        if (!AppState.timerRunning || !AppState.timerEnd) return AppState.timerDuration || 60;
+        return Math.max(0, Math.ceil((AppState.timerEnd - syncedNow()) / 1000));
+      }
+
+      // ── Timer tick: runs continuously for ultra-smooth seconds update
+      function timerTick() {
+        if (!AppState) return;
+        const isTb = Boolean(AppState.tiebreakerActive);
+        const tb = AppState.tiebreakerData || {};
+        const sec = getSecondsRemaining();
+        const clock = document.getElementById('giantClock');
+        const timerPanel = document.getElementById('timerPanel');
+        const isRunning = isTb ? Boolean(tb.timerRunning) : Boolean(AppState.timerRunning);
+        const adjResult = isTb ? tb.adjudicationResult : AppState.adjudicationResult;
+        
+        if (clock) {
+          clock.textContent = sec;
+          const warn = AppState.timerWarning || 10;
+
+          clock.classList.toggle('warning', sec <= warn && sec > 0 && isRunning);
+          clock.classList.toggle('danger',  sec === 0 && isRunning);
+
+          if (timerPanel && !adjResult) {
+            timerPanel.classList.toggle('timer-running', isRunning && sec > warn);
+            timerPanel.classList.toggle('timer-warning', isRunning && sec <= warn && sec > 0);
+            timerPanel.classList.toggle('timer-danger',  isRunning && sec === 0);
+          }
+        }
+      }
+      setInterval(timerTick, 250);
+
+      function escapeHtml(s) {
+        return String(s || '').replace(/[&<>"']/g, c =>
+          ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])
+        );
+      }
+
+      // ── Main Render Function
+      function render() {
+        if (!AppState) return;
+
+        const isTb = Boolean(AppState.tiebreakerActive);
+        const tb = AppState.tiebreakerData || {};
+
+        const stageNum = isTb ? (tb.stage || AppState.round || 1) : (AppState.round || 1);
+        const stageRule = (AppState.stageRules && AppState.stageRules[stageNum]) || AppState.currentRule || {};
+        const stageName = stageRule.name || `Stage ${stageNum}`;
+
+        // Top banner badge
+        const topRoundBadge = document.getElementById('topRoundBadge');
+        if (topRoundBadge) {
+          if (isTb) {
+            topRoundBadge.textContent = `STAGE ${stageNum} • TIEBREAKER SUDDEN DEATH (ROUND ${tb.round || 1})`;
+            topRoundBadge.style.background = 'linear-gradient(135deg, #b45309, #d97706)';
+            topRoundBadge.style.borderColor = '#fbbf24';
+            topRoundBadge.style.color = '#fff';
+          } else {
+            topRoundBadge.textContent = `STAGE ${stageNum} • ${stageName.toUpperCase()}`;
+            topRoundBadge.style.background = '';
+            topRoundBadge.style.borderColor = '';
+            topRoundBadge.style.color = '';
+          }
+        }
+
+        // Active Speller Resolution: safely match ID by number
+        const activeSpellerId = isTb ? Number(tb.activeSpellerId) : Number(AppState.activeSpellerId);
+        let activeSpeller = (AppState.students || []).find(s => Number(s.id) === activeSpellerId);
+
+        // Fallback: if no activeSpeller matched but students exist, default to first active or first student
+        if (!activeSpeller && AppState.students && AppState.students.length > 0) {
+          if (isTb && tb.contestingStudentIds && tb.contestingStudentIds.length > 0) {
+            activeSpeller = (AppState.students || []).find(s => s.id === tb.contestingStudentIds[0]);
+          } else {
+            activeSpeller = AppState.students.find(s => s.alive) || AppState.students[0];
+          }
+        }
+
+        const viewWaiting = document.getElementById('viewWaiting');
+        const viewActive  = document.getElementById('viewActive');
+
+        // Always show the active competition arena so questions are visible
+        viewWaiting.classList.add('hidden');
+        viewActive.classList.remove('hidden');
+
+        // 1. POPULATE CONTESTANT PROFILE (LEFT PLACEHOLDER)
+        const activeSpellerBadge  = document.getElementById('activeSpellerBadge');
+        const activeSpellerName   = document.getElementById('activeSpellerName');
+        const activeSpellerSchool = document.getElementById('activeSpellerSchool');
+        const activeSpellerZone   = document.getElementById('activeSpellerZone');
+        const activeQTag          = document.getElementById('activeQTag');
+        const activeStageTag      = document.getElementById('activeStageTag');
+
+        if (activeSpeller) {
+          if (activeSpellerBadge) activeSpellerBadge.textContent = `#${String(activeSpeller.id).padStart(3, '0')}`;
+          if (activeSpellerName) activeSpellerName.textContent = activeSpeller.name;
+          if (activeSpellerSchool) activeSpellerSchool.textContent = activeSpeller.school;
+          if (activeSpellerZone) {
+            const stats = (activeSpeller.roundStats && activeSpeller.roundStats[stageNum]) || { attempts: 0, correct: 0 };
+            const stageMarks = (activeSpeller.scores && activeSpeller.scores[stageNum]) || 0;
+            if (isTb) {
+              activeSpellerZone.textContent = `${(activeSpeller.lga || 'Jigawa').toUpperCase()} ZONE • TIEBREAKER RUNOFF • ${stageMarks} STAGE MARKS`;
+            } else {
+              activeSpellerZone.textContent = `${(activeSpeller.lga || 'Jigawa').toUpperCase()} ZONE • ${stats.attempts} ATTEMPTS (${stageMarks} MARKS)`;
+            }
+          }
+        } else {
+          if (activeSpellerBadge) activeSpellerBadge.textContent = '--';
+          if (activeSpellerName) activeSpellerName.textContent = isTb ? 'Tiebreaker In Progress' : 'Ready for Stage';
+          if (activeSpellerSchool) activeSpellerSchool.textContent = 'Please select question number & step forward';
+          if (activeSpellerZone) activeSpellerZone.textContent = 'MINISTRY OF EDUCATION • J-YEDA';
+        }
+
+        // Question tag
+        const qNum = isTb ? tb.activeQuestionNum : AppState.activeQuestionNum;
+        if (activeQTag) {
+          activeQTag.textContent = qNum ? `QUESTION #${String(qNum).padStart(3, '0')}` : 'SELECT QUESTION NUMBER';
+        }
+        if (activeStageTag) {
+          activeStageTag.textContent = isTb ? `STAGE ${stageNum} • TIEBREAKER` : `STAGE ${stageNum} • ${stageName.toUpperCase()}`;
+        }
+
+        // 2. POPULATE QUESTION STATUS & MINI-GRID (LEFT PLACEHOLDER)
+        renderQuestionGrid(stageNum, qNum);
+
+        // 3. POPULATE TIME & ADJUDICATION STATUS (RIGHT PLACEHOLDER)
+        renderTimerPanel(isTb, tb);
+      }
+
+      function renderQuestionGrid(stageNum, activeQNum) {
+        const words = AppState.words || {};
+        const usedWordNums = AppState.usedWordNums || [];
+        
+        const minQ = stageNum === 1 ? 1 : (stageNum === 2 ? 101 : (stageNum === 3 ? 201 : (stageNum === 4 ? 301 : 401)));
+        const maxQ = stageNum === 1 ? 100 : (stageNum === 2 ? 200 : (stageNum === 3 ? 300 : (stageNum === 4 ? 400 : 500)));
+
+        const allQNums = Object.keys(words).map(Number).filter(n => n >= minQ && n <= maxQ).sort((a, b) => a - b);
+        
+        // If words map is empty, create synthetic range
+        const questionList = allQNums.length > 0 ? allQNums : Array.from({ length: maxQ - minQ + 1 }, (_, i) => minQ + i);
+
+        const usedInStage = questionList.filter(n => usedWordNums.includes(n));
+        const availInStage = questionList.filter(n => !usedWordNums.includes(n));
+
+        const availCount = document.getElementById('availCount');
+        const usedCount  = document.getElementById('usedCount');
+        const grid       = document.getElementById('questionPickerGrid');
+
+        if (availCount) availCount.textContent = `${availInStage.length} Available`;
+        if (usedCount)  usedCount.textContent  = `${usedInStage.length} Used / Completed`;
+
+        if (grid) {
+          grid.innerHTML = questionList.map(n => {
+            const isUsed = usedWordNums.includes(n);
+            const isCurrent = Number(n) === Number(activeQNum);
+            let cls = 'available';
+            if (isCurrent) cls = 'active-current';
+            else if (isUsed) cls = 'used';
+
+            return `<div class="q-num-box ${cls}" title="Question #${n}">${n}</div>`;
+          }).join('');
+        }
+      }
+
+      function renderTimerPanel(isTb, tb) {
+        const timerPanel = document.getElementById('timerPanel');
+        const statusPill = document.getElementById('statusPill');
+        if (!timerPanel || !statusPill) return;
+
+        // Reset classes
+        timerPanel.classList.remove('result-correct', 'result-incorrect');
+
+        const adj = isTb ? tb?.adjudicationResult : AppState.adjudicationResult;
+        const isRunning = isTb ? Boolean(tb?.timerRunning) : Boolean(AppState.timerRunning);
+
+        if (adj === 'correct') {
+          timerPanel.classList.add('result-correct');
+          statusPill.className = 'status-pill-big correct';
+          statusPill.textContent = isTb ? '✓ QUALIFIED (+1 MARK)!' : '✓ CORRECT! WELL DONE!';
+        } else if (adj === 'incorrect') {
+          timerPanel.classList.add('result-incorrect');
+          statusPill.className = 'status-pill-big incorrect';
+          statusPill.textContent = isTb ? '✗ KNOCKED OUT OF TIE' : '✗ INCORRECT. THANK YOU!';
+        } else if (isRunning) {
+          statusPill.className = 'status-pill-big listening';
+          statusPill.textContent = '🎤 Spell clearly into the microphone...';
+        } else {
+          statusPill.className = 'status-pill-big';
+          statusPill.textContent = 'Listen to the Pronouncer...';
+        }
+      }
+
+      window.toggleFullScreen = function() {
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen().catch(() => {});
+        } else {
+          document.exitFullscreen().catch(() => {});
+        }
+      };
+
+    })();
+  </script>
+</body>
+</html>

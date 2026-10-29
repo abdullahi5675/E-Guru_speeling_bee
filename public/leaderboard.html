@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Official Leaderboard • Jigawa State Championship</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    body {
+      background: radial-gradient(circle at center, #0d1a12 0%, #060808 100%);
+      color: #fff;
+      padding: 30px;
+    }
+    .leaderboard-wrap {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .board-header {
+      background: linear-gradient(145deg, #0e1410, #162018);
+      border: 2px solid var(--brand-red);
+      border-radius: 16px;
+      padding: 24px 32px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+    .board-header h1 {
+      font-family: var(--font-title);
+      font-size: 1.8rem;
+      color: #fff;
+      letter-spacing: 0.05em;
+    }
+    .board-header p {
+      font-size: 0.9rem;
+      color: var(--gold-light);
+      margin-top: 4px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    @media (max-width: 1000px) {
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+    
+    /* ─── FORMAL PRINT STYLESHEET ─── */
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 12mm 10mm 15mm 10mm;
+      }
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        padding: 0 !important;
+        font-size: 10pt !important;
+      }
+      .leaderboard-wrap {
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .no-print, .btn-print, .nav-link-btn, nav {
+        display: none !important;
+      }
+      .board-header {
+        background: #ffffff !important;
+        border: 2px solid #000000 !important;
+        border-radius: 6px !important;
+        padding: 12px 18px !important;
+        margin-bottom: 16px !important;
+        box-shadow: none !important;
+        color: #000000 !important;
+      }
+      .board-header h1 {
+        color: #000000 !important;
+        font-size: 1.4rem !important;
+      }
+      .board-header p {
+        color: #1a7a1a !important;
+        font-size: 0.85rem !important;
+      }
+      .board-header .brand-sub-credit {
+        color: #4b5563 !important;
+      }
+      .grid-2 {
+        display: block !important;
+      }
+      .card-box {
+        background: #ffffff !important;
+        border: 1.5px solid #334155 !important;
+        border-radius: 6px !important;
+        margin-bottom: 20px !important;
+        box-shadow: none !important;
+        break-inside: auto !important;
+      }
+      .card-header-bar {
+        background: #f1f5f9 !important;
+        border-bottom: 1.5px solid #334155 !important;
+        padding: 8px 14px !important;
+      }
+      .card-title {
+        color: #000000 !important;
+        font-size: 1rem !important;
+      }
+      .table-container {
+        max-height: none !important;
+        overflow: visible !important;
+        height: auto !important;
+      }
+      table.data-table {
+        width: 100% !important;
+        border-collapse: collapse !important;
+        font-size: 9.5pt !important;
+      }
+      table.data-table th {
+        background: #e2e8f0 !important;
+        color: #000000 !important;
+        border: 1px solid #475569 !important;
+        padding: 6px 8px !important;
+        font-weight: 800 !important;
+        text-align: left;
+      }
+      table.data-table td {
+        color: #000000 !important;
+        border: 1px solid #cbd5e1 !important;
+        padding: 5px 8px !important;
+        background: #ffffff !important;
+      }
+      table.data-table tr:nth-child(even) td {
+        background: #f8fafc !important;
+      }
+      /* Clean legible text for eliminated contestants without strike-through */
+      table.data-table tr.out td, table.data-table tr.out strong {
+        color: #000000 !important;
+        opacity: 1 !important;
+        text-decoration: none !important;
+      }
+      .badge-pill {
+        border-radius: 4px !important;
+        font-size: 0.72rem !important;
+        padding: 2px 6px !important;
+        display: inline-block !important;
+      }
+      .badge-pill.emerald {
+        background: #dcfce7 !important;
+        color: #166534 !important;
+        border: 1px solid #16a34a !important;
+        font-weight: 700 !important;
+      }
+      .badge-pill.crimson {
+        background: #fee2e2 !important;
+        color: #991b1b !important;
+        border: 1px solid #dc2626 !important;
+        font-weight: 700 !important;
+      }
+      .page-break-before {
+        page-break-before: always !important;
+        break-before: page !important;
+      }
+      .endorsements-box {
+        background: #ffffff !important;
+        border: 1.5px solid #000000 !important;
+        border-radius: 6px !important;
+        margin-top: 24px !important;
+        padding: 16px !important;
+        break-inside: avoid !important;
+      }
+      .endorsements-box h4 {
+        color: #000000 !important;
+      }
+      .endorsements-box strong {
+        color: #000000 !important;
+      }
+      .endorsements-box span {
+        color: #4b5563 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="leaderboard-wrap">
+    
+    <div class="board-header">
+      <div style="display: flex; align-items: center; gap: 20px;">
+        <img src="/images/eguru-logo.jpeg" alt="EGuru Spelling Bee" style="width: 64px; height: 64px; object-fit: contain; border-radius: 12px; border: 2px solid var(--brand-red); box-shadow: 0 0 16px rgba(204,27,27,0.35);">
+        <div>
+          <h1 id="boardTitle">JIGAWA STATE SPELLING BEE CHAMPIONSHIP</h1>
+          <p id="boardSubtitle" style="color: var(--brand-green-light); font-weight: 700; margin-top: 4px;">
+            SPONSORED BY JIGAWA STATE MINISTRY OF EDUCATION &bull; ORGANIZED BY J-YEDA
+          </p>
+          <div style="font-size: 0.8rem; color: #4ade80; font-family: var(--font-mono); margin-top: 4px;">
+            Official Competition System Developed by KowaguruTech
+          </div>
+          <span style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-top: 4px;" id="boardTime"></span>
+        </div>
+      </div>
+      <div class="no-print" style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+        <button class="nav-link-btn btn-print" onclick="window.print()" style="background: linear-gradient(135deg, #15803d, #16a34a); color: #fff; font-weight: 800; border-color: #22c55e;">
+          <span>🖨️</span> Print Official Result Sheet
+        </button>
+        <a href="/judge" class="nav-link-btn" title="Open Judges Cockpit">
+          <span>👨‍⚖️</span> Judges Cockpit
+        </a>
+        <a href="/projector" class="nav-link-btn" title="Open Stage Projector">
+          <span>🖥️</span> Stage Projector
+        </a>
+        <a href="/speller" class="nav-link-btn" title="Open Speller Screen">
+          <span>🧑‍🎓</span> Speller Screen
+        </a>
+        <a href="/tiebreaker" class="nav-link-btn" style="border-color: #f59e0b; color: #fbbf24; background: rgba(245, 158, 11, 0.1);" title="Open Dedicated Tiebreaker Cockpit">
+          <span>⚡</span> Tiebreaker
+        </a>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      
+      <!-- Top Contestants -->
+      <div class="card-box">
+        <div class="card-header-bar">
+          <h3 class="card-title"><span>🧑‍🎓</span> Contestants Leaderboard</h3>
+          <span class="badge-pill gold" id="spellersCountBadge">0 Spellers</span>
+        </div>
+        <div class="table-container" style="max-height: 650px; overflow-y: auto;">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>ID</th>
+                <th>Name</th>
+                <th>School</th>
+                <th>LGA</th>
+                <th>Correct</th>
+                <th>Points</th>
+              </tr>
+            </thead>
+            <tbody id="contestantsBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Top Schools -->
+      <div class="card-box page-break-before">
+        <div class="card-header-bar">
+          <h3 class="card-title"><span>🏫</span> Schools Trophy Rankings</h3>
+          <span class="badge-pill emerald" id="schoolsCountBadge">0 Schools</span>
+        </div>
+        <div class="table-container" style="max-height: 650px; overflow-y: auto;">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>School Name</th>
+                <th>LGA / Zone</th>
+                <th>Contestants</th>
+                <th>Total Points</th>
+              </tr>
+            </thead>
+            <tbody id="schoolsBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Official Ministerial & Association Sign-Offs -->
+    <div class="endorsements-box" style="margin-top: 40px; padding: 24px; background: #0e1410; border: 1px solid var(--border-color); border-radius: 12px;">
+      <h4 style="font-family: var(--font-title); font-size: 0.95rem; color: var(--brand-green-light); margin-bottom: 20px; text-transform: uppercase;">
+        Official Verification &amp; Endorsements
+      </h4>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; text-align: center;">
+        <div style="border-top: 1px dashed var(--border-color); padding-top: 10px;">
+          <strong style="color: #fff; font-size: 0.88rem; display: block;">Ministry Representative</strong>
+          <span style="font-size: 0.75rem; color: var(--text-muted);">Jigawa State Ministry of Education</span>
+        </div>
+        <div style="border-top: 1px dashed var(--border-color); padding-top: 10px;">
+          <strong style="color: #fff; font-size: 0.88rem; display: block;">J-YEDA Executive / President</strong>
+          <span style="font-size: 0.75rem; color: var(--text-muted);">Youth Educational Empowerment Assoc.</span>
+        </div>
+        <div style="border-top: 1px dashed var(--border-color); padding-top: 10px;">
+          <strong style="color: #fff; font-size: 0.88rem; display: block;">Chief Adjudicator / Pronouncer</strong>
+          <span style="font-size: 0.75rem; color: var(--text-muted);">State Spelling Bee Panel</span>
+        </div>
+        <div style="border-top: 1px dashed var(--border-color); padding-top: 10px;">
+          <strong style="color: #fff; font-size: 0.88rem; display: block;">Lead Systems Engineer</strong>
+          <span style="font-size: 0.75rem; color: #4ade80;">KowaguruTech Company</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+    socket.on('connect', () => {
+      loadInitialState();
+    });
+    socket.on('STATE_UPDATE', (state) => {
+      renderBoard(state);
+    });
+
+    async function loadInitialState() {
+      try {
+        const res = await fetch('/api/state');
+        if (res.ok) {
+          const state = await res.json();
+          renderBoard(state);
+        }
+      } catch (e) {
+        console.error('Failed to load state:', e);
+      }
+    }
+    loadInitialState();
+    setInterval(loadInitialState, 2000);
+
+    function escapeHtml(str) {
+      return String(str || '').replace(/[&<>"']/g, c => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      }[c]));
+    }
+
+    function renderBoard(state) {
+      if (!state) return;
+      document.getElementById('boardTitle').textContent = state.title.toUpperCase();
+      document.getElementById('boardSubtitle').textContent = state.subtitle.toUpperCase();
+      document.getElementById('boardTime').textContent = `Live Records Synced: ${new Date().toLocaleString()}`;
+
+      const cBody = document.getElementById('contestantsBody');
+      const sBody = document.getElementById('schoolsBody');
+
+      // Contestants sorted
+      const sorted = [...state.students].sort((a, b) => {
+        const ptA = Object.values(a.scores || {}).reduce((x, y) => x + (Number(y) || 0), 0);
+        const ptB = Object.values(b.scores || {}).reduce((x, y) => x + (Number(y) || 0), 0);
+        return ptB - ptA || (b.correctCount || 0) - (a.correctCount || 0);
+      });
+
+      document.getElementById('spellersCountBadge').textContent = `${sorted.length} Spellers`;
+
+      cBody.innerHTML = sorted.map((s, idx) => {
+        const total = Object.values(s.scores || {}).reduce((x, y) => x + (Number(y) || 0), 0);
+        return `
+          <tr class="${s.alive ? '' : 'out'}">
+            <td><b>${idx + 1}</b></td>
+            <td>#${String(s.id).padStart(3, '0')}</td>
+            <td><strong style="color: #fff; font-weight: 700;">${escapeHtml(s.name)}</strong></td>
+            <td>${escapeHtml(s.school)}</td>
+            <td>${escapeHtml(s.lga || 'Jigawa')}</td>
+            <td>${s.correctCount || 0}</td>
+            <td><strong style="color: var(--gold-light); font-size: 1.05rem;">${total} pts</strong></td>
+          </tr>
+        `;
+      }).join('');
+
+      // Schools aggregated
+      const schoolMap = {};
+      state.students.forEach(s => {
+        const key = s.school || 'Independent';
+        if (!schoolMap[key]) {
+          schoolMap[key] = { school: key, lga: s.lga || 'Jigawa', count: 0, points: 0 };
+        }
+        schoolMap[key].count++;
+        schoolMap[key].points += Object.values(s.scores || {}).reduce((x, y) => x + (Number(y) || 0), 0);
+      });
+
+      const sortedSchools = Object.values(schoolMap).sort((a, b) => b.points - a.points);
+      document.getElementById('schoolsCountBadge').textContent = `${sortedSchools.length} Schools`;
+
+      sBody.innerHTML = sortedSchools.map((sc, idx) => `
+        <tr>
+          <td><b>${idx + 1}</b></td>
+          <td><strong>${escapeHtml(sc.school)}</strong></td>
+          <td>${escapeHtml(sc.lga)}</td>
+          <td>${sc.count}</td>
+          <td><strong style="color: var(--emerald-green); font-size: 1.05rem;">${sc.points} pts</strong></td>
+        </tr>
+      `).join('');
+    }
+  </script>
+</body>
+</html>

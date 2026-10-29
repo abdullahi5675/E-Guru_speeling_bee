@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tiebreaker Cockpit • Jigawa State Spelling Bee</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    :root {
+      --brand-red: #cc1b1b;
+      --brand-green: #1a7a1a;
+      --brand-green-light: #4ade80;
+      --border-color: #1e3020;
+    }
+    body {
+      background: radial-gradient(circle at 50% 20%, #151f18 0%, #060907 100%);
+      color: #fff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .tb-header {
+      background: linear-gradient(90deg, #121c15 0%, #0d1510 100%);
+      border-bottom: 2px solid #f59e0b;
+      padding: 12px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+    .tb-brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .tb-brand img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      border-radius: 8px;
+      border: 1.5px solid #f59e0b;
+    }
+    .tb-title h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.35rem;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      color: #fff;
+    }
+    .tb-title p {
+      font-size: 0.8rem;
+      color: #fbbf24;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .tb-container {
+      max-width: 1720px;
+      margin: 16px auto;
+      padding: 0 20px;
+      flex: 1;
+      width: 100%;
+    }
+    .tb-grid {
+      display: grid;
+      grid-template-columns: 360px 1fr 360px;
+      gap: 18px;
+    }
+    @media (max-width: 1300px) {
+      .tb-grid { grid-template-columns: 320px 1fr; }
+      .tb-col-right { grid-column: span 2; }
+    }
+    @media (max-width: 900px) {
+      .tb-grid { grid-template-columns: 1fr; }
+      .tb-col-right { grid-column: span 1; }
+    }
+    #standbyOverlay {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 65vh;
+      text-align: center;
+      padding: 40px 24px;
+      background: linear-gradient(135deg, rgba(16, 28, 20, 0.95), rgba(9, 18, 12, 0.95));
+      border: 2px dashed rgba(245, 158, 11, 0.45);
+      border-radius: 18px;
+      margin-top: 10px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    }
+    .tb-card {
+      background: #0b120d;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+    }
+    .tb-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 10px;
+      margin-bottom: 14px;
+    }
+    .tb-card-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.95rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: #fbbf24;
+      letter-spacing: 0.06em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .tb-word-box {
+      background: linear-gradient(135deg, #101c13, #16291b);
+      border: 2px solid #285433;
+      border-radius: 10px;
+      padding: 16px;
+      text-align: center;
+      margin-bottom: 14px;
+    }
+    .tb-word-target {
+      font-family: 'Cinzel', serif;
+      font-size: 2.2rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      color: #fff;
+    }
+    .tb-word-phonetic {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.95rem;
+      color: var(--brand-green-light);
+      margin-top: 4px;
+    }
+
+    /* Beautiful Styled Decision Buttons Matching Judge Cockpit */
+    .decision-button-cluster {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 16px 0;
+    }
+    .btn-decision {
+      padding: 16px 20px;
+      font-size: 1.05rem;
+      font-weight: 800;
+      border-radius: 12px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      transition: all 0.2s ease;
+    }
+    .btn-decision span.sub {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: none;
+      opacity: 0.88;
+    }
+    .btn-decision.correct {
+      background: linear-gradient(135deg, #059669, #10b981);
+      color: #fff;
+      border-color: #34d399;
+    }
+    .btn-decision.correct:hover:not(:disabled) {
+      background: linear-gradient(135deg, #047857, #059669);
+      transform: translateY(-2px);
+    }
+    .btn-decision.incorrect {
+      background: linear-gradient(135deg, #dc2626, #ef4444);
+      color: #fff;
+      border-color: #f87171;
+    }
+    .btn-decision.incorrect:hover:not(:disabled) {
+      background: linear-gradient(135deg, #b91c1c, #dc2626);
+      transform: translateY(-2px);
+    }
+    .btn-decision:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      transform: none !important;
+    }
+
+    /* Active Speller Card */
+    .contestant-active-hero {
+      background: linear-gradient(135deg, #0e1a12 0%, #15281a 100%);
+      border: 2px solid #285433;
+      border-radius: 14px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .contestant-badge-num {
+      width: 58px; height: 58px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #991b1b, #dc2626);
+      border: 2px solid #f87171;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      color: #fff; font-weight: 800; font-family: 'JetBrains Mono', monospace;
+    }
+    .contestant-badge-num span { font-size: 0.65rem; text-transform: uppercase; opacity: 0.8; }
+    .contestant-badge-num strong { font-size: 1.4rem; line-height: 1; }
+
+    /* Timer */
+    .timer-control-block {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #09120c;
+      border: 1.5px solid var(--border-color);
+      border-radius: 12px;
+      padding: 14px 20px;
+      margin-bottom: 16px;
+    }
+    .timer-huge-digit {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 3.2rem;
+      font-weight: 900;
+      line-height: 1;
+      color: #fff;
+    }
+    .timer-huge-digit.warning { color: #fbbf24; }
+    .timer-huge-digit.danger { color: #ef4444; }
+
+    .timer-action-buttons {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .btn-timer {
+      padding: 10px 16px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    .btn-timer.start {
+      background: linear-gradient(135deg, #059669, #10b981);
+      color: #fff;
+      border-color: #34d399;
+    }
+    .btn-timer.start:hover {
+      background: linear-gradient(135deg, #047857, #059669);
+      box-shadow: 0 0 14px rgba(16, 185, 129, 0.4);
+    }
+    .btn-timer.pause {
+      background: linear-gradient(135deg, #854d0e, #d97706);
+      color: #fff;
+      border-color: #fbbf24;
+    }
+    .btn-timer.pause:hover {
+      background: linear-gradient(135deg, #713f12, #b45309);
+      box-shadow: 0 0 14px rgba(217, 119, 6, 0.4);
+    }
+    .btn-timer.reset {
+      background: #111d14;
+      color: #e2e8f0;
+      border-color: var(--border-color);
+    }
+    .btn-timer.reset:hover {
+      background: #1a2c1f;
+      border-color: #4ade80;
+      color: #fff;
+    }
+    .btn-timer.bonus {
+      background: linear-gradient(135deg, #1e3a8a, #2563eb);
+      color: #fff;
+      border-color: #60a5fa;
+    }
+    .btn-timer.bonus:hover {
+      background: linear-gradient(135deg, #172554, #1d4ed8);
+      box-shadow: 0 0 14px rgba(37, 99, 235, 0.4);
+    }
+
+    /* Spelling input */
+    .spelling-text-input {
+      width: 100%;
+      background: #09120c;
+      border: 2px solid #285433;
+      border-radius: 10px;
+      padding: 12px 18px;
+      color: #fff;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      outline: none;
+      transition: all 0.2s;
+    }
+    .spelling-text-input:focus {
+      border-color: #fbbf24;
+      box-shadow: 0 0 16px rgba(251, 191, 36, 0.4);
+    }
+
+    /* Word grid for stage questions */
+    .tb-word-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(44px, 1fr));
+      gap: 6px;
+      max-height: 280px;
+      overflow-y: auto;
+      padding: 8px;
+      background: #070c08;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+    }
+    .tb-q-btn {
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 800;
+      font-size: 0.85rem;
+      border-radius: 6px;
+      border: 1.5px solid var(--border-color);
+      background: #0d150f;
+      color: #94a3b8;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .tb-q-btn:hover { border-color: #fbbf24; color: #fff; }
+    .tb-q-btn.used { background: #060907; color: #334155; opacity: 0.35; }
+    .tb-q-btn.active { background: #d97706; border-color: #fbbf24; color: #000; font-weight: 900; }
+
+    /* Standby overlay */
+    #standbyOverlay {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 20px;
+      background: #0a110c;
+      border: 2px dashed #f59e0b;
+      border-radius: 16px;
+      margin: 30px auto;
+      max-width: 900px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="tb-header">
+    <div class="tb-brand">
+      <img src="/images/eguru-logo.jpeg" alt="EGuru Spelling Bee">
+      <div class="tb-title">
+        <h1 id="tbHeaderTitle">Tiebreaker Adjudication Cockpit</h1>
+        <p id="tbHeaderSub">⚡ Sudden Death Cutoff Resolution • Stage Questions</p>
+      </div>
+    </div>
+    <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+      <a href="/judge" class="nav-link-btn" style="background: rgba(255,255,255,0.08); font-weight: 700;">
+        <span>👨‍⚖️</span> Return to Judge Cockpit
+      </a>
+      <a href="/projector" target="_blank" class="nav-link-btn" style="background: rgba(255,255,255,0.08);">
+        <span>🖥️</span> Open Projector
+      </a>
+      <a href="/speller" target="_blank" class="nav-link-btn" style="background: rgba(255,255,255,0.08);">
+        <span>🧑‍🎓</span> Open Speller
+      </a>
+      <a href="/leaderboard" target="_blank" class="nav-link-btn" style="background: rgba(255,255,255,0.08);">
+        <span>📊</span> Standings
+      </a>
+    </div>
+  </header>
+
+  <div class="tb-container">
+    
+    <!-- STANDBY OVERLAY (Shown if tiebreaker is not active) -->
+    <div id="standbyOverlay">
+      <span style="font-size: 3.8rem; margin-bottom: 16px;">🔒</span>
+      <h2 style="font-family: 'Cinzel', serif; font-size: 2rem; color: #fbbf24; margin-bottom: 10px; letter-spacing: 0.05em;">
+        Tiebreaker Cockpit on Standby
+      </h2>
+      <p style="color: #cbd5e1; max-width: 620px; line-height: 1.6; margin-bottom: 24px; font-size: 1.05rem;">
+        This arena remains locked during normal stage rounds. It is only opened when the Judges complete an attempt round and launch a tiebreaker session from <b>End Stage &amp; Review</b>.
+      </p>
+      <div style="background: rgba(245, 158, 11, 0.12); border: 1.5px solid #f59e0b; border-radius: 12px; padding: 18px 24px; text-align: left; max-width: 650px; font-size: 0.92rem; color: #fde68a; box-shadow: 0 4px 20px rgba(0,0,0,0.3);">
+        <strong style="font-size: 1rem; color: #fff; display: flex; align-items: center; gap: 8px;">
+          <span>📋</span> How the Tiebreaker Activates:
+        </strong>
+        <ol style="margin-left: 22px; margin-top: 10px; line-height: 1.7;">
+          <li>Judges conduct the stage round in the <b>Judges Cockpit</b>.</li>
+          <li>When all spellers have spelled and the round is finished, click <b>🏁 End Stage &amp; Review</b> (in the top header or below the arena).</li>
+          <li>If multiple contestants have the same score at the advancement cutoff, the system detects the tie.</li>
+          <li>Click <b>⚡ Send Tied Students to Tiebreaker Cockpit</b> to initialize this arena.</li>
+        </ol>
+      </div>
+      <div style="display: flex; gap: 14px; margin-top: 24px; flex-wrap: wrap; justify-content: center;">
+        <button id="btnForceCheckTiebreaker" class="btn-aux" style="padding: 12px 28px; font-weight: 800; font-size: 1rem; border-color: #4ade80; color: #fff; background: linear-gradient(135deg, #15803d, #16a34a); border-radius: 8px; cursor: pointer;">
+          ⚡ Check &amp; Enter Active Tiebreaker Arena
+        </button>
+        <a href="/judge" class="btn-aux" style="padding: 12px 28px; font-weight: 800; font-size: 1rem; border-color: #f59e0b; color: #000; background: linear-gradient(135deg, #fbbf24, #d97706); border-radius: 8px; text-decoration: none;">
+          ← Return to Judges Cockpit
+        </a>
+      </div>
+    </div>
+
+    <!-- ACTIVE TIEBREAKER WORKSPACE -->
+    <div id="activeWorkspace" style="display: none;">
+
+      <!-- Live Session Banner -->
+      <div id="tbSessionBanner" style="margin-bottom: 16px; padding: 14px 20px; background: rgba(217,119,6,0.15); border: 2px solid #d97706; border-radius: 12px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <span style="font-size: 1.6rem;">⚡</span>
+          <div>
+            <strong id="tbBannerTitle" style="color: #fbbf24; font-size: 1.05rem;">Stage 1 Tiebreaker Round 1</strong>
+            <p id="tbBannerDesc" style="font-size: 0.85rem; color: #fde68a; margin-top: 2px;">
+              Target: Need 5 more contestant(s) to qualify • 1 mark per correct answer • Wrong answer = knocked out
+            </p>
+          </div>
+        </div>
+        <div style="display: flex; gap: 10px; align-items: center;">
+          <button id="btnConfirmAdvancementTop" class="btn-aux" style="display: none; background: linear-gradient(135deg, #15803d, #16a34a); border-color: #4ade80; color: #fff; font-weight: 800; padding: 8px 18px;">
+            🏆 Confirm Advancement to Next Stage
+          </button>
+          <button id="btnCancelTiebreaker" class="btn-aux" style="border-color: #ef4444; color: #f87171; font-size: 0.78rem;">
+            Cancel Session
+          </button>
+        </div>
+      </div>
+
+      <!-- 3-Column Cockpit Grid -->
+      <div class="tb-grid">
+        
+        <!-- Column 1: Pronouncer Card -->
+        <aside class="tb-card">
+          <div class="tb-card-header">
+            <h3 class="tb-card-title"><span>🎙️</span> Pronouncer Guide</h3>
+            <span class="badge-pill gold" id="tbWordStagePill">Stage Question</span>
+          </div>
+
+          <!-- Target Word Display -->
+          <div class="tb-word-box">
+            <div class="tb-word-target" id="tbTargetWord">-- SELECT QUESTION --</div>
+            <div class="tb-word-phonetic" id="tbPhonetic">\ phonetic \</div>
+            <div style="display: flex; justify-content: center; gap: 8px; margin-top: 8px;">
+              <span class="badge-pill emerald" id="tbPos">Part of Speech</span>
+              <span class="badge-pill gold" id="tbOrigin">Language Origin</span>
+            </div>
+          </div>
+
+          <!-- Pronouncer Details -->
+          <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; font-size: 0.85rem;">
+            <div style="background: #070c08; padding: 8px 12px; border-radius: 6px; border: 1px solid var(--border-color);">
+              <strong style="color: var(--brand-green-light); font-size: 0.72rem; text-transform: uppercase; display: block; margin-bottom: 2px;">Definition</strong>
+              <div id="tbDef" style="color: #cbd5e1;">Select a question from the stage pool.</div>
+            </div>
+            <div style="background: #070c08; padding: 8px 12px; border-radius: 6px; border: 1px solid var(--border-color);">
+              <strong style="color: var(--brand-green-light); font-size: 0.72rem; text-transform: uppercase; display: block; margin-bottom: 2px;">Context Sentence</strong>
+              <div id="tbSentence" style="color: #cbd5e1;">Select a question to view sentence.</div>
+            </div>
+          </div>
+
+          <!-- TTS Pronounce buttons -->
+          <div style="display: flex; gap: 8px;">
+            <button class="btn-aux" id="btnTbPronounce" style="flex: 1;">🔊 Word</button>
+            <button class="btn-aux" id="btnTbSpeakSentence" style="flex: 1;">💬 Sentence</button>
+          </div>
+        </aside>
+
+        <!-- Column 2: Adjudication Arena -->
+        <main class="tb-card">
+          <div class="tb-card-header">
+            <h3 class="tb-card-title"><span>⚖️</span> Live Tie Adjudication</h3>
+            <span class="badge-pill emerald" id="tbActiveStudentPill">Speller Ready</span>
+          </div>
+
+          <!-- Active Speller Hero -->
+          <div class="contestant-active-hero">
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <div class="contestant-badge-num">
+                <span>NUM</span>
+                <strong id="tbActiveSpellerBadge">--</strong>
+              </div>
+              <div>
+                <h2 style="font-family: 'Cinzel', serif; font-size: 1.35rem; font-weight: 800; color: #fff;" id="tbActiveSpellerName">Select Speller</h2>
+                <p style="font-size: 0.82rem; color: #4ade80;" id="tbActiveSpellerSchool">School Name</p>
+                <span style="font-size: 0.72rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;" id="tbActiveSpellerLga">Jigawa State</span>
+              </div>
+            </div>
+            <div style="text-align: right;">
+              <span class="badge-pill gold" id="tbActiveSpellerMarks">0 Marks</span>
+            </div>
+          </div>
+
+          <!-- Timer Bar -->
+          <div class="timer-control-block">
+            <div>
+              <span style="font-size: 0.72rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; display: block;">Countdown</span>
+              <div class="timer-huge-digit" id="tbTimerDisplay">60</div>
+            </div>
+            <div style="display: flex; gap: 8px;">
+              <button class="btn-timer start" id="btnTbTimerStart">▶ Start</button>
+              <button class="btn-timer pause" id="btnTbTimerPause">⏸ Pause</button>
+              <button class="btn-timer reset" id="btnTbTimerReset">↺ Reset</button>
+              <button class="btn-timer bonus" id="btnTbTimerPlus30">+30s</button>
+            </div>
+          </div>
+
+          <!-- Spelling Input -->
+          <div style="margin-bottom: 14px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+              <label style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted);">
+                Contestant Spelling (Live Input):
+              </label>
+              <span class="badge-pill" id="tbMatchBadge">Awaiting letters</span>
+            </div>
+            <input type="text" id="tbInputSpelling" class="spelling-text-input" placeholder="TYPE LETTERS AS SPELLER SPEAKS..." autocomplete="off">
+          </div>
+
+          <!-- Decision Buttons (Beautiful Gradient) -->
+          <div class="decision-button-cluster">
+            <button class="btn-decision correct" id="btnTbCorrect">
+              <span>✓ CORRECT SPELLING</span>
+              <span class="sub">+1 Mark &bull; Qualified to Next Stage</span>
+            </button>
+            <button class="btn-decision incorrect" id="btnTbIncorrect">
+              <span>✗ INCORRECT SPELLING</span>
+              <span class="sub">0 Marks &bull; Knocked Out of Tie</span>
+            </button>
+          </div>
+
+          <!-- Decision banner -->
+          <div id="tbDecisionBanner" style="display: none; padding: 12px; border-radius: 8px; text-align: center; font-weight: 700; font-family: 'JetBrains Mono', monospace; font-size: 0.88rem; margin-top: 10px;"></div>
+
+          <!-- Advance Next Speller -->
+          <div style="margin-top: 14px; display: flex; gap: 10px;">
+            <button class="btn-aux" id="btnTbNextSpeller" style="flex: 1; padding: 12px; font-weight: 800; font-size: 0.95rem;">
+              ⏩ Next Tied Speller
+            </button>
+          </div>
+        </main>
+
+        <!-- Column 3: Tied Contestants & Stage Questions -->
+        <aside class="tb-card">
+          <div class="tb-card-header">
+            <h3 class="tb-card-title"><span>👥</span> Tied Contestants</h3>
+            <span class="badge-pill gold" id="tbTiedCountBadge">0 Total</span>
+          </div>
+
+          <!-- Sub-tabs: Contesting, Passed, Eliminated -->
+          <div style="display: flex; gap: 4px; margin-bottom: 12px; background: #070c08; padding: 3px; border-radius: 8px; border: 1px solid var(--border-color);">
+            <button class="roster-tab-btn active" id="tabTbContesting" data-tab="contesting" style="flex: 1; padding: 6px; font-size: 0.72rem;">Contesting (<span id="countContesting">0</span>)</button>
+            <button class="roster-tab-btn" id="tabTbPassed" data-tab="passed" style="flex: 1; padding: 6px; font-size: 0.72rem; color: #4ade80;">Qualified (<span id="countPassed">0</span>)</button>
+            <button class="roster-tab-btn" id="tabTbElim" data-tab="elim" style="flex: 1; padding: 6px; font-size: 0.72rem; color: #f87171;">Knocked Out (<span id="countElim">0</span>)</button>
+          </div>
+
+          <div style="max-height: 220px; overflow-y: auto; display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px;" id="tbContestantsList"></div>
+
+          <!-- Remaining Stage Questions -->
+          <div class="tb-card-header" style="margin-top: 8px;">
+            <h3 class="tb-card-title" style="font-size: 0.85rem;"><span>📖</span> Stage Questions</h3>
+            <span style="font-size: 0.72rem; color: #4ade80; font-family: 'JetBrains Mono', monospace;" id="tbWordCountLabel">Pool Available</span>
+          </div>
+          <div class="tb-word-grid" id="tbWordGrid"></div>
+        </aside>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    (function() {
+      'use strict';
+
+      let AppState = null;
+      let currentTab = 'contesting';
+      let isSubmitting = false;
+      // Clock-skew correction — keeps timer in sync on machines with wrong clocks
+      let _clockOffset = 0;
+      function syncedNow() { return Date.now() + _clockOffset; }
+
+      const socket = io();
+      socket.on('connect', () => {
+        loadInitialState();
+      });
+      socket.on('STATE_UPDATE', (state) => {
+        if (state.serverTime) _clockOffset = state.serverTime - Date.now();
+        AppState = state;
+        render();
+      });
+
+      async function loadInitialState(retryCount = 0) {
+        try {
+          const res = await fetch('/api/state?t=' + Date.now(), { cache: 'no-store' });
+          if (res.ok) {
+            AppState = await res.json();
+            if (AppState.serverTime) _clockOffset = AppState.serverTime - Date.now();
+            render();
+            // Race-condition guard: if tiebreaker not active yet, retry with backoff
+            // (handles case where page loads before server finishes committing state)
+            if (!AppState.tiebreakerActive && retryCount < 8) {
+              setTimeout(() => loadInitialState(retryCount + 1), 300 + retryCount * 200);
+            }
+          }
+        } catch (e) {
+          console.error('Failed to load state:', e);
+          if (retryCount < 8) setTimeout(() => loadInitialState(retryCount + 1), 500);
+        }
+      }
+      loadInitialState();
+      setInterval(loadInitialState, 1500);
+
+      document.getElementById('btnForceCheckTiebreaker')?.addEventListener('click', async () => {
+        await loadInitialState();
+      });
+
+      async function sendTbAction(action, payload = {}) {
+        try {
+          const res = await fetch('/api/tiebreaker/action', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ action, payload })
+          });
+          const data = await res.json();
+          if (data.state) {
+            AppState = data.state;
+            render();
+          } else if (data.error) {
+            alert(data.error);
+          }
+        } catch (err) {
+          console.error('Tiebreaker action error:', err);
+        } finally {
+          isSubmitting = false;
+        }
+      }
+
+      function escapeHtml(str) {
+        return String(str || '').replace(/[&<>"']/g, c => ({
+          '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+        }[c]));
+      }
+
+      function render() {
+        const standby = document.getElementById('standbyOverlay');
+        const workspace = document.getElementById('activeWorkspace');
+
+        if (!AppState) {
+          if (standby) standby.style.display = 'flex';
+          if (workspace) workspace.style.display = 'none';
+          return;
+        }
+
+        const isTbActive = Boolean(AppState.tiebreakerActive);
+        if (standby) standby.style.display = isTbActive ? 'none' : 'flex';
+        if (workspace) workspace.style.display = isTbActive ? 'block' : 'none';
+
+        if (!isTbActive) return;
+
+        const tb = AppState.tiebreakerData || {};
+        const stage = tb.stage || AppState.round || 1;
+        const breakerLimit = tb.breakerLimit || 1;
+        const passedCount = (tb.passedStudentIds || []).length;
+        const elimCount = (tb.eliminatedStudentIds || []).length;
+        const contesting = tb.contestingStudentIds || [];
+
+        // Title and banner
+        document.getElementById('tbHeaderTitle').textContent = `Stage ${stage} Tiebreaker Cockpit`;
+        document.getElementById('tbHeaderSub').textContent = `Runoff Elimination • Stage ${stage} Questions (1 Mark/Word)`;
+        document.getElementById('tbBannerTitle').textContent = `Stage ${stage} Tiebreaker • Round ${tb.round || 1}`;
+
+        const remNeeded = Math.max(0, breakerLimit - passedCount);
+        const bannerDesc = tb.statusMessage || `Advancement Quota: Need ${breakerLimit} student(s) to qualify • Currently Qualified: ${passedCount} (${remNeeded} slot(s) remaining) • 1 mark per correct word`;
+        document.getElementById('tbBannerDesc').textContent = bannerDesc;
+
+        // Check if target reached
+        const btnAdvanceTop = document.getElementById('btnConfirmAdvancementTop');
+        if (tb.targetMet || passedCount >= breakerLimit) {
+          btnAdvanceTop.style.display = 'inline-block';
+          btnAdvanceTop.textContent = `🏆 Advance ${passedCount} Qualified Contestants to Stage ${stage + 1} →`;
+        } else {
+          btnAdvanceTop.style.display = 'none';
+        }
+
+        // Active Speller
+        const activeStudent = (AppState.students || []).find(s => Number(s.id) === Number(tb.activeSpellerId));
+        if (activeStudent) {
+          document.getElementById('tbActiveSpellerBadge').textContent = String(activeStudent.id).padStart(3, '0');
+          document.getElementById('tbActiveSpellerName').textContent = activeStudent.name;
+          document.getElementById('tbActiveSpellerSchool').textContent = activeStudent.school;
+          document.getElementById('tbActiveSpellerLga').textContent = `${activeStudent.lga || 'Jigawa'} Zone`;
+          const score = (activeStudent.scores && activeStudent.scores[stage]) || 0;
+          document.getElementById('tbActiveSpellerMarks').textContent = `${score} Marks`;
+          document.getElementById('tbActiveStudentPill').textContent = `#${activeStudent.id} on Stage`;
+        } else {
+          document.getElementById('tbActiveSpellerBadge').textContent = '--';
+          document.getElementById('tbActiveSpellerName').textContent = 'Select Speller';
+          document.getElementById('tbActiveSpellerSchool').textContent = 'No speller selected';
+          document.getElementById('tbActiveSpellerMarks').textContent = '0 Marks';
+          document.getElementById('tbActiveStudentPill').textContent = 'Awaiting Selection';
+        }
+
+        // Target Word
+        const activeWord = AppState.words ? AppState.words[tb.activeQuestionNum] : null;
+        if (activeWord) {
+          document.getElementById('tbTargetWord').textContent = activeWord.word;
+          document.getElementById('tbPhonetic').textContent = activeWord.phonetic || '\\ phonetic \\';
+          document.getElementById('tbPos').textContent = activeWord.pos || 'Word';
+          document.getElementById('tbOrigin').textContent = activeWord.origin || 'Origin';
+          document.getElementById('tbDef').textContent = activeWord.def || activeWord.definition || 'No definition recorded.';
+          document.getElementById('tbSentence').textContent = activeWord.sentence || 'No example sentence.';
+        } else {
+          document.getElementById('tbTargetWord').textContent = '-- SELECT QUESTION --';
+          document.getElementById('tbPhonetic').textContent = '\\ phonetic \\';
+          document.getElementById('tbPos').textContent = 'Part of Speech';
+          document.getElementById('tbOrigin').textContent = 'Origin';
+          document.getElementById('tbDef').textContent = 'Select a question from the stage pool.';
+          document.getElementById('tbSentence').textContent = 'Select a question to view context.';
+        }
+
+        // Match badge
+        const matchBadge = document.getElementById('tbMatchBadge');
+        const typedClean = (tb.currentSpelling || '').toUpperCase().replace(/[^A-Z]/g, '');
+        const targetClean = (activeWord?.word || '').toUpperCase().replace(/[^A-Z]/g, '');
+        if (typedClean.length === 0) {
+          matchBadge.textContent = 'Awaiting letters';
+          matchBadge.className = 'badge-pill';
+        } else if (targetClean.length > 0 && typedClean === targetClean) {
+          matchBadge.textContent = '✓ MATCHES TARGET';
+          matchBadge.className = 'badge-pill emerald';
+        } else {
+          matchBadge.textContent = '✗ DOES NOT MATCH';
+          matchBadge.className = 'badge-pill crimson';
+        }
+
+        // Decision Buttons Lock state
+        const btnCor = document.getElementById('btnTbCorrect');
+        const btnInc = document.getElementById('btnTbIncorrect');
+        const banner = document.getElementById('tbDecisionBanner');
+
+        if (tb.decisionLocked) {
+          btnCor.disabled = true;
+          btnInc.disabled = true;
+          banner.style.display = 'block';
+          if (tb.adjudicationResult === 'correct') {
+            banner.style.background = 'rgba(26,122,26,0.25)';
+            banner.style.border = '1.5px solid var(--brand-green)';
+            banner.style.color = '#4ade80';
+            banner.textContent = '✓ CORRECT! Speller has QUALIFIED (+1 Mark). Click Next Speller.';
+          } else {
+            banner.style.background = 'rgba(204,27,27,0.25)';
+            banner.style.border = '1.5px solid var(--brand-red)';
+            banner.style.color = '#ff8888';
+            banner.textContent = '✗ INCORRECT! Speller is KNOCKED OUT. Click Next Speller.';
+          }
+        } else {
+          btnCor.disabled = false;
+          btnInc.disabled = false;
+          banner.style.display = 'none';
+        }
+
+        // Roster tabs count
+        const passedIds = tb.passedStudentIds || [];
+        const elimIds = tb.eliminatedStudentIds || [];
+
+        document.getElementById('countContesting').textContent = contesting.length;
+        document.getElementById('countPassed').textContent = passedIds.length;
+        document.getElementById('countElim').textContent = elimIds.length;
+        document.getElementById('tbTiedCountBadge').textContent = `${(tb.tiedStudentIds || []).length} Total Tied`;
+
+        // Render roster list based on active tab
+        renderRosterList(tb);
+
+        // Render stage question grid
+        renderStageWordGrid(stage, tb.activeQuestionNum);
+      }
+
+      function renderRosterList(tb) {
+        const container = document.getElementById('tbContestantsList');
+        if (!container || !AppState) return;
+
+        const passedIds = tb.passedStudentIds || [];
+        const elimIds = tb.eliminatedStudentIds || [];
+        const contesting = tb.contestingStudentIds || [];
+        const roundAttempts = tb.roundAttempts || {};
+
+        let displayIds = contesting;
+        if (currentTab === 'passed') displayIds = passedIds;
+        else if (currentTab === 'elim') displayIds = elimIds;
+
+        if (displayIds.length === 0) {
+          container.innerHTML = '<div style="text-align: center; color: var(--text-muted); font-size: 0.78rem; padding: 12px;">No contestants in this category.</div>';
+          return;
+        }
+
+        container.innerHTML = displayIds.map(sid => {
+          const s = (AppState.students || []).find(st => st.id === sid);
+          if (!s) return '';
+          const isCurrent = s.id === tb.activeSpellerId;
+          const isPassed = passedIds.includes(s.id);
+          const isElim = elimIds.includes(s.id);
+          const attempt = roundAttempts[s.id];
+
+          let badgeClass = 'gold';
+          let badgeText = 'READY';
+
+          if (currentTab === 'passed') {
+            badgeClass = 'emerald';
+            badgeText = '✓ QUALIFIED';
+          } else if (currentTab === 'elim') {
+            badgeClass = 'crimson';
+            badgeText = 'KNOCKED OUT';
+          } else {
+            // Contesting in current round
+            if (attempt) {
+              if (attempt.result === 'correct') {
+                badgeClass = 'emerald';
+                badgeText = '✓ Correct (+1)';
+              } else {
+                badgeClass = 'crimson';
+                badgeText = '✗ Missed';
+              }
+            } else if (isCurrent) {
+              badgeClass = 'emerald';
+              badgeText = 'ON STAGE';
+            } else {
+              badgeClass = 'gold';
+              badgeText = '⏳ In Queue';
+            }
+          }
+
+          return `
+            <div class="roster-item-card ${isCurrent ? 'current' : ''}" data-sid="${s.id}" style="cursor: pointer; padding: 8px 12px; background: #0c140e; border: 1px solid var(--border-color); border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <strong style="font-size: 0.85rem; color: #fff;">#${String(s.id).padStart(3, '0')} ${escapeHtml(s.name)}</strong>
+                <span style="font-size: 0.72rem; color: var(--text-muted); display: block;">${escapeHtml(s.school)}</span>
+              </div>
+              <span class="badge-pill ${badgeClass}">${badgeText}</span>
+            </div>
+          `;
+        }).join('');
+      }
+
+      function renderStageWordGrid(stage, activeQNum) {
+        const grid = document.getElementById('tbWordGrid');
+        if (!grid || !AppState) return;
+
+        const minQ = stage === 1 ? 1 : (stage === 2 ? 101 : (stage === 3 ? 201 : 301));
+        const maxQ = stage === 1 ? 100 : (stage === 2 ? 200 : (stage === 3 ? 300 : 400));
+        const used = AppState.usedWordNums || [];
+
+        const nums = [];
+        for (let i = minQ; i <= maxQ; i++) nums.push(i);
+
+        const unusedCount = nums.filter(n => !used.includes(n)).length;
+        document.getElementById('tbWordCountLabel').textContent = `${unusedCount} / ${nums.length} Available in Stage ${stage}`;
+
+        grid.innerHTML = nums.map(n => {
+          const isUsed = used.includes(n);
+          const isActive = Number(n) === Number(activeQNum);
+          return `
+            <button class="tb-q-btn ${isUsed ? 'used' : ''} ${isActive ? 'active' : ''}" 
+                    data-num="${n}" title="Question #${n}">
+              ${n}
+            </button>
+          `;
+        }).join('');
+      }
+
+      // Roster tab switching
+      document.querySelectorAll('.roster-tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.roster-tab-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentTab = btn.dataset.tab;
+          if (AppState?.tiebreakerData) renderRosterList(AppState.tiebreakerData);
+        });
+      });
+
+      // Question select
+      document.getElementById('tbWordGrid').addEventListener('click', (e) => {
+        const btn = e.target.closest('.tb-q-btn');
+        if (!btn) return;
+        const num = parseInt(btn.dataset.num, 10);
+        if (num) sendTbAction('SELECT_QUESTION', { questionNum: num });
+      });
+
+      // Speller select
+      document.getElementById('tbContestantsList').addEventListener('click', (e) => {
+        const card = e.target.closest('.roster-item-card');
+        if (!card) return;
+        const sid = Number(card.dataset.sid);
+        if (sid) sendTbAction('SELECT_SPELLER', { studentId: sid });
+      });
+
+      // Spelling input — debounced to prevent lag on fast typing
+      let _tbSpellingDebounce = null;
+      document.getElementById('tbInputSpelling').addEventListener('input', (e) => {
+        const val = e.target.value;
+        // Update local state immediately so match badge is live
+        if (AppState?.tiebreakerData) AppState.tiebreakerData.currentSpelling = val;
+        render();
+        // Debounce server sync — only send after 250ms idle
+        clearTimeout(_tbSpellingDebounce);
+        _tbSpellingDebounce = setTimeout(() => {
+          sendTbAction('UPDATE_SPELLING', { spelling: val });
+        }, 250);
+      });
+
+      // Validation and decision
+      document.getElementById('btnTbCorrect').addEventListener('click', () => {
+        if (isSubmitting) return;
+
+        const tb = AppState?.tiebreakerData;
+        if (!tb) return;
+
+        const timerHasRun = tb.timerStartedForTurn || tb.timerRunning || Number(tb.timerEnd) > 0 || tb.timerPausedRemaining !== null;
+        if (!timerHasRun) {
+          alert('⚠️ Please start the countdown timer before adjudicating this turn.');
+          return;
+        }
+
+        const typed = (document.getElementById('tbInputSpelling').value || tb.currentSpelling || '').trim().toUpperCase();
+        if (typed.length === 0) {
+          alert('⚠️ Contestant must spell the word before recording a decision.');
+          return;
+        }
+
+        const activeWord = AppState?.words ? AppState.words[tb.activeQuestionNum] : null;
+        const targetClean = (activeWord?.word || '').toUpperCase().replace(/[^A-Z]/g, '');
+        const typedClean = typed.replace(/[^A-Z]/g, '');
+
+        if (targetClean.length > 0 && typedClean !== targetClean) {
+          if (!confirm(`⚠️ WARNING: The typed word ("${typedClean}") does NOT match the target word ("${targetClean}")!\n\nAre you sure you want to mark this as CORRECT?`)) {
+            return;
+          }
+        }
+
+        isSubmitting = true;
+        document.getElementById('btnTbCorrect').disabled = true;
+        document.getElementById('btnTbIncorrect').disabled = true;
+        sendTbAction('MARK_DECISION', { isCorrect: true });
+      });
+
+      document.getElementById('btnTbIncorrect').addEventListener('click', () => {
+        if (isSubmitting) return;
+
+        const tb = AppState?.tiebreakerData;
+        if (!tb) return;
+
+        const timerHasRun = tb.timerStartedForTurn || tb.timerRunning || Number(tb.timerEnd) > 0 || tb.timerPausedRemaining !== null;
+        if (!timerHasRun) {
+          alert('⚠️ Please start the countdown timer before adjudicating this turn.');
+          return;
+        }
+
+        const typed = (document.getElementById('tbInputSpelling').value || tb.currentSpelling || '').trim().toUpperCase();
+        if (typed.length === 0) {
+          alert('⚠️ Contestant must spell the word before recording a decision.');
+          return;
+        }
+
+        const activeWord = AppState?.words ? AppState.words[tb.activeQuestionNum] : null;
+        const targetClean = (activeWord?.word || '').toUpperCase().replace(/[^A-Z]/g, '');
+        const typedClean = typed.replace(/[^A-Z]/g, '');
+
+        if (targetClean.length > 0 && typedClean === targetClean) {
+          if (!confirm(`⚠️ WARNING: The typed word MATCHES the target word perfectly ("${targetClean}")!\n\nAre you sure you want to mark this as INCORRECT?`)) {
+            return;
+          }
+        }
+
+        isSubmitting = true;
+        document.getElementById('btnTbCorrect').disabled = true;
+        document.getElementById('btnTbIncorrect').disabled = true;
+        sendTbAction('MARK_DECISION', { isCorrect: false });
+      });
+
+      document.getElementById('btnTbNextSpeller').addEventListener('click', () => {
+        const inp = document.getElementById('tbInputSpelling');
+        if (inp) inp.value = '';   // clear immediately for next speller
+        sendTbAction('ADVANCE_SPELLER').then(() => {
+          if (inp) { inp.value = ''; inp.focus(); }
+        });
+      });
+
+      // Confirm advancement
+      document.getElementById('btnConfirmAdvancementTop').addEventListener('click', async () => {
+        const tb = AppState?.tiebreakerData;
+        if (!tb) return;
+        if (!confirm(`Confirm advancement of qualified contestants to the next stage?`)) return;
+
+        try {
+          const res = await fetch('/api/tiebreaker/confirm', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              safeStudentIds: tb.safeStudentIds || []
+            })
+          });
+          const data = await res.json();
+          if (data.success) {
+            alert(`✅ ${data.message}`);
+            window.location.href = '/judge';
+          } else {
+            alert('❌ ' + (data.error || 'Failed to advance'));
+          }
+        } catch (e) {
+          alert('Network error: ' + e.message);
+        }
+      });
+
+      // Cancel tiebreaker
+      document.getElementById('btnCancelTiebreaker').addEventListener('click', async () => {
+        if (!confirm('Cancel this tiebreaker session and return to normal mode?')) return;
+        try {
+          await fetch('/api/tiebreaker/cancel', { method: 'POST' });
+          window.location.href = '/judge';
+        } catch (e) {
+          alert(e.message);
+        }
+      });
+
+      // Timer buttons
+      document.getElementById('btnTbTimerStart').addEventListener('click', () => {
+        sendTbAction('START_TIMER').then(() => {
+          // Auto-focus spelling input so judge can type immediately
+          const inp = document.getElementById('tbInputSpelling');
+          if (inp) inp.focus();
+        });
+      });
+      document.getElementById('btnTbTimerPause').addEventListener('click', () => sendTbAction('PAUSE_TIMER'));
+      document.getElementById('btnTbTimerReset').addEventListener('click', () => sendTbAction('RESET_TIMER'));
+      document.getElementById('btnTbTimerPlus30').addEventListener('click', () => sendTbAction('PLUS_30_SEC'));
+
+      // TTS
+      function speak(text) {
+        if (!('speechSynthesis' in window) || !text) return;
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.rate = 0.9;
+        window.speechSynthesis.speak(u);
+      }
+      document.getElementById('btnTbPronounce').addEventListener('click', () => {
+        const tb = AppState?.tiebreakerData;
+        const w = AppState?.words ? AppState.words[tb?.activeQuestionNum] : null;
+        if (w) speak(w.word);
+      });
+      document.getElementById('btnTbSpeakSentence').addEventListener('click', () => {
+        const tb = AppState?.tiebreakerData;
+        const w = AppState?.words ? AppState.words[tb?.activeQuestionNum] : null;
+        if (w) speak(w.sentence);
+      });
+
+      // Timer ticker
+      let autoValidatedThisTurn = false;
+      function getSecondsRemaining() {
+        if (!AppState?.tiebreakerData) return 60;
+        const tb = AppState.tiebreakerData;
+        if (tb.timerPausedRemaining != null) return Math.max(0, tb.timerPausedRemaining);
+        if (!tb.timerRunning || !tb.timerEnd) return AppState.timerDuration || 60;
+        // Use syncedNow() so clock-skew machines count identically to the server
+        return Math.max(0, Math.ceil((tb.timerEnd - syncedNow()) / 1000));
+      }
+
+      setInterval(() => {
+        const sec = getSecondsRemaining();
+        const el = document.getElementById('tbTimerDisplay');
+        if (el) {
+          el.textContent = sec;
+          const warn = AppState ? (AppState.timerWarning || 10) : 10;
+          el.classList.toggle('warning', sec <= warn && sec > 0);
+          el.classList.toggle('danger', sec === 0);
+        }
+
+        const tb = AppState?.tiebreakerData;
+        if (sec === 0 && tb && tb.timerRunning && !tb.adjudicationResult && !tb.decisionLocked && !autoValidatedThisTurn) {
+          autoValidatedThisTurn = true;
+          const activeWord = AppState?.words ? AppState.words[tb.activeQuestionNum] : null;
+          const targetClean = (activeWord?.word || '').toUpperCase().replace(/[^A-Z]/g, '');
+          const spelledClean = (tb.currentSpelling || '').toUpperCase().replace(/[^A-Z]/g, '');
+          const isMatch = targetClean.length > 0 && targetClean === spelledClean;
+
+          sendTbAction('MARK_DECISION', { isCorrect: isMatch, isTimeout: true });
+        } else if (sec > 0) {
+          autoValidatedThisTurn = false;
+        }
+      }, 250);
+
+      // Keyboard hotkeys (Enter disabled from recording decision!)
+      window.addEventListener('keydown', (e) => {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+        if (e.key === ' ' || e.code === 'Space') {
+          e.preventDefault();
+          const tb = AppState?.tiebreakerData;
+          if (tb && tb.timerRunning) sendTbAction('PAUSE_TIMER');
+          else sendTbAction('START_TIMER');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
