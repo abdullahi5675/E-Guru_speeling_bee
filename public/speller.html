@@ -665,7 +665,7 @@
     <span class="kowaguru">⚡ Official Software by KowaguruTech</span>
   </div>
 
-  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/socket.io.min.js"></script>
   <script>
     (function () {
       'use strict';
@@ -675,17 +675,24 @@
       let _clockOffset = 0;
       function syncedNow() { return Date.now() + _clockOffset; }
 
-      const socket = io();
-      socket.on('connect', () => {
-        document.getElementById('connLabel').textContent = 'LIVE SYNC';
-        loadInitialState();
-      });
-      socket.on('disconnect', () => document.getElementById('connLabel').textContent = 'RECONNECTING…');
-      socket.on('STATE_UPDATE', (state) => {
-        if (state.serverTime) _clockOffset = state.serverTime - Date.now();
-        AppState = state;
-        render();
-      });
+      let socket = null;
+      try {
+        if (typeof io === 'function') {
+          socket = io({ reconnectionAttempts: 3, timeout: 3000 });
+          socket.on('connect', () => {
+            document.getElementById('connLabel').textContent = 'LIVE SYNC';
+            loadInitialState();
+          });
+          socket.on('disconnect', () => document.getElementById('connLabel').textContent = 'LIVE (POLLING)');
+          socket.on('STATE_UPDATE', (state) => {
+            if (state.serverTime) _clockOffset = state.serverTime - Date.now();
+            AppState = state;
+            render();
+          });
+        }
+      } catch (e) {
+        console.warn('Socket init skipped:', e);
+      }
 
       async function loadInitialState() {
         try {

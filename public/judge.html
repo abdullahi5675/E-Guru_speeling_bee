@@ -1045,7 +1045,7 @@
     </div>
   </div>
 
-  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/socket.io.min.js"></script>
   <script src="/js/audio.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   <script>
@@ -1056,13 +1056,19 @@
     let _clockOffset = 0;
     function syncedNow() { return Date.now() + _clockOffset; }
 
-    const socket = io();
-
-    socket.on('STATE_UPDATE', (state) => {
-      if (state.serverTime) _clockOffset = state.serverTime - Date.now();
-      AppState = state;
-      renderCockpit();
-    });
+    let socket = null;
+    try {
+      if (typeof io === 'function') {
+        socket = io({ reconnectionAttempts: 3, timeout: 3000 });
+        socket.on('STATE_UPDATE', (state) => {
+          if (state.serverTime) _clockOffset = state.serverTime - Date.now();
+          AppState = state;
+          renderCockpit();
+        });
+      }
+    } catch (e) {
+      console.warn('Socket initialization skipped, relying on polling:', e);
+    }
 
     async function loadInitialState() {
       try {
@@ -1077,6 +1083,8 @@
       }
     }
     loadInitialState();
+    // Resilient fallback polling every 2s for serverless environments (e.g. Vercel)
+    setInterval(loadInitialState, 2000);
 
     async function sendAction(action, payload = {}) {
       try {

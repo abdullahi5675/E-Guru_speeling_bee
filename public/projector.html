@@ -427,7 +427,7 @@
     </div>
   </div>
 
-  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/socket.io.min.js"></script>
   <script src="/js/audio.js"></script>
   <script>
     let AppState = null;
@@ -435,17 +435,22 @@
     let _clockOffset = 0;
     function syncedNow() { return Date.now() + _clockOffset; }
 
-    const socket = io();
-
-    socket.on('connect', () => {
-      loadInitialState();
-    });
-
-    socket.on('STATE_UPDATE', (state) => {
-      if (state.serverTime) _clockOffset = state.serverTime - Date.now();
-      AppState = state;
-      renderStage();
-    });
+    let socket = null;
+    try {
+      if (typeof io === 'function') {
+        socket = io({ reconnectionAttempts: 3, timeout: 3000 });
+        socket.on('connect', () => {
+          loadInitialState();
+        });
+        socket.on('STATE_UPDATE', (state) => {
+          if (state.serverTime) _clockOffset = state.serverTime - Date.now();
+          AppState = state;
+          renderStage();
+        });
+      }
+    } catch (e) {
+      console.warn('Socket init skipped, relying on polling:', e);
+    }
 
     async function loadInitialState() {
       try {

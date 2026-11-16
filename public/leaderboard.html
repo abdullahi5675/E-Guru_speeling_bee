@@ -300,15 +300,22 @@
 
   </div>
 
-  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/socket.io.min.js"></script>
   <script>
-    const socket = io();
-    socket.on('connect', () => {
-      loadInitialState();
-    });
-    socket.on('STATE_UPDATE', (state) => {
-      renderBoard(state);
-    });
+    let socket = null;
+    try {
+      if (typeof io === 'function') {
+        socket = io({ reconnectionAttempts: 3, timeout: 3000 });
+        socket.on('connect', () => {
+          loadInitialState();
+        });
+        socket.on('STATE_UPDATE', (state) => {
+          renderBoard(state);
+        });
+      }
+    } catch (e) {
+      console.warn('Socket init skipped:', e);
+    }
 
     async function loadInitialState() {
       try {
