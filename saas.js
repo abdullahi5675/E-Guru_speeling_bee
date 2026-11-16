@@ -30,15 +30,21 @@ const pool = new Pool(
 
 // ── Apply SaaS schema migrations ──
 async function initSaasSchema() {
-  const schemaPath = path.join(__dirname, 'saas_schema.sql');
+  let schemaPath = path.join(__dirname, 'db', 'saas_schema.sql');
+  if (!fs.existsSync(schemaPath)) {
+    schemaPath = path.join(__dirname, 'saas_schema.sql');
+  }
+  if (!fs.existsSync(schemaPath)) {
+    console.warn('[SAAS] saas_schema.sql not found on disk, skipping auto-migration.');
+    return;
+  }
   const sql = fs.readFileSync(schemaPath, 'utf8');
   const client = await pool.connect();
   try {
     await client.query(sql);
     console.log('[SAAS] Multi-tenant schema verified.');
   } catch (err) {
-    console.error('[SAAS] Schema error:', err.message);
-    throw err;
+    console.warn('[SAAS] Schema notice:', err.message);
   } finally {
     client.release();
   }
