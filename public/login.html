@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Log In — E-Guru Spelling Bee</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    body { background: #060808; display: flex; flex-direction: column; min-height: 100vh; }
+    .auth-nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 32px; border-bottom: 1px solid var(--border-color);
+    }
+    .auth-brand { font-family: var(--font-title); font-size: 1.25rem; font-weight: 900; color: #fff; text-decoration: none; letter-spacing: 0.06em; }
+    .auth-brand span { color: var(--text-green); }
+    .auth-nav-link { color: var(--text-muted); font-size: 0.88rem; font-weight: 600; text-decoration: none; }
+    .auth-nav-link:hover { color: #fff; }
+    .auth-wrap { flex: 1; display: flex; align-items: center; justify-content: center; padding: 40px 20px; }
+    .auth-box {
+      background: var(--bg-card); border: 1px solid var(--border-color);
+      border-radius: 18px; padding: 44px 38px; width: 100%; max-width: 440px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .auth-logo-row { text-align: center; margin-bottom: 30px; }
+    .auth-logo-row h1 { font-family: var(--font-title); font-size: 1.6rem; font-weight: 900; color: #fff; margin-bottom: 5px; }
+    .auth-logo-row p { font-size: 0.85rem; color: var(--text-muted); }
+    .form-row { margin-bottom: 18px; }
+    label { display: block; font-size: 0.78rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 6px; }
+    input[type=email], input[type=password] {
+      width: 100%; background: var(--bg-dark); border: 1.5px solid var(--border-color);
+      border-radius: 8px; color: #fff; font-size: 0.95rem; padding: 11px 14px;
+      font-family: var(--font-body); transition: border-color 0.2s; outline: none;
+    }
+    input:focus { border-color: var(--brand-green); }
+    input::placeholder { color: var(--text-muted); }
+    .btn-submit {
+      width: 100%; background: var(--brand-green); color: #fff; border: none;
+      border-radius: 10px; padding: 13px 20px; font-size: 1rem; font-weight: 800;
+      cursor: pointer; font-family: var(--font-body); transition: all 0.2s;
+      box-shadow: 0 4px 16px rgba(26,122,26,0.35); margin-top: 6px;
+    }
+    .btn-submit:hover { background: var(--brand-green-light); }
+    .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+    .error-msg {
+      background: rgba(204,27,27,0.12); border: 1px solid var(--brand-red);
+      color: var(--text-red); border-radius: 8px; padding: 10px 14px;
+      font-size: 0.85rem; margin-bottom: 16px; display: none;
+    }
+    .auth-footer-link { text-align: center; margin-top: 20px; font-size: 0.85rem; color: var(--text-muted); }
+    .auth-footer-link a { color: var(--text-green); text-decoration: none; font-weight: 700; }
+    .jigawa-link {
+      display: block; text-align: center; margin-top: 24px;
+      padding: 10px; background: rgba(26,122,26,0.08);
+      border: 1px solid var(--border-color); border-radius: 8px;
+      color: var(--text-muted); font-size: 0.8rem; text-decoration: none;
+    }
+    .jigawa-link:hover { border-color: var(--brand-green); color: var(--text-green); }
+  </style>
+</head>
+<body>
+
+  <nav class="auth-nav">
+    <a href="/" class="auth-brand">E-<span>Guru</span> Spelling Bee</a>
+    <a href="/register" class="auth-nav-link">New here? Register Free →</a>
+  </nav>
+
+  <div class="auth-wrap">
+    <div class="auth-box">
+      <div class="auth-logo-row">
+        <h1>🔐 Welcome Back</h1>
+        <p>Log in to your organization's competition dashboard.</p>
+      </div>
+
+      <div class="error-msg" id="errorMsg"></div>
+
+      <form id="loginForm">
+        <div class="form-row">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="admin@yourschool.edu.ng" required autofocus>
+        </div>
+        <div class="form-row">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Your password" required>
+        </div>
+        <button type="submit" class="btn-submit" id="submitBtn">Log In to Dashboard</button>
+      </form>
+
+      <div class="auth-footer-link">
+        Don't have an account? <a href="/register">Register free</a>
+      </div>
+
+      <a href="/judge" class="jigawa-link">
+        🏛️ Jigawa State Championship Admin? Click here for the classic cockpit
+      </a>
+    </div>
+  </div>
+
+  <script>
+    // If already logged in redirect to dashboard
+    const existing = localStorage.getItem('eguru_token');
+    if (existing) window.location.href = '/dashboard';
+
+    const form = document.getElementById('loginForm');
+    const errorMsg = document.getElementById('errorMsg');
+    const submitBtn = document.getElementById('submitBtn');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errorMsg.style.display = 'none';
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = '⏳ Logging in...';
+
+      try {
+        const res = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password })
+        });
+        const data = await res.json();
+        if (!res.ok) {
+          errorMsg.textContent = data.error || 'Login failed.';
+          errorMsg.style.display = 'block';
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Log In to Dashboard';
+          return;
+        }
+        document.cookie = `eguru_token=${data.token}; path=/; max-age=${7*24*60*60}`;
+        localStorage.setItem('eguru_token', data.token);
+        localStorage.setItem('eguru_org', JSON.stringify(data.org));
+        window.location.href = '/dashboard';
+      } catch {
+        errorMsg.textContent = 'Network error. Please try again.';
+        errorMsg.style.display = 'block';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Log In to Dashboard';
+      }
+    });
+  </script>
+</body>
+</html>

@@ -600,10 +600,18 @@
       let _clockOffset = 0;
       function syncedNow() { return Date.now() + _clockOffset; }
 
+    // -- Org-context detection ----------------------------------------------
+    const _orgMatch = window.location.pathname.match(/^\/t\/([^/]+)\//);
+    const ORG_SLUG  = _orgMatch ? _orgMatch[1] : null;
+    const API_BASE  = ORG_SLUG  ? '/t/' + ORG_SLUG : '';
+    // ----------------------------------------------------------------------
+
+
       let socket = null;
       try {
         if (typeof io === 'function') {
           socket = io({ reconnectionAttempts: 3, timeout: 3000 });
+          if (ORG_SLUG) socket.emit('join_org', ORG_SLUG);
           socket.on('connect', () => {
             loadInitialState();
           });
@@ -619,7 +627,7 @@
 
       async function loadInitialState(retryCount = 0) {
         try {
-          const res = await fetch('/api/state?t=' + Date.now(), { cache: 'no-store' });
+          const res = await fetch(API_BASE + '/api/state?t=' + Date.now(), { cache: 'no-store' });
           if (res.ok) {
             AppState = await res.json();
             if (AppState.serverTime) _clockOffset = AppState.serverTime - Date.now();
@@ -644,7 +652,7 @@
 
       async function sendTbAction(action, payload = {}) {
         try {
-          const res = await fetch('/api/tiebreaker/action', {
+          const res = await fetch(API_BASE + '/api/tiebreaker/action', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ action, payload })
@@ -1019,7 +1027,7 @@
         if (!confirm(`Confirm advancement of qualified contestants to the next stage?`)) return;
 
         try {
-          const res = await fetch('/api/tiebreaker/confirm', {
+          const res = await fetch(API_BASE + '/api/tiebreaker/confirm', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -1042,7 +1050,7 @@
       document.getElementById('btnCancelTiebreaker').addEventListener('click', async () => {
         if (!confirm('Cancel this tiebreaker session and return to normal mode?')) return;
         try {
-          await fetch('/api/tiebreaker/cancel', { method: 'POST' });
+          await fetch(API_BASE + '/api/tiebreaker/cancel', { method: 'POST' });
           window.location.href = '/judge';
         } catch (e) {
           alert(e.message);

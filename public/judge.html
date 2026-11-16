@@ -1049,6 +1049,12 @@
   <script src="/js/audio.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   <script>
+    // ── Org-context detection ──────────────────────────────────────────────
+    const _orgMatch = window.location.pathname.match(/^\/t\/([^/]+)\//);
+    const ORG_SLUG  = _orgMatch ? _orgMatch[1] : null;
+    const API_BASE  = ORG_SLUG  ? '/t/' + ORG_SLUG : '';
+    // ──────────────────────────────────────────────────────────────────────
+
     let AppState = null;
     let currentRosterTab = 'active';
     // Clock-skew offset: difference between server time and this machine's time.
@@ -1060,6 +1066,7 @@
     try {
       if (typeof io === 'function') {
         socket = io({ reconnectionAttempts: 3, timeout: 3000 });
+        if (ORG_SLUG) socket.emit('join_org', ORG_SLUG);
         socket.on('STATE_UPDATE', (state) => {
           if (state.serverTime) _clockOffset = state.serverTime - Date.now();
           AppState = state;
@@ -1072,7 +1079,7 @@
 
     async function loadInitialState() {
       try {
-        const res = await fetch('/api/state');
+        const res = await fetch(API_BASE + '/api/state');
         if (res.ok) {
           AppState = await res.json();
           if (AppState.serverTime) _clockOffset = AppState.serverTime - Date.now();
@@ -1088,7 +1095,7 @@
 
     async function sendAction(action, payload = {}) {
       try {
-        const res = await fetch('/api/action', {
+        const res = await fetch(API_BASE + '/api/action', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ action, payload })
@@ -1591,7 +1598,7 @@
       if (!hid) return;
       if (!confirm('Reverse this decision?\n\nThis will adjust contestant points and un-mark the word so it can be re-used.')) return;
       try {
-        const res = await fetch('/api/decision/reverse', {
+        const res = await fetch(API_BASE + '/api/decision/reverse', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ historyId: hid })
@@ -1627,7 +1634,7 @@
 
     document.getElementById('btnEndStage').addEventListener('click', async () => {
       try {
-        const res = await fetch('/api/stage/end', { method: 'POST' });
+        const res = await fetch(API_BASE + '/api/stage/end', { method: 'POST' });
         const data = await res.json();
         if (!data.success) {
           alert('Error ending stage: ' + (data.error || 'Unknown error'));
@@ -1708,7 +1715,7 @@
         const breakerLimit = Math.max(1, (currentStageEndData.advanceTarget || 10) - safeCount);
 
         try {
-          const res = await fetch('/api/tiebreaker/start', {
+          const res = await fetch(API_BASE + '/api/tiebreaker/start', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -1758,7 +1765,7 @@
         return;
       }
       try {
-        const res = await fetch('/api/stage/confirm-advance', {
+        const res = await fetch(API_BASE + '/api/stage/confirm-advance', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ advancingIds: selected })
@@ -2000,7 +2007,7 @@
               });
             }
           });
-          const res = await fetch('/api/words/bulk', {
+          const res = await fetch(API_BASE + '/api/words/bulk', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ words })
@@ -2034,7 +2041,7 @@
               });
             }
           });
-          const res = await fetch('/api/students/bulk', {
+          const res = await fetch(API_BASE + '/api/students/bulk', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ students })
@@ -2074,7 +2081,7 @@
       const round = AppState ? AppState.round : '?';
       if (!confirm(`Clear Round ${round}?\n\nThis will:\n• Erase all scores & history for Round ${round}\n• Un-mark all Round ${round} words as used\n• Reset all spellers to alive\n• Keep other rounds untouched\n\nContinue?`)) return;
       try {
-        const res = await fetch('/api/reset/round', { method: 'POST' });
+        const res = await fetch(API_BASE + '/api/reset/round', { method: 'POST' });
         const data = await res.json();
         if (data.success) {
           showResetStatus(`✅ ${data.message}`);
@@ -2091,7 +2098,7 @@
       // Double-confirm for safety
       if (!confirm('Last chance — click OK to wipe everything and start fresh from Round 1.')) return;
       try {
-        const res = await fetch('/api/reset/full', { method: 'POST' });
+        const res = await fetch(API_BASE + '/api/reset/full', { method: 'POST' });
         const data = await res.json();
         if (data.success) {
           showResetStatus(`✅ ${data.message}`);
@@ -2119,7 +2126,7 @@
         if (!confirm(confirmMsg)) return;
 
         try {
-          const res = await fetch('/api/stage/switch', {
+          const res = await fetch(API_BASE + '/api/stage/switch', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -2145,7 +2152,7 @@
       if (!confirm(`Clear all used words and scores for Stage ${curStage}?\n\nThis lets you replay Stage ${curStage} completely fresh without affecting other stages.`)) return;
 
       try {
-        const res = await fetch('/api/reset/round', { method: 'POST' });
+        const res = await fetch(API_BASE + '/api/reset/round', { method: 'POST' });
         const data = await res.json();
         if (data.success) {
           alert(`✅ Stage ${curStage} cleared and ready to replay!`);
@@ -2199,7 +2206,7 @@
         stageWordLimit: Number(document.getElementById('cfgStageWordLimit')?.value) || 4,
         stageConfig: stageConfig
       };
-      await fetch('/api/settings', {
+      await fetch(API_BASE + '/api/settings', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)

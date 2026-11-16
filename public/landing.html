@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>E-Guru Spelling Bee Platform — Run Your Championship Online</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    body { background: #060808; }
+
+    /* ── HERO ── */
+    .landing-hero {
+      text-align: center;
+      padding: 70px 24px 50px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(26,122,26,0.18);
+      border: 1px solid var(--brand-green);
+      color: var(--text-green);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 5px 16px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+    .landing-hero h1 {
+      font-family: var(--font-title);
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: 0.04em;
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+    .landing-hero h1 span { color: var(--text-green); }
+    .landing-hero p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+    .hero-cta-row {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .btn-cta-primary {
+      background: var(--brand-green);
+      color: #fff;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s;
+      box-shadow: 0 4px 20px rgba(26,122,26,0.4);
+    }
+    .btn-cta-primary:hover { background: var(--brand-green-light); transform: translateY(-1px); }
+    .btn-cta-secondary {
+      background: transparent;
+      color: var(--text-green);
+      border: 1.5px solid var(--brand-green);
+      padding: 14px 32px;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s;
+    }
+    .btn-cta-secondary:hover { background: rgba(26,122,26,0.12); }
+
+    /* ── FEATURES ── */
+    .section-title {
+      text-align: center;
+      font-family: var(--font-title);
+      font-size: 1.7rem;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .section-sub {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 36px;
+    }
+    .features-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 20px;
+    }
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 24px;
+      transition: border-color 0.2s;
+    }
+    .feature-card:hover { border-color: var(--brand-green); }
+    .feature-icon { font-size: 2rem; margin-bottom: 12px; }
+    .feature-card h3 {
+      font-family: var(--font-title);
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .feature-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; }
+
+    /* ── HOW IT WORKS ── */
+    .how-section {
+      background: var(--bg-card);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      padding: 60px 24px;
+    }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .step-card {
+      text-align: center;
+      padding: 20px;
+    }
+    .step-num {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: rgba(26,122,26,0.18);
+      border: 2px solid var(--brand-green);
+      color: var(--text-green);
+      font-family: var(--font-mono);
+      font-size: 1.2rem;
+      font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 14px;
+    }
+    .step-card h4 { font-size: 1rem; font-weight: 800; color: #fff; margin-bottom: 6px; }
+    .step-card p { font-size: 0.83rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* ── SCREENS PREVIEW ── */
+    .screens-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+    .screens-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+    }
+    .screen-pill {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 18px 16px;
+      text-align: center;
+    }
+    .screen-pill .icon { font-size: 1.6rem; margin-bottom: 8px; }
+    .screen-pill h4 { font-size: 0.9rem; font-weight: 800; color: #fff; margin-bottom: 4px; }
+    .screen-pill p { font-size: 0.75rem; color: var(--text-muted); }
+
+    /* ── PRICING ── */
+    .pricing-section {
+      background: var(--bg-card);
+      border-top: 1px solid var(--border-color);
+      padding: 60px 24px;
+    }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .plan-card {
+      background: var(--bg-dark);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 28px;
+      text-align: center;
+      position: relative;
+    }
+    .plan-card.featured {
+      border-color: var(--brand-green);
+      box-shadow: 0 0 30px rgba(26,122,26,0.2);
+    }
+    .plan-badge {
+      position: absolute;
+      top: -12px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--brand-green);
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 20px;
+    }
+    .plan-name {
+      font-family: var(--font-title);
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .plan-price {
+      font-family: var(--font-mono);
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: var(--text-green);
+      margin: 10px 0 4px;
+    }
+    .plan-price small { font-size: 1rem; color: var(--text-muted); }
+    .plan-desc { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 20px; }
+    .plan-features { list-style: none; padding: 0; margin-bottom: 24px; text-align: left; }
+    .plan-features li {
+      font-size: 0.85rem;
+      color: var(--text-main);
+      padding: 5px 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .plan-features li:last-child { border-bottom: none; }
+    .plan-features li::before { content: '✓ '; color: var(--text-green); font-weight: 800; }
+
+    /* ── FOOTER ── */
+    .landing-footer {
+      text-align: center;
+      padding: 30px 24px;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-size: 0.82rem;
+    }
+    .landing-footer a { color: var(--text-green); text-decoration: none; }
+
+    /* ── NAV ── */
+    .landing-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 32px;
+      border-bottom: 1px solid var(--border-color);
+      background: rgba(6,8,8,0.95);
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(8px);
+    }
+    .nav-brand {
+      font-family: var(--font-title);
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+    }
+    .nav-brand span { color: var(--text-green); }
+    .nav-links { display: flex; gap: 10px; align-items: center; }
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 7px 14px;
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+    .nav-link:hover { color: #fff; background: var(--bg-elevated); }
+    .nav-btn {
+      background: var(--brand-green);
+      color: #fff;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 800;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .nav-btn:hover { background: var(--brand-green-light); }
+
+    @media (max-width: 600px) {
+      .landing-nav { padding: 12px 16px; }
+      .nav-brand { font-size: 1.1rem; }
+      .nav-link { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="landing-nav">
+    <a href="/" class="nav-brand">E-<span>Guru</span> Spelling Bee</a>
+    <div class="nav-links">
+      <a href="#features" class="nav-link">Features</a>
+      <a href="#pricing" class="nav-link">Pricing</a>
+      <a href="/login" class="nav-link">Log In</a>
+      <a href="/register" class="nav-btn">Get Started Free</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="landing-hero">
+    <div class="hero-badge">🏆 Built for Schools, Boards & Championships</div>
+    <h1>Run Your Spelling Bee<br><span>Competition Online</span></h1>
+    <p>E-Guru gives your school or educational board a complete digital platform — Judges' cockpit, live stage screen, speller monitor, real-time leaderboard, and more. No setup required.</p>
+    <div class="hero-cta-row">
+      <a href="/register" class="btn-cta-primary">🚀 Start for Free</a>
+      <a href="/login" class="btn-cta-secondary">Log In to Dashboard</a>
+    </div>
+    <p style="font-size:0.8rem; color:var(--text-muted);">No credit card required. Free plan available for all organizations.</p>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features-section" id="features">
+    <div class="section-title">Everything You Need to Run a Professional Competition</div>
+    <div class="section-sub">Your entire championship in one place — from registration to grand final.</div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🎙️</div>
+        <h3>Pronouncer & Judges Cockpit</h3>
+        <p>Full control panel with word bank, timer management, correct/incorrect decisions, real-time spelling sync, and cross-validation checks.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🖥️</div>
+        <h3>Live Stage Projector Screen</h3>
+        <p>A professional display screen for your hall's projector showing the active speller, timer, word reveal, and live standings.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>Real-Time Leaderboard</h3>
+        <p>Auto-updating audience leaderboard with ranks, scores, schools, and elimination status across all stages.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⚔️</div>
+        <h3>Tiebreaker Engine</h3>
+        <p>Automatic tiebreaker management with configurable slots, multi-round eliminations, and advancement confirmation.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📋</div>
+        <h3>4-Stage Competition Format</h3>
+        <p>Preliminary, Quarter-Final, Semi-Final, and Grand Final — with configurable stage thresholds, word limits, and scoring rules.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <h3>Isolated Secure Data</h3>
+        <p>Your students, word bank, and scores are completely private to your organization. Other schools cannot see your data.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📂</div>
+        <h3>Excel Import & Export</h3>
+        <p>Upload your word bank and contestant roster from an Excel file. Export results and adjudication history at any time.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🌐</div>
+        <h3>Shareable Live Links</h3>
+        <p>Your own unique URL for each screen. Share the projector and leaderboard links with the audience — they open on any device.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⏱️</div>
+        <h3>Configurable Timer & Scoring</h3>
+        <p>Set your own countdown duration, warning seconds, points per word, and word limits per stage.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-section">
+    <div class="section-title">How It Works</div>
+    <div class="section-sub">Your competition is live in under 5 minutes.</div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h4>Register Your Organization</h4>
+        <p>Sign up with your school or board name, email, and a password. Takes 60 seconds.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h4>Upload Words & Contestants</h4>
+        <p>Upload your word bank and contestant roster from an Excel file, or type them in directly.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <h4>Configure Your Competition</h4>
+        <p>Set your timer, stages, points per word, and branding. All pre-filled with smart defaults.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <h4>Go Live on Event Day</h4>
+        <p>Open your unique Judge and Projector links on your devices. The competition begins!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCREENS -->
+  <section class="screens-section">
+    <div class="section-title">5 Screens, All Live-Synced</div>
+    <div class="section-sub">Open each link on a different device or browser tab during your event.</div>
+    <div class="screens-row">
+      <div class="screen-pill"><div class="icon">🧑‍⚖️</div><h4>Judges Cockpit</h4><p>Protected judge & pronouncer control panel</p></div>
+      <div class="screen-pill"><div class="icon">🖥️</div><h4>Projector / Stage</h4><p>Big hall display screen</p></div>
+      <div class="screen-pill"><div class="icon">🧑‍🎓</div><h4>Speller Monitor</h4><p>Podium screen for the contestant</p></div>
+      <div class="screen-pill"><div class="icon">📊</div><h4>Leaderboard</h4><p>Live audience score display</p></div>
+      <div class="screen-pill"><div class="icon">⚔️</div><h4>Tiebreaker Arena</h4><p>Dedicated tiebreaker controller</p></div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing-section" id="pricing">
+    <div class="section-title">Simple, Transparent Pricing</div>
+    <div class="section-sub">Start for free. Upgrade when you're ready.</div>
+    <div class="pricing-grid">
+      <div class="plan-card">
+        <div class="plan-name">Free</div>
+        <div class="plan-price">₦0 <small>/ event</small></div>
+        <div class="plan-desc">Perfect for small schools and trials</div>
+        <ul class="plan-features">
+          <li>Up to 20 contestants</li>
+          <li>Up to 100 words</li>
+          <li>All 5 live screens</li>
+          <li>4-stage competition format</li>
+          <li>Basic tiebreaker</li>
+        </ul>
+        <a href="/register" class="btn-cta-secondary" style="display:block; text-align:center; padding:11px 20px;">Start Free</a>
+      </div>
+      <div class="plan-card featured">
+        <div class="plan-badge">Most Popular</div>
+        <div class="plan-name">Standard</div>
+        <div class="plan-price">₦15,000 <small>/ event</small></div>
+        <div class="plan-desc">For LGA and state-level competitions</div>
+        <ul class="plan-features">
+          <li>Unlimited contestants</li>
+          <li>Up to 500 words</li>
+          <li>Custom branding & logo</li>
+          <li>Excel import & export</li>
+          <li>Full tiebreaker engine</li>
+          <li>Results PDF export</li>
+        </ul>
+        <a href="/register" class="btn-cta-primary" style="display:block; text-align:center; padding:11px 20px;">Get Standard</a>
+      </div>
+      <div class="plan-card">
+        <div class="plan-name">Professional</div>
+        <div class="plan-price">₦40,000 <small>/ year</small></div>
+        <div class="plan-desc">For ministries and annual championships</div>
+        <ul class="plan-features">
+          <li>Everything in Standard</li>
+          <li>Unlimited events per year</li>
+          <li>Priority support</li>
+          <li>Custom domain</li>
+          <li>Multi-admin access</li>
+        </ul>
+        <a href="/register" class="btn-cta-secondary" style="display:block; text-align:center; padding:11px 20px;">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="landing-footer">
+    <p style="margin-bottom:8px;">
+      <strong style="color:#fff; font-family:var(--font-title);">E-Guru Spelling Bee Platform</strong>
+    </p>
+    <p>Built & Engineered by <a href="#">KowaguruTech</a> • Powering Schools & Educational Boards Across Nigeria</p>
+    <p style="margin-top:10px;">
+      <a href="/register">Register</a> &nbsp;·&nbsp;
+      <a href="/login">Log In</a> &nbsp;·&nbsp;
+      <a href="mailto:support@kowagurutech.com">Support</a>
+    </p>
+  </footer>
+
+</body>
+</html>

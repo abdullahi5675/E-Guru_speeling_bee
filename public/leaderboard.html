@@ -302,10 +302,18 @@
 
   <script src="/js/socket.io.min.js"></script>
   <script>
+
+    // -- Org-context detection ----------------------------------------------
+    const _orgMatch = window.location.pathname.match(/^\/t\/([^/]+)\//);
+    const ORG_SLUG  = _orgMatch ? _orgMatch[1] : null;
+    const API_BASE  = ORG_SLUG  ? '/t/' + ORG_SLUG : '';
+    // ----------------------------------------------------------------------
+
     let socket = null;
     try {
       if (typeof io === 'function') {
         socket = io({ reconnectionAttempts: 3, timeout: 3000 });
+        if (ORG_SLUG) socket.emit('join_org', ORG_SLUG);
         socket.on('connect', () => {
           loadInitialState();
         });
@@ -319,7 +327,7 @@
 
     async function loadInitialState() {
       try {
-        const res = await fetch('/api/state');
+        const res = await fetch(API_BASE + '/api/state');
         if (res.ok) {
           const state = await res.json();
           renderBoard(state);

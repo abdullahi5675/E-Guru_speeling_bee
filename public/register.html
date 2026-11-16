@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Register Your Organization — E-Guru Spelling Bee</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    body { background: #060808; display: flex; flex-direction: column; min-height: 100vh; }
+    .auth-nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 32px; border-bottom: 1px solid var(--border-color);
+    }
+    .auth-brand {
+      font-family: var(--font-title); font-size: 1.25rem; font-weight: 900;
+      color: #fff; text-decoration: none; letter-spacing: 0.06em;
+    }
+    .auth-brand span { color: var(--text-green); }
+    .auth-nav-link { color: var(--text-muted); font-size: 0.88rem; font-weight: 600; text-decoration: none; }
+    .auth-nav-link:hover { color: #fff; }
+
+    .auth-wrap {
+      flex: 1; display: flex; align-items: center; justify-content: center;
+      padding: 40px 20px;
+    }
+    .auth-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 18px;
+      padding: 40px 36px;
+      width: 100%;
+      max-width: 520px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .auth-logo-row {
+      text-align: center; margin-bottom: 28px;
+    }
+    .auth-logo-row h1 {
+      font-family: var(--font-title); font-size: 1.5rem; font-weight: 900;
+      color: #fff; margin-bottom: 4px;
+    }
+    .auth-logo-row p { font-size: 0.85rem; color: var(--text-muted); }
+
+    .form-row { margin-bottom: 16px; }
+    .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 16px; }
+    label {
+      display: block; font-size: 0.78rem; font-weight: 700;
+      color: var(--text-muted); text-transform: uppercase;
+      letter-spacing: 0.07em; margin-bottom: 6px;
+    }
+    input[type=text], input[type=email], input[type=password], input[type=tel] {
+      width: 100%; background: var(--bg-dark); border: 1.5px solid var(--border-color);
+      border-radius: 8px; color: #fff; font-size: 0.95rem; padding: 10px 14px;
+      font-family: var(--font-body); transition: border-color 0.2s; outline: none;
+    }
+    input:focus { border-color: var(--brand-green); }
+    input::placeholder { color: var(--text-muted); }
+
+    .section-divider {
+      display: flex; align-items: center; gap: 10px; margin: 20px 0 16px;
+    }
+    .section-divider span {
+      font-size: 0.72rem; font-weight: 800; color: var(--text-muted);
+      text-transform: uppercase; letter-spacing: 0.1em; white-space: nowrap;
+    }
+    .section-divider::before, .section-divider::after {
+      content: ''; flex: 1; height: 1px; background: var(--border-color);
+    }
+
+    .btn-submit {
+      width: 100%; background: var(--brand-green); color: #fff;
+      border: none; border-radius: 10px; padding: 13px 20px;
+      font-size: 1rem; font-weight: 800; cursor: pointer;
+      font-family: var(--font-body); transition: all 0.2s;
+      box-shadow: 0 4px 16px rgba(26,122,26,0.35);
+      margin-top: 8px;
+    }
+    .btn-submit:hover { background: var(--brand-green-light); }
+    .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .error-msg {
+      background: rgba(204,27,27,0.12); border: 1px solid var(--brand-red);
+      color: var(--text-red); border-radius: 8px; padding: 10px 14px;
+      font-size: 0.85rem; margin-bottom: 16px; display: none;
+    }
+    .success-msg {
+      background: rgba(26,122,26,0.12); border: 1px solid var(--brand-green);
+      color: var(--text-green); border-radius: 8px; padding: 10px 14px;
+      font-size: 0.85rem; margin-bottom: 16px; display: none;
+    }
+
+    .auth-footer-link {
+      text-align: center; margin-top: 20px;
+      font-size: 0.85rem; color: var(--text-muted);
+    }
+    .auth-footer-link a { color: var(--text-green); text-decoration: none; font-weight: 700; }
+
+    .password-hint { font-size: 0.72rem; color: var(--text-muted); margin-top: 5px; }
+  </style>
+</head>
+<body>
+
+  <nav class="auth-nav">
+    <a href="/" class="auth-brand">E-<span>Guru</span> Spelling Bee</a>
+    <a href="/login" class="auth-nav-link">Already have an account? Log In →</a>
+  </nav>
+
+  <div class="auth-wrap">
+    <div class="auth-box">
+      <div class="auth-logo-row">
+        <h1>🏆 Create Your Account</h1>
+        <p>Register your school, board, or organization and get your competition platform ready in minutes.</p>
+      </div>
+
+      <div class="error-msg" id="errorMsg"></div>
+      <div class="success-msg" id="successMsg"></div>
+
+      <form id="registerForm" autocomplete="off">
+
+        <div class="section-divider"><span>Organization Info</span></div>
+
+        <div class="form-row">
+          <label for="orgName">Organization / School Name *</label>
+          <input type="text" id="orgName" placeholder="e.g. Hadejia LGA Education Authority" required>
+        </div>
+
+        <div class="form-row-2">
+          <div>
+            <label for="location">State / Location</label>
+            <input type="text" id="location" placeholder="e.g. Jigawa State">
+          </div>
+          <div>
+            <label for="contactPhone">Contact Phone</label>
+            <input type="tel" id="contactPhone" placeholder="e.g. 0812 345 6789">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label for="contactName">Admin / Contact Person Name</label>
+          <input type="text" id="contactName" placeholder="Your full name">
+        </div>
+
+        <div class="section-divider"><span>Login Credentials</span></div>
+
+        <div class="form-row">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" placeholder="admin@yourschool.edu.ng" required>
+        </div>
+
+        <div class="form-row-2">
+          <div>
+            <label for="password">Password *</label>
+            <input type="password" id="password" placeholder="Minimum 8 characters" required>
+          </div>
+          <div>
+            <label for="confirmPassword">Confirm Password *</label>
+            <input type="password" id="confirmPassword" placeholder="Repeat password" required>
+          </div>
+        </div>
+        <p class="password-hint">Use at least 8 characters. Avoid using just your name.</p>
+
+        <button type="submit" class="btn-submit" id="submitBtn">
+          🚀 Create My Competition Account
+        </button>
+      </form>
+
+      <div class="auth-footer-link">
+        Already have an account? <a href="/login">Log In here</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('registerForm');
+    const errorMsg = document.getElementById('errorMsg');
+    const successMsg = document.getElementById('successMsg');
+    const submitBtn = document.getElementById('submitBtn');
+
+    function showError(msg) {
+      errorMsg.textContent = msg;
+      errorMsg.style.display = 'block';
+      successMsg.style.display = 'none';
+    }
+    function showSuccess(msg) {
+      successMsg.textContent = msg;
+      successMsg.style.display = 'block';
+      errorMsg.style.display = 'none';
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errorMsg.style.display = 'none';
+      successMsg.style.display = 'none';
+
+      const name = document.getElementById('orgName').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+      const contactName = document.getElementById('contactName').value.trim();
+      const contactPhone = document.getElementById('contactPhone').value.trim();
+      const location = document.getElementById('location').value.trim();
+
+      if (!name) return showError('Organization name is required.');
+      if (!email) return showError('Email address is required.');
+      if (password.length < 8) return showError('Password must be at least 8 characters.');
+      if (password !== confirmPassword) return showError('Passwords do not match.');
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = '⏳ Creating your account...';
+
+      try {
+        const res = await fetch('/api/auth/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, password, contactName, contactPhone, location })
+        });
+        const data = await res.json();
+
+        if (!res.ok) {
+          showError(data.error || 'Registration failed. Please try again.');
+          submitBtn.disabled = false;
+          submitBtn.textContent = '🚀 Create My Competition Account';
+          return;
+        }
+
+        // Store token
+        document.cookie = `eguru_token=${data.token}; path=/; max-age=${7*24*60*60}`;
+        localStorage.setItem('eguru_token', data.token);
+        localStorage.setItem('eguru_org', JSON.stringify(data.org));
+
+        showSuccess(`✅ Welcome, ${data.org.name}! Redirecting to your dashboard...`);
+        setTimeout(() => { window.location.href = '/dashboard'; }, 1200);
+
+      } catch (err) {
+        showError('Network error. Please check your connection and try again.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = '🚀 Create My Competition Account';
+      }
+    });
+  </script>
+</body>
+</html>

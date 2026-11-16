@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard — E-Guru Spelling Bee</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    body { background: #060808; }
+    /* ── Top Bar ── */
+    .dash-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 28px; border-bottom: 1px solid var(--border-color);
+      background: var(--bg-card); position: sticky; top: 0; z-index: 100;
+    }
+    .dash-brand { font-family: var(--font-title); font-size: 1.1rem; font-weight: 900; color: #fff; letter-spacing: 0.06em; }
+    .dash-brand span { color: var(--text-green); }
+    .dash-org-name { font-size: 0.82rem; color: var(--text-muted); font-weight: 600; margin-top: 1px; }
+    .dash-actions { display: flex; gap: 10px; align-items: center; }
+    .btn-logout { background: none; border: 1px solid var(--border-color); color: var(--text-muted); padding: 6px 14px; border-radius: 7px; font-size: 0.8rem; font-weight: 700; cursor: pointer; transition: all 0.2s; }
+    .btn-logout:hover { border-color: var(--brand-red); color: var(--text-red); }
+
+    /* ── Main Layout ── */
+    .dash-main { max-width: 1100px; margin: 0 auto; padding: 32px 24px; }
+
+    /* ── Welcome ── */
+    .welcome-banner {
+      background: linear-gradient(135deg, #0e1a0e, #121f12);
+      border: 1px solid var(--brand-green);
+      border-radius: 14px; padding: 24px 28px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px; margin-bottom: 28px;
+    }
+    .welcome-banner h2 { font-family: var(--font-title); font-size: 1.4rem; color: #fff; margin-bottom: 4px; }
+    .welcome-banner p { font-size: 0.88rem; color: var(--text-muted); }
+    .slug-pill {
+      background: rgba(26,122,26,0.15); border: 1px solid var(--brand-green);
+      border-radius: 8px; padding: 10px 16px; font-family: var(--font-mono);
+      font-size: 0.82rem; color: var(--text-green); white-space: nowrap;
+    }
+    .slug-pill small { color: var(--text-muted); font-family: var(--font-body); font-size: 0.72rem; display: block; margin-bottom: 2px; }
+
+    /* ── Live Screens Grid ── */
+    .section-heading {
+      font-family: var(--font-title); font-size: 1rem; font-weight: 800;
+      color: #fff; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.08em;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .section-heading::after { content: ''; flex: 1; height: 1px; background: var(--border-color); }
+    .screens-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 14px; margin-bottom: 32px;
+    }
+    .screen-card {
+      background: var(--bg-card); border: 1px solid var(--border-color);
+      border-radius: 12px; padding: 20px 16px; text-align: center;
+      text-decoration: none; transition: all 0.2s; display: block;
+    }
+    .screen-card:hover { border-color: var(--brand-green); transform: translateY(-2px); background: var(--bg-elevated); }
+    .screen-card .sc-icon { font-size: 2rem; margin-bottom: 10px; }
+    .screen-card h3 { font-size: 0.95rem; font-weight: 800; color: #fff; margin-bottom: 4px; }
+    .screen-card p { font-size: 0.75rem; color: var(--text-muted); line-height: 1.5; }
+    .screen-card .sc-badge {
+      display: inline-block; margin-top: 8px;
+      font-size: 0.65rem; font-weight: 800; letter-spacing: 0.08em;
+      text-transform: uppercase; padding: 3px 10px; border-radius: 20px;
+    }
+    .sc-badge.judge { background: rgba(204,27,27,0.15); border: 1px solid var(--brand-red); color: var(--text-red); }
+    .sc-badge.public { background: rgba(26,122,26,0.15); border: 1px solid var(--brand-green); color: var(--text-green); }
+
+    /* ── Stats Row ── */
+    .stats-row {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 14px; margin-bottom: 32px;
+    }
+    .stat-box {
+      background: var(--bg-card); border: 1px solid var(--border-color);
+      border-radius: 10px; padding: 16px; text-align: center;
+    }
+    .stat-box .sv { font-family: var(--font-mono); font-size: 2rem; font-weight: 800; color: #fff; }
+    .stat-box .sl { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); font-weight: 700; margin-top: 2px; }
+
+    /* ── Settings Panel ── */
+    .settings-panel {
+      background: var(--bg-card); border: 1px solid var(--border-color);
+      border-radius: 14px; padding: 24px; margin-bottom: 28px;
+    }
+    .settings-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; margin-bottom: 16px; }
+    .settings-grid label { display: block; font-size: 0.72rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 5px; }
+    .settings-grid input, .settings-grid select {
+      width: 100%; background: var(--bg-dark); border: 1.5px solid var(--border-color);
+      border-radius: 7px; color: #fff; font-size: 0.88rem; padding: 8px 12px;
+      font-family: var(--font-body); outline: none; transition: border-color 0.2s;
+    }
+    .settings-grid input:focus, .settings-grid select:focus { border-color: var(--brand-green); }
+    .btn-save {
+      background: var(--brand-green); color: #fff; border: none;
+      border-radius: 8px; padding: 10px 24px; font-size: 0.9rem; font-weight: 800;
+      cursor: pointer; font-family: var(--font-body); transition: all 0.2s;
+    }
+    .btn-save:hover { background: var(--brand-green-light); }
+
+    /* ── Quick Setup Upload ── */
+    .setup-panel {
+      background: var(--bg-card); border: 1px solid var(--border-color);
+      border-radius: 14px; padding: 24px; margin-bottom: 28px;
+    }
+    .setup-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media (max-width: 700px) { .setup-cols { grid-template-columns: 1fr; } }
+    .upload-zone {
+      border: 2px dashed var(--border-color); border-radius: 10px;
+      padding: 20px; text-align: center; cursor: pointer; transition: border-color 0.2s;
+    }
+    .upload-zone:hover { border-color: var(--brand-green); }
+    .upload-zone p { font-size: 0.82rem; color: var(--text-muted); margin-top: 6px; }
+    .upload-zone input[type=file] { display: none; }
+    .upload-status { font-size: 0.8rem; margin-top: 8px; min-height: 20px; }
+
+    /* ── Danger zone ── */
+    .danger-panel {
+      background: rgba(204,27,27,0.05); border: 1px solid rgba(204,27,27,0.3);
+      border-radius: 12px; padding: 20px 24px;
+    }
+    .danger-panel h3 { color: var(--text-red); font-size: 0.95rem; font-weight: 800; margin-bottom: 10px; }
+    .btn-danger {
+      background: rgba(204,27,27,0.15); border: 1px solid var(--brand-red);
+      color: var(--text-red); padding: 8px 18px; border-radius: 7px;
+      font-size: 0.82rem; font-weight: 800; cursor: pointer;
+      font-family: var(--font-body); transition: all 0.2s;
+    }
+    .btn-danger:hover { background: rgba(204,27,27,0.3); }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="dash-header">
+    <div>
+      <div class="dash-brand">E-<span>Guru</span> Spelling Bee</div>
+      <div class="dash-org-name" id="orgNameHeader">Loading...</div>
+    </div>
+    <div class="dash-actions">
+      <button class="btn-logout" onclick="logout()">Log Out</button>
+    </div>
+  </header>
+
+  <div class="dash-main">
+
+    <!-- WELCOME BANNER -->
+    <div class="welcome-banner">
+      <div>
+        <h2 id="welcomeTitle">Welcome to your Dashboard</h2>
+        <p id="welcomeSub">Your competition platform is ready. Use the links below to open each screen on event day.</p>
+      </div>
+      <div class="slug-pill">
+        <small>Your Unique URL</small>
+        <span id="slugDisplay">/t/your-org/judge</span>
+      </div>
+    </div>
+
+    <!-- STATS -->
+    <div class="stats-row" id="statsRow">
+      <div class="stat-box"><div class="sv" id="statContestants">—</div><div class="sl">Contestants</div></div>
+      <div class="stat-box"><div class="sv" id="statWords">—</div><div class="sl">Words</div></div>
+      <div class="stat-box"><div class="sv" id="statStage">—</div><div class="sl">Current Stage</div></div>
+      <div class="stat-box"><div class="sv" id="statActive">—</div><div class="sl">Still Active</div></div>
+    </div>
+
+    <!-- LIVE SCREENS -->
+    <div class="section-heading">🎯 Your Live Competition Screens</div>
+    <div class="screens-grid" id="screensGrid">
+      <!-- Filled by JS -->
+    </div>
+
+    <!-- COMPETITION SETTINGS -->
+    <div class="section-heading">⚙️ Competition Settings</div>
+    <div class="settings-panel">
+      <div class="settings-grid">
+        <div>
+          <label>Championship Title</label>
+          <input type="text" id="cfgTitle" placeholder="e.g. JSS Spelling Bee 2025">
+        </div>
+        <div>
+          <label>Subtitle / Sponsor Line</label>
+          <input type="text" id="cfgSubtitle" placeholder="Organized by ...">
+        </div>
+        <div>
+          <label>Timer (seconds)</label>
+          <input type="number" id="cfgTimer" min="10" max="300" value="60">
+        </div>
+        <div>
+          <label>Warning at (seconds)</label>
+          <input type="number" id="cfgWarning" min="5" max="60" value="10">
+        </div>
+        <div>
+          <label>Points Per Word</label>
+          <input type="number" id="cfgPoints" min="1" max="100" value="25">
+        </div>
+        <div>
+          <label>Words Per Stage</label>
+          <input type="number" id="cfgWordLimit" min="1" max="20" value="4">
+        </div>
+      </div>
+      <button class="btn-save" onclick="saveSettings()">💾 Save Settings</button>
+      <span id="settingsSavedMsg" style="font-size:0.8rem; color:var(--text-green); margin-left:12px; display:none;">✓ Saved!</span>
+    </div>
+
+    <!-- UPLOAD SECTION -->
+    <div class="section-heading">📂 Upload Word Bank & Contestants</div>
+    <div class="setup-panel">
+      <div class="setup-cols">
+        <!-- Words Upload -->
+        <div>
+          <h4 style="color:#fff; font-size:0.9rem; margin-bottom:12px;">📝 Word Bank (Excel / CSV)</h4>
+          <div class="upload-zone" onclick="document.getElementById('wordsFile').click()">
+            <div style="font-size:1.8rem;">📂</div>
+            <p>Click to upload your word bank Excel file<br>
+            <strong style="color:#fff;">Columns: num, word, phonetic, pos, origin, definition, sentence</strong></p>
+            <input type="file" id="wordsFile" accept=".xlsx,.xls,.csv" onchange="uploadWords(this)">
+          </div>
+          <div class="upload-status" id="wordsStatus"></div>
+        </div>
+        <!-- Contestants Upload -->
+        <div>
+          <h4 style="color:#fff; font-size:0.9rem; margin-bottom:12px;">👥 Contestants (Excel / CSV)</h4>
+          <div class="upload-zone" onclick="document.getElementById('studentsFile').click()">
+            <div style="font-size:1.8rem;">📂</div>
+            <p>Click to upload your contestants Excel file<br>
+            <strong style="color:#fff;">Columns: num, name, school, zone, category</strong></p>
+            <input type="file" id="studentsFile" accept=".xlsx,.xls,.csv" onchange="uploadStudents(this)">
+          </div>
+          <div class="upload-status" id="studentsStatus"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DANGER ZONE -->
+    <div class="section-heading">⚠️ Reset</div>
+    <div class="danger-panel">
+      <h3>⚠️ Danger Zone</h3>
+      <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:12px;">These actions permanently clear competition data. Use only before an event starts or during testing.</p>
+      <div style="display:flex; gap:10px; flex-wrap:wrap;">
+        <button class="btn-danger" onclick="resetRound()">🔄 Reset Current Stage</button>
+        <button class="btn-danger" onclick="resetFull()">⚡ Full Reset (Back to Stage 1)</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script>
+    // ── Auth check ──
+    const token = localStorage.getItem('eguru_token');
+    const orgData = JSON.parse(localStorage.getItem('eguru_org') || 'null');
+    if (!token) { window.location.href = '/login'; }
+
+    const slug = orgData?.slug || '';
+    const BASE = `/t/${slug}`;
+
+    // ── Populate UI ──
+    function populateDashboard() {
+      if (!orgData) return;
+      document.getElementById('orgNameHeader').textContent = orgData.name || '';
+      document.getElementById('welcomeTitle').textContent = `Welcome, ${orgData.name}!`;
+      document.getElementById('welcomeSub').textContent = `Your unique competition URL is active. Open each screen below on event day.`;
+      document.getElementById('slugDisplay').textContent = `${BASE}/judge`;
+
+      const screens = [
+        { icon: '🧑‍⚖️', title: 'Judges Cockpit', desc: 'Full adjudication & pronouncer control panel', path: '/judge', badge: 'judge', badgeText: 'Protected' },
+        { icon: '🖥️', title: 'Stage / Projector', desc: 'Big hall display for the audience projector', path: '/projector', badge: 'public', badgeText: 'Public' },
+        { icon: '🧑‍🎓', title: 'Speller Monitor', desc: 'Downstage screen shown to the contestant', path: '/speller', badge: 'public', badgeText: 'Public' },
+        { icon: '📊', title: 'Live Leaderboard', desc: 'Real-time audience scores & rankings', path: '/leaderboard', badge: 'public', badgeText: 'Public' },
+        { icon: '⚔️', title: 'Tiebreaker Arena', desc: 'Dedicated tiebreaker controller', path: '/tiebreaker', badge: 'judge', badgeText: 'Protected' },
+      ];
+
+      document.getElementById('screensGrid').innerHTML = screens.map(s => `
+        <a href="${BASE}${s.path}" target="_blank" class="screen-card">
+          <div class="sc-icon">${s.icon}</div>
+          <h3>${s.title}</h3>
+          <p>${s.desc}</p>
+          <span class="sc-badge ${s.badge}">${s.badgeText}</span>
+        </a>
+      `).join('');
+    }
+    populateDashboard();
+
+    // ── Load competition state stats ──
+    async function loadStats() {
+      try {
+        const res = await fetch(`${BASE}/api/state`, {
+          headers: { 'Authorization': `Bearer ${token}` }
+        });
+        if (!res.ok) return;
+        const state = await res.json();
+        document.getElementById('statContestants').textContent = state.students?.length || 0;
+        document.getElementById('statWords').textContent = Object.keys(state.words || {}).length;
+        document.getElementById('statStage').textContent = state.round || 1;
+        document.getElementById('statActive').textContent = state.students?.filter(s => s.alive).length || 0;
+
+        // Populate settings
+        document.getElementById('cfgTitle').value = state.title || '';
+        document.getElementById('cfgSubtitle').value = state.subtitle || '';
+        document.getElementById('cfgTimer').value = state.timerDuration || 60;
+        document.getElementById('cfgWarning').value = state.timerWarning || 10;
+        document.getElementById('cfgPoints').value = state.pointsPerWord || 25;
+        document.getElementById('cfgWordLimit').value = state.stageWordLimit || 4;
+      } catch {}
+    }
+    loadStats();
+
+    // ── Save Settings ──
+    async function saveSettings() {
+      const payload = {
+        title: document.getElementById('cfgTitle').value,
+        subtitle: document.getElementById('cfgSubtitle').value,
+        timerDuration: Number(document.getElementById('cfgTimer').value),
+        timerWarning: Number(document.getElementById('cfgWarning').value),
+        pointsPerWord: Number(document.getElementById('cfgPoints').value),
+        stageWordLimit: Number(document.getElementById('cfgWordLimit').value),
+      };
+      try {
+        await fetch(`${BASE}/api/settings`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+          body: JSON.stringify(payload)
+        });
+        const el = document.getElementById('settingsSavedMsg');
+        el.style.display = 'inline';
+        setTimeout(() => el.style.display = 'none', 2500);
+      } catch { alert('Failed to save settings.'); }
+    }
+
+    // ── Upload Words (Excel) ──
+    async function uploadWords(input) {
+      const file = input.files[0];
+      if (!file) return;
+      document.getElementById('wordsStatus').textContent = '⏳ Reading file...';
+      const reader = new FileReader();
+      reader.onload = async (e) => {
+        const wb = XLSX.read(e.target.result, { type: 'binary' });
+        const ws = wb.Sheets[wb.SheetNames[0]];
+        const rows = XLSX.utils.sheet_to_json(ws, { defval: '' });
+        const words = rows.map((r, i) => ({
+          num: Number(r.num || r.question_num || r['#'] || i + 1),
+          word: String(r.word || r.Word || '').toUpperCase().trim(),
+          phonetic: String(r.phonetic || r.Phonetic || '').trim(),
+          pos: String(r.pos || r.POS || r['Part of Speech'] || 'Word').trim(),
+          origin: String(r.origin || r.Origin || '').trim(),
+          definition: String(r.definition || r.Definition || r.def || '').trim(),
+          sentence: String(r.sentence || r.Sentence || '').trim(),
+        })).filter(w => w.word);
+
+        document.getElementById('wordsStatus').textContent = `⏳ Uploading ${words.length} words...`;
+        try {
+          const res = await fetch(`${BASE}/api/upload/words`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+            body: JSON.stringify({ words })
+          });
+          const data = await res.json();
+          if (res.ok) {
+            document.getElementById('wordsStatus').innerHTML = `<span style="color:var(--text-green)">✅ ${data.count} words uploaded!</span>`;
+            loadStats();
+          } else {
+            document.getElementById('wordsStatus').innerHTML = `<span style="color:var(--text-red)">❌ ${data.error}</span>`;
+          }
+        } catch {
+          document.getElementById('wordsStatus').innerHTML = `<span style="color:var(--text-red)">❌ Upload failed.</span>`;
+        }
+      };
+      reader.readAsBinaryString(file);
+    }
+
+    // ── Upload Students (Excel) ──
+    async function uploadStudents(input) {
+      const file = input.files[0];
+      if (!file) return;
+      document.getElementById('studentsStatus').textContent = '⏳ Reading file...';
+      const reader = new FileReader();
+      reader.onload = async (e) => {
+        const wb = XLSX.read(e.target.result, { type: 'binary' });
+        const ws = wb.Sheets[wb.SheetNames[0]];
+        const rows = XLSX.utils.sheet_to_json(ws, { defval: '' });
+        const students = rows.map((r, i) => ({
+          num: Number(r.num || r['#'] || r.id || i + 1),
+          name: String(r.name || r.Name || '').trim(),
+          school: String(r.school || r.School || '').trim(),
+          zone: String(r.zone || r.Zone || r.lga || r.LGA || '').trim(),
+          category: String(r.category || r.Category || 'Junior').trim(),
+        })).filter(s => s.name);
+
+        document.getElementById('studentsStatus').textContent = `⏳ Uploading ${students.length} contestants...`;
+        try {
+          const res = await fetch(`${BASE}/api/upload/students`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+            body: JSON.stringify({ students })
+          });
+          const data = await res.json();
+          if (res.ok) {
+            document.getElementById('studentsStatus').innerHTML = `<span style="color:var(--text-green)">✅ ${data.count} contestants uploaded!</span>`;
+            loadStats();
+          } else {
+            document.getElementById('studentsStatus').innerHTML = `<span style="color:var(--text-red)">❌ ${data.error}</span>`;
+          }
+        } catch {
+          document.getElementById('studentsStatus').innerHTML = `<span style="color:var(--text-red)">❌ Upload failed.</span>`;
+        }
+      };
+      reader.readAsBinaryString(file);
+    }
+
+    async function resetRound() {
+      if (!confirm('Reset the current stage? This clears used words and scores for this stage only.')) return;
+      await fetch(`${BASE}/api/reset/round`, { method: 'POST', headers: { 'Authorization': `Bearer ${token}` } });
+      alert('✅ Current stage reset!'); loadStats();
+    }
+    async function resetFull() {
+      if (!confirm('Full Reset? This clears ALL history, scores, and returns to Stage 1.')) return;
+      await fetch(`${BASE}/api/reset/full`, { method: 'POST', headers: { 'Authorization': `Bearer ${token}` } });
+      alert('✅ Full reset complete!'); loadStats();
+    }
+
+    function logout() {
+      document.cookie = 'eguru_token=; path=/; max-age=0';
+      localStorage.removeItem('eguru_token');
+      localStorage.removeItem('eguru_org');
+      window.location.href = '/login';
+    }
+  </script>
+</body>
+</html>

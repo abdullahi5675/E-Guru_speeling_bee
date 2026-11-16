@@ -7,6 +7,7 @@ const os = require('os');
 require('dotenv').config();
 
 const db = require('./db');
+const saas = require('./saas');
 
 const app = express();
 const server = http.createServer(app);
@@ -32,8 +33,12 @@ app.use(express.static(path.join(__dirname, 'public'), {
   maxAge: 0
 }));
 
-// Explicit page routes for each screen
-app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'public', 'index.html')));
+// Explicit page routes for each screen (legacy Jigawa)
+app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'public', 'landing.html')));
+app.get('/home', (req, res) => res.sendFile(path.join(__dirname, 'public', 'index.html')));
+app.get('/register', (req, res) => res.sendFile(path.join(__dirname, 'public', 'register.html')));
+app.get('/login', (req, res) => res.sendFile(path.join(__dirname, 'public', 'login.html')));
+app.get('/dashboard', (req, res) => res.sendFile(path.join(__dirname, 'public', 'dashboard.html')));
 app.get('/judge', (req, res) => res.sendFile(path.join(__dirname, 'public', 'judge.html')));
 app.get('/control', (req, res) => res.redirect('/judge'));
 app.get('/projector', (req, res) => res.sendFile(path.join(__dirname, 'public', 'projector.html')));
@@ -42,6 +47,498 @@ app.get('/speller', (req, res) => res.sendFile(path.join(__dirname, 'public', 's
 app.get('/participant', (req, res) => res.redirect('/speller'));
 app.get('/leaderboard', (req, res) => res.sendFile(path.join(__dirname, 'public', 'leaderboard.html')));
 app.get('/tiebreaker', (req, res) => res.sendFile(path.join(__dirname, 'public', 'tiebreaker.html')));
+
+// ══════════════════════════════════════════════════════════════════
+// SaaS — Auth Endpoints
+// ══════════════════════════════════════════════════════════════════
+app.post('/api/auth/register', async (req, res) => {
+  try {
+    const result = await saas.registerOrg(req.body);
+    res.json(result);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
+app.post('/api/auth/login', async (req, res) => {
+  try {
+    const result = await saas.loginOrg(req.body);
+    res.json(result);
+  } catch (err) {
+    res.status(401).json({ error: err.message });
+  }
+});
+
+app.get('/api/auth/me', saas.requireOrgAuth, (req, res) => {
+  res.json({ org: req.org });
+});
+
+app.post('/api/auth/logout', saas.requireOrgAuth, async (req, res) => {
+  try {
+    const auth = req.headers.authorization || '';
+    const cookie = req.headers.cookie || '';
+    let token = auth.startsWith('Bearer ') ? auth.slice(7) : (cookie.match(/eguru_token=([^;]+)/) || [])[1];
+    if (token) await saas.pool.query('DELETE FROM org_sessions WHERE token = $1', [token]);
+    res.json({ success: true });
+  } catch { res.json({ success: true }); }
+});
+
+// ══════════════════════════════════════════════════════════════════
+// SaaS — Org-Namespaced Competition Routes  /t/:slug/*
+// ══════════════════════════════════════════════════════════════════
+
+// Serve competition HTML screens for each org
+const orgScreens = { judge: 'judge.html', projector: 'projector.html', speller: 'speller.html', leaderboard: 'leaderboard.html', tiebreaker: 'tiebreaker.html' };
+Object.entries(orgScreens).forEach(([screen, file]) => {
+  app.get('/t/:slug/' + screen, (req, res) => res.sendFile(path.join(__dirname, 'public', file)));
+});
+
+// Middleware to resolve slug → org for all /t/:slug/api/* routes
+async function resolveOrg(req, res, next) {
+  try {
+    const org = await saas.getOrgBySlug(req.params.slug);
+    if (!org) return res.status(404).json({ error: 'Organization not found.' });
+    req.org = org;
+    req.orgId = org.id;
+    next();
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+}
+
+// Helper to broadcast org state via Socket.IO room
+async function broadcastOrgState(orgId, slug) {
+  try {
+    const state = await saas.getOrgFullState(orgId);
+    io.to(`org:${slug}`).emit('STATE_UPDATE', state);
+    return state;
+  } catch (err) {
+    console.error(`[SAAS] Broadcast error for org ${slug}:`, err.message);
+  }
+}
+
+// ── GET /t/:slug/api/state ──
+app.get('/t/:slug/api/state', resolveOrg, async (req, res) => {
+  try {
+    const state = await saas.getOrgFullState(req.orgId);
+    res.json(state);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// ── POST /t/:slug/api/settings ──
+app.post('/t/:slug/api/settings', resolveOrg, saas.requireOrgAuth, async (req, res) => {
+  try {
+    const { title, subtitle, timerDuration, timerWarning, pointsPerWord, stageWordLimit } = req.body;
+    await saas.pool.query(
+      `UPDATE org_competition_state SET title=$1, subtitle=$2, timer_duration=$3, timer_warning=$4, points_per_word=$5, stage_word_limit=$6, updated_at=NOW() WHERE org_id=$7`,
+      [title, subtitle, timerDuration || 60, timerWarning || 10, pointsPerWord || 25, stageWordLimit || 4, req.orgId]
+    );
+    const state = await broadcastOrgState(req.orgId, req.params.slug);
+    res.json({ success: true, state });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// ── POST /t/:slug/api/upload/words ──
+app.post('/t/:slug/api/upload/words', resolveOrg, saas.requireOrgAuth, async (req, res) => {
+  const { words } = req.body;
+  if (!Array.isArray(words) || words.length === 0) return res.status(400).json({ error: 'No words provided.' });
+  const client = await saas.pool.connect();
+  try {
+    await client.query('BEGIN');
+    await client.query('DELETE FROM org_words WHERE org_id = $1', [req.orgId]);
+    for (const w of words) {
+      await client.query(
+        `INSERT INTO org_words (org_id, question_num, word, phonetic, pos, origin, definition, sentence)
+         VALUES ($1,$2,$3,$4,$5,$6,$7,$8) ON CONFLICT (org_id, question_num) DO UPDATE
+         SET word=$3, phonetic=$4, pos=$5, origin=$6, definition=$7, sentence=$8`,
+        [req.orgId, w.num, w.word, w.phonetic || '', w.pos || 'Word', w.origin || '', w.definition || '', w.sentence || '']
+      );
+    }
+    await client.query('COMMIT');
+    await broadcastOrgState(req.orgId, req.params.slug);
+    res.json({ success: true, count: words.length });
+  } catch (err) {
+    await client.query('ROLLBACK');
+    res.status(500).json({ error: err.message });
+  } finally { client.release(); }
+});
+
+// ── POST /t/:slug/api/upload/students ──
+app.post('/t/:slug/api/upload/students', resolveOrg, saas.requireOrgAuth, async (req, res) => {
+  const { students } = req.body;
+  if (!Array.isArray(students) || students.length === 0) return res.status(400).json({ error: 'No students provided.' });
+  const client = await saas.pool.connect();
+  try {
+    await client.query('BEGIN');
+    await client.query('DELETE FROM org_adjudication_history WHERE org_id = $1', [req.orgId]);
+    await client.query('DELETE FROM org_students WHERE org_id = $1', [req.orgId]);
+    for (const s of students) {
+      await client.query(
+        `INSERT INTO org_students (org_id, contestant_num, name, school, zone, category) VALUES ($1,$2,$3,$4,$5,$6)
+         ON CONFLICT (org_id, contestant_num) DO UPDATE SET name=$3, school=$4, zone=$5, category=$6`,
+        [req.orgId, s.num, s.name, s.school || '', s.zone || '', s.category || 'Junior']
+      );
+    }
+    // Set first student as active speller
+    await client.query(
+      `UPDATE org_competition_state SET active_speller_id=$1 WHERE org_id=$2`,
+      [students[0]?.num || 1, req.orgId]
+    );
+    await client.query('COMMIT');
+    await broadcastOrgState(req.orgId, req.params.slug);
+    res.json({ success: true, count: students.length });
+  } catch (err) {
+    await client.query('ROLLBACK');
+    res.status(500).json({ error: err.message });
+  } finally { client.release(); }
+});
+
+// ── POST /t/:slug/api/action ──
+app.post('/t/:slug/api/action', resolveOrg, async (req, res) => {
+  const { action, payload } = req.body;
+  const client = await saas.pool.connect();
+  try {
+    const stateRes = await client.query('SELECT * FROM org_competition_state WHERE org_id = $1', [req.orgId]);
+    const state = stateRes.rows[0];
+    if (!state) return res.status(404).json({ error: 'Competition not initialized.' });
+
+    if (action === 'START_TIMER') {
+      let dur = state.timer_paused_remaining !== null ? state.timer_paused_remaining : state.timer_duration;
+      if (dur > 300) dur = dur >= 1000 ? Math.round(dur / 1000) : 60;
+      dur = Math.max(5, Math.min(300, dur || 60));
+      const timerEnd = Date.now() + (dur * 1000);
+      await client.query(`UPDATE org_competition_state SET timer_end=$1, timer_running=true, timer_paused_remaining=NULL, timer_started_for_turn=true WHERE org_id=$2`, [timerEnd, req.orgId]);
+    } else if (action === 'PAUSE_TIMER') {
+      if (state.timer_running) {
+        const remaining = Math.max(0, Math.ceil((Number(state.timer_end) - Date.now()) / 1000));
+        await client.query(`UPDATE org_competition_state SET timer_running=false, timer_end=0, timer_paused_remaining=$1 WHERE org_id=$2`, [remaining, req.orgId]);
+      }
+    } else if (action === 'RESET_TIMER') {
+      await client.query(`UPDATE org_competition_state SET timer_running=false, timer_end=0, timer_paused_remaining=NULL, timer_started_for_turn=false WHERE org_id=$1`, [req.orgId]);
+    } else if (action === 'PLUS_30_SEC') {
+      let cur = state.timer_duration;
+      if (state.timer_running && Number(state.timer_end) > 0) cur = Math.max(0, Math.ceil((Number(state.timer_end) - Date.now()) / 1000));
+      else if (state.timer_paused_remaining !== null) cur = state.timer_paused_remaining;
+      const next = Math.min(300, cur + 30);
+      if (state.timer_running) await client.query(`UPDATE org_competition_state SET timer_end=$1 WHERE org_id=$2`, [Date.now() + next * 1000, req.orgId]);
+      else await client.query(`UPDATE org_competition_state SET timer_paused_remaining=$1 WHERE org_id=$2`, [next, req.orgId]);
+    } else if (action === 'UPDATE_SPELLING') {
+      await client.query(`UPDATE org_competition_state SET current_spelling=$1 WHERE org_id=$2`, [(payload?.spelling || '').toUpperCase(), req.orgId]);
+    } else if (action === 'TOGGLE_STAGE_REVEAL') {
+      await client.query(`UPDATE org_competition_state SET stage_word_revealed=NOT stage_word_revealed WHERE org_id=$1`, [req.orgId]);
+    } else if (action === 'SELECT_SPELLER') {
+      const sid = parseInt(payload?.studentId, 10);
+      if (!sid) return res.status(400).json({ error: 'Invalid studentId' });
+      await client.query(`UPDATE org_competition_state SET active_speller_id=$1, current_spelling='', adjudication_result=NULL, stage_word_revealed=false, decision_locked=false, timer_started_for_turn=false WHERE org_id=$2`, [sid, req.orgId]);
+    } else if (action === 'SELECT_QUESTION') {
+      const qNum = parseInt(payload?.questionNum, 10);
+      if (!qNum) return res.status(400).json({ error: 'Invalid questionNum' });
+      await client.query(`UPDATE org_competition_state SET active_question_num=$1, current_spelling='', adjudication_result=NULL, stage_word_revealed=false, decision_locked=false, timer_started_for_turn=false WHERE org_id=$2`, [qNum, req.orgId]);
+    } else if (action === 'MARK_DECISION') {
+      if (state.decision_locked) return res.status(400).json({ error: 'Decision already recorded. Click Next Speller to continue.' });
+      const isTimeout = payload?.isTimeout === true;
+      const spelled = (state.current_spelling || '').trim();
+      if (!isTimeout && spelled.length === 0) return res.status(400).json({ error: 'Contestant must spell the word before recording.' });
+      const timerHasRun = state.timer_started_for_turn || state.timer_running || Number(state.timer_end) > 0 || state.timer_paused_remaining !== null;
+      if (!timerHasRun) return res.status(400).json({ error: 'Countdown timer must be started before recording a decision.' });
+
+      let isCorrect = payload?.isCorrect === true;
+      const sid = state.active_speller_id;
+      const qNum = state.active_question_num;
+      const pts = Number(state.points_per_word || 25);
+
+      const studentRes = await client.query('SELECT * FROM org_students WHERE org_id=$1 AND contestant_num=$2', [req.orgId, sid]);
+      const wordRes = await client.query('SELECT * FROM org_words WHERE org_id=$1 AND question_num=$2', [req.orgId, qNum]);
+      const student = studentRes.rows[0];
+      const word = wordRes.rows[0];
+
+      if (isTimeout && word) {
+        const targetClean = (word.word || '').toUpperCase().replace(/[^A-Z]/g, '');
+        const spelledClean = spelled.toUpperCase().replace(/[^A-Z]/g, '');
+        isCorrect = targetClean.length > 0 && targetClean === spelledClean;
+      }
+
+      if (student) {
+        const scores = student.scores || {};
+        const curRound = state.round;
+        scores[curRound] = (scores[curRound] || 0) + (isCorrect ? pts : 0);
+        const newCorrect = (student.correct_count || 0) + (isCorrect ? 1 : 0);
+        const totalPoints = Object.values(scores).reduce((a, b) => a + (Number(b) || 0), 0);
+        let isAlive = student.is_alive;
+        if (curRound >= 4 && !isCorrect) isAlive = false;
+
+        await client.query(`INSERT INTO org_adjudication_history (org_id, round, student_id, student_name, question_num, word, spelled_letters, result, points_awarded) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9)`,
+          [req.orgId, curRound, sid, student.name, qNum, word?.word || spelled, spelled, isCorrect ? 'correct' : 'incorrect', isCorrect ? pts : 0]);
+        await client.query(`UPDATE org_students SET scores=$1, correct_count=$2, total_points=$3, is_alive=$4 WHERE org_id=$5 AND contestant_num=$6`,
+          [scores, newCorrect, totalPoints, isAlive, req.orgId, sid]);
+        if (qNum) await client.query(`UPDATE org_words SET is_used=true WHERE org_id=$1 AND question_num=$2`, [req.orgId, qNum]);
+        await client.query(`UPDATE org_competition_state SET adjudication_result=$1, decision_locked=true, timer_running=false, timer_end=0, timer_paused_remaining=NULL WHERE org_id=$2`,
+          [isCorrect ? 'correct' : 'incorrect', req.orgId]);
+      }
+    } else if (action === 'ADVANCE_SPELLER') {
+      const minQ = state.round === 1 ? 1 : (state.round === 2 ? 101 : (state.round === 3 ? 201 : 301));
+      const maxQ = state.round === 1 ? 100 : (state.round === 2 ? 200 : (state.round === 3 ? 300 : 400));
+      const nextSidRes = await client.query(`SELECT s.contestant_num as id FROM org_students s LEFT JOIN org_adjudication_history h ON s.contestant_num=h.student_id AND h.round=$1 AND h.org_id=$2 WHERE s.org_id=$2 AND s.is_alive=true GROUP BY s.contestant_num HAVING COUNT(h.id)<$3 ORDER BY COUNT(h.id) ASC, s.contestant_num ASC LIMIT 1`, [state.round, req.orgId, state.stage_word_limit || 4]);
+      let nextSid = nextSidRes.rows[0]?.id || state.active_speller_id;
+      const unusedRes = await client.query(`SELECT question_num FROM org_words WHERE org_id=$1 AND is_used=false AND question_num BETWEEN $2 AND $3 ORDER BY question_num ASC LIMIT 1`, [req.orgId, minQ, maxQ]);
+      const nextQ = unusedRes.rows[0]?.question_num || null;
+      await client.query(`UPDATE org_competition_state SET active_speller_id=$1, active_question_num=$2, current_spelling='', adjudication_result=NULL, stage_word_revealed=false, decision_locked=false, timer_started_for_turn=false, timer_running=false, timer_end=0, timer_paused_remaining=NULL WHERE org_id=$3`, [nextSid, nextQ, req.orgId]);
+    } else if (action === 'ADVANCE_ROUND') {
+      const nextRound = state.round + 1;
+      const minQ = nextRound === 1 ? 1 : (nextRound === 2 ? 101 : (nextRound === 3 ? 201 : 301));
+      const anyActive = await client.query(`SELECT contestant_num FROM org_students WHERE org_id=$1 AND is_alive=true ORDER BY contestant_num ASC LIMIT 1`, [req.orgId]);
+      const nextSid = anyActive.rows[0]?.contestant_num || null;
+      const unusedRes = await client.query(`SELECT question_num FROM org_words WHERE org_id=$1 AND is_used=false AND question_num>=$2 ORDER BY question_num ASC LIMIT 1`, [req.orgId, minQ]);
+      const nextQ = unusedRes.rows[0]?.question_num || null;
+      await client.query(`UPDATE org_competition_state SET round=$1, active_speller_id=$2, active_question_num=$3, current_spelling='', adjudication_result=NULL, stage_word_revealed=false, decision_locked=false, timer_running=false, timer_end=0, timer_paused_remaining=NULL WHERE org_id=$4`, [nextRound, nextSid, nextQ, req.orgId]);
+    }
+
+    const updated = await broadcastOrgState(req.orgId, req.params.slug);
+    res.json({ success: true, state: updated });
+  } catch (err) {
+    console.error('[SAAS] Action error:', err);
+    res.status(500).json({ error: err.message });
+  } finally { client.release(); }
+});
+
+// ── POST /t/:slug/api/reset/full ──
+app.post('/t/:slug/api/reset/full', resolveOrg, async (req, res) => {
+  const client = await saas.pool.connect();
+  try {
+    await client.query('BEGIN');
+    await client.query('DELETE FROM org_adjudication_history WHERE org_id=$1', [req.orgId]);
+    await client.query('UPDATE org_words SET is_used=false WHERE org_id=$1', [req.orgId]);
+    await client.query(`UPDATE org_students SET correct_count=0, total_points=0, scores='{}'::jsonb, is_alive=true WHERE org_id=$1`, [req.orgId]);
+    const firstStudent = await client.query(`SELECT contestant_num FROM org_students WHERE org_id=$1 ORDER BY contestant_num ASC LIMIT 1`, [req.orgId]);
+    const firstWord = await client.query(`SELECT question_num FROM org_words WHERE org_id=$1 ORDER BY question_num ASC LIMIT 1`, [req.orgId]);
+    await client.query(`UPDATE org_competition_state SET round=1, active_speller_id=$1, active_question_num=$2, current_spelling='', adjudication_result=NULL, stage_word_revealed=false, decision_locked=false, timer_running=false, timer_end=0, timer_paused_remaining=NULL WHERE org_id=$3`,
+      [firstStudent.rows[0]?.contestant_num || null, firstWord.rows[0]?.question_num || null, req.orgId]);
+    await client.query('COMMIT');
+    const state = await broadcastOrgState(req.orgId, req.params.slug);
+    res.json({ success: true, state });
+  } catch (err) {
+    await client.query('ROLLBACK');
+    res.status(500).json({ error: err.message });
+  } finally { client.release(); }
+});
+
+// ── POST /t/:slug/api/reset/round ──
+app.post('/t/:slug/api/reset/round', resolveOrg, async (req, res) => {
+  const client = await saas.pool.connect();
+  try {
+    const stateRes = await client.query('SELECT round FROM org_competition_state WHERE org_id=$1', [req.orgId]);
+    const curRound = stateRes.rows[0]?.round || 1;
+    const minQ = curRound === 1 ? 1 : (curRound === 2 ? 101 : (curRound === 3 ? 201 : 301));
+    const maxQ = curRound === 1 ? 100 : (curRound === 2 ? 200 : (curRound === 3 ? 300 : 400));
+    await client.query('BEGIN');
+    await client.query('DELETE FROM org_adjudication_history WHERE org_id=$1 AND round=$2', [req.orgId, curRound]);
+    await client.query('UPDATE org_words SET is_used=false WHERE org_id=$1 AND question_num BETWEEN $2 AND $3', [req.orgId, minQ, maxQ]);
+    await client.query('COMMIT');
+    const state = await broadcastOrgState(req.orgId, req.params.slug);
+    res.json({ success: true, state });
+  } catch (err) {
+    await client.query('ROLLBACK');
+    res.status(500).json({ error: err.message });
+  } finally { client.release(); }
+});
+
+// ── POST /t/:slug/api/stage/end ──
+app.post('/t/:slug/api/stage/end', resolveOrg, async (req, res) => {
+  try {
+    await saas.pool.query(
+      `UPDATE org_competition_state SET timer_running=false, timer_end=0, timer_paused_remaining=NULL WHERE org_id=$1`,
+      [req.orgId]
+    );
+    const state = await broadcastOrgState(req.orgId, req.params.slug);
+    res.json({ success: true, state });
+  } catch (err) { res.status(500).json({ error: err.message }); }
+});
+
+// ── POST /t/:slug/api/decision/reverse ──
+app.post('/t/:slug/api/decision/reverse', resolveOrg, async (req, res) => {
+  try {
+    const stateRes = await saas.pool.query('SELECT * FROM org_competition_state WHERE org_id=$1', [req.orgId]);
+    const state = stateRes.rows[0];
+    if (!state) return res.status(404).json({ error: 'No org state found.' });
+    // Find the last adjudication entry and remove it
+    const lastAdj = await saas.pool.query(
+      `SELECT * FROM org_adjudication_history WHERE org_id=$1 ORDER BY id DESC LIMIT 1`, [req.orgId]
+    );
+    if (!lastAdj.rows.length) return res.status(400).json({ error: 'No decision to reverse.' });
+    const adj = lastAdj.rows[0];
+    await saas.pool.query('DELETE FROM org_adjudication_history WHERE id=$1', [adj.id]);
+    // Revert student score
+    if (adj.result === 'CORRECT') {
+      await saas.pool.query(
+        `UPDATE org_students SET correct_count = GREATEST(0, correct_count-1), total_points = GREATEST(0, total_points-10) WHERE org_id=$1 AND contestant_num=$2`,
+        [req.orgId, adj.contestant_num]
+      );
+    }
+    // Unlock decision on state
+    await saas.pool.query(
+      `UPDATE org_competition_state SET decision_locked=false, adjudication_result=NULL WHERE org_id=$1`, [req.orgId]
+    );
+    const updated = await broadcastOrgState(req.orgId, req.params.slug);
+    res.json({ success: true, state: updated });
+  } catch (err) { res.status(500).json({ error: err.message }); }
+});
+
+// ── POST /t/:slug/api/stage/confirm-advance ──
+app.post('/t/:slug/api/stage/confirm-advance', resolveOrg, async (req, res) => {
+  try {
+    const stateRes = await saas.pool.query('SELECT * FROM org_competition_state WHERE org_id=$1', [req.orgId]);
+    const st = stateRes.rows[0];
+    if (!st) return res.status(404).json({ error: 'No state found.' });
+    const nextRound = (st.round || 1) + 1;
+    // Eliminate students who didn't pass threshold
+    const students = await saas.pool.query('SELECT * FROM org_students WHERE org_id=$1 AND is_alive=true', [req.orgId]);
+    const threshold = st.round <= 1 ? 3 : st.round <= 2 ? 2 : 1; // words to pass each round
+    for (const s of students.rows) {
+      if ((s.correct_count || 0) < threshold) {
+        await saas.pool.query('UPDATE org_students SET is_alive=false WHERE org_id=$1 AND contestant_num=$2', [req.orgId, s.contestant_num]);
+      }
+    }
+    // Advance to next round
+    const firstAlive = await saas.pool.query(
+      `SELECT contestant_num FROM org_students WHERE org_id=$1 AND is_alive=true ORDER BY contestant_num ASC LIMIT 1`, [req.orgId]
+    );
+    const firstWord = await saas.pool.query(
+      `SELECT question_num FROM org_words WHERE org_id=$1 AND is_used=false ORDER BY question_num ASC LIMIT 1`, [req.orgId]
+    );
+    await saas.pool.query(
+      `UPDATE org_competition_state SET round=$1, active_speller_id=$2, active_question_num=$3, current_spelling='', adjudication_result=NULL, stage_word_revealed=false, decision_locked=false, timer_running=false WHERE org_id=$4`,
+      [nextRound, firstAlive.rows[0]?.contestant_num || null, firstWord.rows[0]?.question_num || null, req.orgId]
+    );
+    const updated = await broadcastOrgState(req.orgId, req.params.slug);
+    res.json({ success: true, state: updated });
+  } catch (err) { res.status(500).json({ error: err.message }); }
+});
+
+// ── POST /t/:slug/api/stage/switch ──
+app.post('/t/:slug/api/stage/switch', resolveOrg, async (req, res) => {
+  try {
+    const { stage } = req.body;
+    await saas.pool.query(
+      `UPDATE org_competition_state SET round=$1 WHERE org_id=$2`, [stage || 1, req.orgId]
+    );
+    const updated = await broadcastOrgState(req.orgId, req.params.slug);
+    res.json({ success: true, state: updated });
+  } catch (err) { res.status(500).json({ error: err.message }); }
+});
+
+// ── POST /t/:slug/api/words/bulk ──
+app.post('/t/:slug/api/words/bulk', resolveOrg, async (req, res) => {
+  try {
+    const { words } = req.body;
+    if (!Array.isArray(words) || !words.length) return res.status(400).json({ error: 'No words provided.' });
+    await saas.pool.query('DELETE FROM org_words WHERE org_id=$1', [req.orgId]);
+    for (let i = 0; i < words.length; i++) {
+      const w = words[i];
+      await saas.pool.query(
+        `INSERT INTO org_words (org_id, question_num, word, definition, example_sentence, part_of_speech, difficulty, stage)
+         VALUES ($1,$2,$3,$4,$5,$6,$7,$8)`,
+        [req.orgId, i + 1, w.word || w.Word || '', w.definition || w.Definition || '', w.example || w.Example || '', w.pos || w['Part of Speech'] || '', w.difficulty || w.Difficulty || 'medium', w.stage || w.Stage || 1]
+      );
+    }
+    const updated = await broadcastOrgState(req.orgId, req.params.slug);
+    res.json({ success: true, count: words.length, state: updated });
+  } catch (err) { res.status(500).json({ error: err.message }); }
+});
+
+// ── POST /t/:slug/api/students/bulk ──
+app.post('/t/:slug/api/students/bulk', resolveOrg, async (req, res) => {
+  try {
+    const { students } = req.body;
+    if (!Array.isArray(students) || !students.length) return res.status(400).json({ error: 'No students provided.' });
+    await saas.pool.query('DELETE FROM org_students WHERE org_id=$1', [req.orgId]);
+    for (let i = 0; i < students.length; i++) {
+      const s = students[i];
+      await saas.pool.query(
+        `INSERT INTO org_students (org_id, contestant_num, name, school, lga, gender)
+         VALUES ($1,$2,$3,$4,$5,$6)`,
+        [req.orgId, i + 1, s.name || s.Name || '', s.school || s.School || '', s.lga || s.LGA || '', s.gender || s.Gender || '']
+      );
+    }
+    // Set first speller
+    await saas.pool.query(
+      `UPDATE org_competition_state SET active_speller_id=$1 WHERE org_id=$2`,
+      [1, req.orgId]
+    );
+    const updated = await broadcastOrgState(req.orgId, req.params.slug);
+    res.json({ success: true, count: students.length, state: updated });
+  } catch (err) { res.status(500).json({ error: err.message }); }
+});
+
+// ── POST /t/:slug/api/tiebreaker/start ──
+app.post('/t/:slug/api/tiebreaker/start', resolveOrg, async (req, res) => {
+  try {
+    const { tiedStudentIds, breakerLimit } = req.body;
+    if (!tiedStudentIds || !tiedStudentIds.length) return res.status(400).json({ error: 'No tied students provided.' });
+    const tbData = {
+      round: 1, contestingStudentIds: tiedStudentIds,
+      breakerLimit: breakerLimit || 1, scores: {}, activeIndex: 0,
+      activeSpellerId: tiedStudentIds[0],
+      statusMessage: `Tiebreaker Round 1: ${tiedStudentIds.length} contestants`
+    };
+    await saas.pool.query(
+      `UPDATE org_competition_state SET tiebreaker_active=true, tiebreaker_data=$1 WHERE org_id=$2`,
+      [JSON.stringify(tbData), req.orgId]
+    );
+    const updated = await broadcastOrgState(req.orgId, req.params.slug);
+    res.json({ success: true, tiebreakerData: tbData, state: updated });
+  } catch (err) { res.status(500).json({ error: err.message }); }
+});
+
+// ── POST /t/:slug/api/tiebreaker/action ──
+app.post('/t/:slug/api/tiebreaker/action', resolveOrg, async (req, res) => {
+  try {
+    const { action, payload = {} } = req.body;
+    const stateRes = await saas.pool.query('SELECT * FROM org_competition_state WHERE org_id=$1', [req.orgId]);
+    const st = stateRes.rows[0];
+    if (!st || !st.tiebreaker_active) return res.status(400).json({ error: 'No active tiebreaker.' });
+    const tb = typeof st.tiebreaker_data === 'string' ? JSON.parse(st.tiebreaker_data) : st.tiebreaker_data;
+    // Simple: advance to next speller or mark correct/incorrect
+    if (action === 'CORRECT' || action === 'INCORRECT') {
+      tb.scores[tb.activeSpellerId] = (tb.scores[tb.activeSpellerId] || 0) + (action === 'CORRECT' ? 1 : 0);
+      tb.activeIndex = (tb.activeIndex + 1) % tb.contestingStudentIds.length;
+      tb.activeSpellerId = tb.contestingStudentIds[tb.activeIndex];
+    }
+    await saas.pool.query(
+      `UPDATE org_competition_state SET tiebreaker_data=$1 WHERE org_id=$2`,
+      [JSON.stringify(tb), req.orgId]
+    );
+    const updated = await broadcastOrgState(req.orgId, req.params.slug);
+    res.json({ success: true, tiebreakerData: tb, state: updated });
+  } catch (err) { res.status(500).json({ error: err.message }); }
+});
+
+// ── POST /t/:slug/api/tiebreaker/confirm ──
+app.post('/t/:slug/api/tiebreaker/confirm', resolveOrg, async (req, res) => {
+  try {
+    await saas.pool.query(
+      `UPDATE org_competition_state SET tiebreaker_active=false, tiebreaker_data='{}'::jsonb WHERE org_id=$1`,
+      [req.orgId]
+    );
+    const updated = await broadcastOrgState(req.orgId, req.params.slug);
+    res.json({ success: true, state: updated });
+  } catch (err) { res.status(500).json({ error: err.message }); }
+});
+
+// ── POST /t/:slug/api/tiebreaker/cancel ──
+app.post('/t/:slug/api/tiebreaker/cancel', resolveOrg, async (req, res) => {
+  try {
+    await saas.pool.query(
+      `UPDATE org_competition_state SET tiebreaker_active=false, tiebreaker_data='{}'::jsonb WHERE org_id=$1`,
+      [req.orgId]
+    );
+    const updated = await broadcastOrgState(req.orgId, req.params.slug);
+    res.json({ success: true, state: updated });
+  } catch (err) { res.status(500).json({ error: err.message }); }
+});
 
 // Helper to broadcast state to all screens
 async function broadcastState() {
@@ -53,6 +550,15 @@ async function broadcastState() {
     console.error('[SERVER] Broadcast error:', err.message);
   }
 }
+
+// Socket.IO — Org Room Joining (clients join their org's room for targeted broadcasts)
+io.on('connection', (socket) => {
+  socket.on('join_org', (slug) => {
+    if (slug && typeof slug === 'string') {
+      socket.join(`org:${slug}`);
+    }
+  });
+});
 
 // REST API
 app.get('/api/state', async (req, res) => {
@@ -1342,6 +1848,7 @@ function getLocalIpAddress() {
 async function startServer() {
   try {
     await db.initDatabase();
+    await saas.initSaasSchema();
     server.listen(PORT, '0.0.0.0', () => {
       const localIp = getLocalIpAddress();
       console.log('================================================================');
