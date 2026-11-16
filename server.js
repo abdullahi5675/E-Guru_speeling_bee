@@ -33,9 +33,11 @@ app.use(express.static(path.join(__dirname, 'public'), {
   maxAge: 0
 }));
 
-// Explicit page routes for each screen (legacy Jigawa)
-app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'public', 'landing.html')));
+// Explicit page routes for each screen
+app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'public', 'index.html')));
 app.get('/home', (req, res) => res.sendFile(path.join(__dirname, 'public', 'index.html')));
+app.get('/jigawa', (req, res) => res.sendFile(path.join(__dirname, 'public', 'jigawa.html')));
+app.get('/jigawa-portal', (req, res) => res.sendFile(path.join(__dirname, 'public', 'jigawa.html')));
 app.get('/register', (req, res) => res.sendFile(path.join(__dirname, 'public', 'register.html')));
 app.get('/login', (req, res) => res.sendFile(path.join(__dirname, 'public', 'login.html')));
 app.get('/dashboard', (req, res) => res.sendFile(path.join(__dirname, 'public', 'dashboard.html')));

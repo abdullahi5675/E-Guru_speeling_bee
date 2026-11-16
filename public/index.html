@@ -3,323 +3,508 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Jigawa State Spelling Bee Portal • J-YEDA &amp; KowaguruTech</title>
+  <title>E-Guru Spelling Bee Platform — Run Your Championship Online</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
   <style>
-    .portal-hero {
+    body { background: #060808; }
+
+    /* ── HERO ── */
+    .landing-hero {
       text-align: center;
-      padding: 48px 20px 24px;
+      padding: 70px 24px 50px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(26,122,26,0.18);
+      border: 1px solid var(--brand-green);
+      color: var(--text-green);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 5px 16px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+    .landing-hero h1 {
+      font-family: var(--font-title);
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: 0.04em;
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+    .landing-hero h1 span { color: var(--text-green); }
+    .landing-hero p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+    .hero-cta-row {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .btn-cta-primary {
+      background: var(--brand-green);
+      color: #fff;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s;
+      box-shadow: 0 4px 20px rgba(26,122,26,0.4);
+    }
+    .btn-cta-primary:hover { background: var(--brand-green-light); transform: translateY(-1px); }
+    .btn-cta-secondary {
+      background: transparent;
+      color: var(--text-green);
+      border: 1.5px solid var(--brand-green);
+      padding: 14px 32px;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s;
+    }
+    .btn-cta-secondary:hover { background: rgba(26,122,26,0.12); }
+
+    /* ── FEATURES ── */
+    .section-title {
+      text-align: center;
+      font-family: var(--font-title);
+      font-size: 1.7rem;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .section-sub {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 36px;
+    }
+    .features-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 20px;
+    }
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 24px;
+      transition: border-color 0.2s;
+    }
+    .feature-card:hover { border-color: var(--brand-green); }
+    .feature-icon { font-size: 2rem; margin-bottom: 12px; }
+    .feature-card h3 {
+      font-family: var(--font-title);
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .feature-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; }
+
+    /* ── HOW IT WORKS ── */
+    .how-section {
+      background: var(--bg-card);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      padding: 60px 24px;
+    }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
       max-width: 1000px;
       margin: 0 auto;
     }
-    .portal-hero h1 {
-      font-family: var(--font-title);
-      font-size: 2.6rem;
-      font-weight: 900;
-      color: #fff;
-      letter-spacing: 0.05em;
-      text-shadow: 0 0 25px rgba(245, 158, 11, 0.4);
+    .step-card {
+      text-align: center;
+      padding: 20px;
     }
-    .portal-hero p.subtitle {
-      font-size: 1.1rem;
-      color: var(--gold-light);
-      margin-top: 8px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+    .step-num {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: rgba(26,122,26,0.18);
+      border: 2px solid var(--brand-green);
+      color: var(--text-green);
+      font-family: var(--font-mono);
+      font-size: 1.2rem;
+      font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 14px;
     }
+    .step-card h4 { font-size: 1rem; font-weight: 800; color: #fff; margin-bottom: 6px; }
+    .step-card p { font-size: 0.83rem; color: var(--text-muted); line-height: 1.6; }
 
-    /* Tripartite Partnership Banner */
-    .partnership-banner {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+    /* ── SCREENS PREVIEW ── */
+    .screens-section {
       max-width: 1100px;
-      margin: 24px auto 36px;
-      padding: 0 20px;
+      margin: 0 auto;
+      padding: 60px 24px;
     }
-    @media (max-width: 850px) {
-      .partnership-banner { grid-template-columns: 1fr; }
+    .screens-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
     }
-    .partner-pill-card {
-      background: linear-gradient(145deg, #0e1410, #162018);
+    .screen-pill {
+      background: var(--bg-elevated);
       border: 1px solid var(--border-color);
       border-radius: 12px;
-      padding: 16px 18px;
+      padding: 18px 16px;
       text-align: center;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-      position: relative;
     }
-    .partner-pill-card.sponsor { border-top: 3px solid var(--brand-green); }
-    .partner-pill-card.organizer { border-top: 3px solid var(--brand-red); }
-    .partner-pill-card.tech { border-top: 3px solid var(--brand-green-light); }
-    
-    .partner-role-tag {
-      font-size: 0.68rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-weight: 800;
-      color: var(--text-muted);
-      margin-bottom: 4px;
-    }
-    .partner-name {
-      font-family: var(--font-title);
-      font-size: 1.05rem;
-      font-weight: 800;
-      color: #fff;
-      letter-spacing: 0.04em;
-    }
-    .partner-desc {
-      font-size: 0.76rem;
-      color: var(--text-muted);
-      margin-top: 2px;
-    }
+    .screen-pill .icon { font-size: 1.6rem; margin-bottom: 8px; }
+    .screen-pill h4 { font-size: 0.9rem; font-weight: 800; color: #fff; margin-bottom: 4px; }
+    .screen-pill p { font-size: 0.75rem; color: var(--text-muted); }
 
-    .screens-grid {
+    /* ── PRICING ── */
+    .pricing-section {
+      background: var(--bg-card);
+      border-top: 1px solid var(--border-color);
+      padding: 60px 24px;
+    }
+    .pricing-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-      max-width: 1200px;
-      margin: 10px auto 40px;
-      padding: 0 20px;
+      gap: 24px;
+      max-width: 900px;
+      margin: 0 auto;
     }
-    .screen-card {
-      background: linear-gradient(145deg, #0e1410, #141c16);
-      border: 2px solid var(--border-color);
+    .plan-card {
+      background: var(--bg-dark);
+      border: 1px solid var(--border-color);
       border-radius: 16px;
-      padding: 28px 22px;
+      padding: 28px;
       text-align: center;
-      text-decoration: none;
-      color: inherit;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-      transition: all 0.25s ease;
       position: relative;
-      overflow: hidden;
     }
-    .screen-card::before {
-      content: '';
+    .plan-card.featured {
+      border-color: var(--brand-green);
+      box-shadow: 0 0 30px rgba(26,122,26,0.2);
+    }
+    .plan-badge {
       position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 4px;
-      background: var(--border-color);
-      transition: all 0.25s;
+      top: -12px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--brand-green);
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 20px;
     }
-    .screen-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
-    }
-    .screen-card.judge:hover { border-color: var(--brand-red); }
-    .screen-card.judge:hover::before { background: var(--brand-red); }
-    .screen-card.projector:hover { border-color: var(--brand-green); }
-    .screen-card.projector:hover::before { background: var(--brand-green); }
-    .screen-card.speller:hover { border-color: var(--brand-green-light); }
-    .screen-card.speller:hover::before { background: var(--brand-green-light); }
-    .screen-card.board:hover { border-color: var(--brand-red-light); }
-    .screen-card.board:hover::before { background: var(--brand-red-light); }
-
-    .card-icon { font-size: 3.2rem; margin-bottom: 14px; }
-    .screen-card h2 {
+    .plan-name {
       font-family: var(--font-title);
       font-size: 1.3rem;
+      font-weight: 900;
       color: #fff;
+      margin-bottom: 6px;
+    }
+    .plan-price {
+      font-family: var(--font-mono);
+      font-size: 2.4rem;
       font-weight: 800;
-      margin-bottom: 8px;
+      color: var(--text-green);
+      margin: 10px 0 4px;
     }
-    .screen-card p {
+    .plan-price small { font-size: 1rem; color: var(--text-muted); }
+    .plan-desc { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 20px; }
+    .plan-features { list-style: none; padding: 0; margin-bottom: 24px; text-align: left; }
+    .plan-features li {
       font-size: 0.85rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-      margin-bottom: 20px;
+      color: var(--text-main);
+      padding: 5px 0;
+      border-bottom: 1px solid var(--border-color);
     }
-    .btn-launch {
-      width: 100%;
-      padding: 11px;
-      font-weight: 700;
-      font-size: 0.88rem;
-      border-radius: 8px;
-      border: none;
-      color: #fff;
-      background: var(--royal-blue);
-      cursor: pointer;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    .screen-card.judge .btn-launch { background: linear-gradient(135deg, #991b1b, #dc2626); color: #fff; font-weight: 800; }
-    .screen-card.projector .btn-launch { background: linear-gradient(135deg, #0f5e0f, #1a7a1a); }
-    .screen-card.speller .btn-launch { background: linear-gradient(135deg, #15803d, #22c55e); }
-    .screen-card.board .btn-launch { background: linear-gradient(135deg, #8b0000, #cc1b1b); }
+    .plan-features li:last-child { border-bottom: none; }
+    .plan-features li::before { content: '✓ '; color: var(--text-green); font-weight: 800; }
 
-    .network-bar {
-      max-width: 1200px;
-      margin: 0 auto 30px;
-      padding: 16px 24px;
-      background: #0c1410;
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
+    /* ── FOOTER ── */
+    .landing-footer {
+      text-align: center;
+      padding: 30px 24px;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-size: 0.82rem;
+    }
+    .landing-footer a { color: var(--text-green); text-decoration: none; }
+
+    /* ── NAV ── */
+    .landing-nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
+      padding: 16px 32px;
+      border-bottom: 1px solid var(--border-color);
+      background: rgba(6,8,8,0.95);
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(8px);
     }
-
-    .tech-credit-footer {
-      border-top: 1px solid var(--border-color);
-      padding: 24px 20px;
-      text-align: center;
-      font-size: 0.82rem;
+    .nav-brand {
+      font-family: var(--font-title);
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+    }
+    .nav-brand span { color: var(--text-green); }
+    .nav-links { display: flex; gap: 10px; align-items: center; }
+    .nav-link {
       color: var(--text-muted);
-      background: #060808;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 7px 14px;
+      border-radius: 8px;
+      transition: all 0.2s;
     }
-    .kowaguru-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(26, 122, 26, 0.18);
-      border: 1px solid var(--brand-green);
-      color: #4ade80;
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-weight: 700;
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      margin-top: 8px;
+    .nav-link:hover { color: #fff; background: var(--bg-elevated); }
+    .nav-btn {
+      background: var(--brand-green);
+      color: #fff;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 800;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .nav-btn:hover { background: var(--brand-green-light); }
+
+    @media (max-width: 600px) {
+      .landing-nav { padding: 12px 16px; }
+      .nav-brand { font-size: 1.1rem; }
+      .nav-link { display: none; }
     }
   </style>
 </head>
 <body>
 
-  <header class="app-header">
-    <div class="brand-box">
-      <img src="/images/eguru-logo.jpeg" alt="EGuru Spelling Bee" style="width: 48px; height: 48px; object-fit: contain; border-radius: 8px; border: 1.5px solid var(--brand-red);">
-      <div class="brand-text">
-        <h1>Jigawa State Spelling Bee <span class="badge-subeb">MOE • J-YEDA</span></h1>
-        <p>Official Tournament Management Ecosystem</p>
+  <!-- NAV -->
+  <nav class="landing-nav">
+    <a href="/" class="nav-brand">E-<span>Guru</span> Spelling Bee</a>
+    <div class="nav-links">
+      <a href="#features" class="nav-link">Features</a>
+      <a href="#pricing" class="nav-link">Pricing</a>
+      <a href="/login" class="nav-link">Log In</a>
+      <a href="/register" class="nav-btn">Get Started Free</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="landing-hero">
+    <div class="hero-badge">🏆 Built for Schools, Boards & Championships</div>
+    <h1>Run Your Spelling Bee<br><span>Competition Online</span></h1>
+    <p>E-Guru gives your school or educational board a complete digital platform — Judges' cockpit, live stage screen, speller monitor, real-time leaderboard, and more. No setup required.</p>
+    <div class="hero-cta-row">
+      <a href="/register" class="btn-cta-primary">🚀 Start for Free</a>
+      <a href="/login" class="btn-cta-secondary">Log In to Dashboard</a>
+    </div>
+    <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom: 24px;">No credit card required. Free plan available for all organizations.</p>
+
+    <!-- LIVE DEMO / JIGAWA CHAMPIONSHIP STRIP -->
+    <div style="background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.35); border-radius: 12px; padding: 16px 20px; max-width: 720px; margin: 0 auto; text-align: center;">
+      <div style="font-size: 0.8rem; font-weight: 800; color: #fbbf24; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px;">
+        🏛️ Featured Live Competition • Jigawa State Ministry of Basic Education
+      </div>
+      <p style="font-size: 0.85rem; color: #9ca3af; margin: 0 0 10px;">
+        Explore the live championship screens or test the judges cockpit right now:
+      </p>
+      <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
+        <a href="/t/jigawa/judge" style="background: #2563eb; color: #fff; text-decoration: none; font-size: 0.78rem; font-weight: 700; padding: 6px 12px; border-radius: 6px;">👨‍⚖️ Judges Cockpit</a>
+        <a href="/t/jigawa/projector" style="background: #059669; color: #fff; text-decoration: none; font-size: 0.78rem; font-weight: 700; padding: 6px 12px; border-radius: 6px;">🖥️ Projector Screen</a>
+        <a href="/t/jigawa/speller" style="background: #d97706; color: #fff; text-decoration: none; font-size: 0.78rem; font-weight: 700; padding: 6px 12px; border-radius: 6px;">🧑‍🎓 Speller Monitor</a>
+        <a href="/t/jigawa/leaderboard" style="background: #7c3aed; color: #fff; text-decoration: none; font-size: 0.78rem; font-weight: 700; padding: 6px 12px; border-radius: 6px;">📊 Leaderboard</a>
+        <a href="/jigawa-portal" style="background: #374151; color: #fff; text-decoration: none; font-size: 0.78rem; font-weight: 700; padding: 6px 12px; border-radius: 6px;">🏛️ Legacy Portal</a>
       </div>
     </div>
-    <div style="font-family: var(--font-mono); font-size: 0.78rem; color: #34d399; display: flex; align-items: center; gap: 8px;">
-      <span style="width: 8px; height: 8px; border-radius: 50%; background: #10b981; display: inline-block; box-shadow: 0 0 8px #10b981;"></span>
-      PostgreSQL 18 &amp; Real-time Active
-    </div>
-  </header>
+  </section>
 
-  <div class="portal-hero">
-    <h1>State Inter-School Championship</h1>
-    <p class="subtitle">Official Competition Management Platform</p>
-  </div>
-
-  <!-- Tripartite Partnership Hierarchy Banner -->
-  <div class="partnership-banner">
-    <!-- 1. SPONSOR -->
-    <div class="partner-pill-card sponsor">
-      <div class="partner-role-tag">Official Sponsor</div>
-      <div class="partner-name">Jigawa State Government</div>
-      <div class="partner-desc">Ministry of Education, Science &amp; Technology</div>
-    </div>
-
-    <!-- 2. ORGANIZER -->
-    <div class="partner-pill-card organizer">
-      <div class="partner-role-tag">Official Organizing Body</div>
-      <div class="partner-name">J-YEDA</div>
-      <div class="partner-desc">Jigawa State Youth Educational Empowerment Association</div>
-    </div>
-
-    <!-- 3. TECHNOLOGY DEVELOPER -->
-    <div class="partner-pill-card tech">
-      <div class="partner-role-tag">Software Engineered By</div>
-      <div class="partner-name">KowaguruTech</div>
-      <div class="partner-desc">Official Technology Development Partner</div>
-    </div>
-  </div>
-
-  <!-- Dedicated Screens Grid -->
-  <div class="screens-grid">
-    
-    <!-- 1. Judges & Pronouncer Cockpit -->
-    <a href="/judge" class="screen-card judge">
-      <div>
-        <div class="card-icon">👨‍⚖️</div>
-        <h2>Judges &amp; Pronouncer</h2>
-        <p>Private cockpit for the panel of judges &amp; pronouncers. Word bank, definitions, pronunciation hotkeys, timer controls, and official scoring.</p>
+  <!-- FEATURES -->
+  <section class="features-section" id="features">
+    <div class="section-title">Everything You Need to Run a Professional Competition</div>
+    <div class="section-sub">Your entire championship in one place — from registration to grand final.</div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🎙️</div>
+        <h3>Pronouncer & Judges Cockpit</h3>
+        <p>Full control panel with word bank, timer management, correct/incorrect decisions, real-time spelling sync, and cross-validation checks.</p>
       </div>
-      <button class="btn-launch">Launch Judges Cockpit</button>
-    </a>
-
-    <!-- 2. Auditorium Projector Screen -->
-    <a href="/projector" class="screen-card projector">
-      <div>
-        <div class="card-icon">🖥️</div>
-        <h2>Stage Projector Screen</h2>
-        <p>High-resolution stage display for the auditorium &amp; VIP dignitaries. Shows the active speller, letters appearing live as they spell, giant timer, and reveals.</p>
+      <div class="feature-card">
+        <div class="feature-icon">🖥️</div>
+        <h3>Live Stage Projector Screen</h3>
+        <p>A professional display screen for your hall's projector showing the active speller, timer, word reveal, and live standings.</p>
       </div>
-      <button class="btn-launch">Launch Projector Screen</button>
-    </a>
-
-    <!-- 3. Speller Podium Monitor -->
-    <a href="/speller" class="screen-card speller">
-      <div>
-        <div class="card-icon">🧑‍🎓</div>
-        <h2>Speller Screen</h2>
-        <p>Dedicated downstage monitor facing the contestant answering the question. High-contrast countdown, question number, and turn indicators.</p>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>Real-Time Leaderboard</h3>
+        <p>Auto-updating audience leaderboard with ranks, scores, schools, and elimination status across all stages.</p>
       </div>
-      <button class="btn-launch">Launch Speller Monitor</button>
-    </a>
-
-    <!-- 4. Ministerial Leaderboard -->
-    <a href="/leaderboard" class="screen-card board">
-      <div>
-        <div class="card-icon">🏆</div>
-        <h2>Ministerial Leaderboard</h2>
-        <p>Real-time tournament standings, individual contestant points, and school rankings across all Jigawa LGAs.</p>
+      <div class="feature-card">
+        <div class="feature-icon">⚔️</div>
+        <h3>Tiebreaker Engine</h3>
+        <p>Automatic tiebreaker management with configurable slots, multi-round eliminations, and advancement confirmation.</p>
       </div>
-      <button class="btn-launch">Launch Leaderboard</button>
-    </a>
-
-    <!-- 5. Tiebreaker & Sudden-Death Knockout -->
-    <a href="/tiebreaker" class="screen-card judge" style="border-color: #f59e0b;">
-      <div>
-        <div class="card-icon">⚡</div>
-        <h2>Tiebreaker Cockpit</h2>
-        <p>Dedicated sudden-death arena for tied contestants using reserve words (Q401–Q500). Independent rapid adjudications.</p>
+      <div class="feature-card">
+        <div class="feature-icon">📋</div>
+        <h3>4-Stage Competition Format</h3>
+        <p>Preliminary, Quarter-Final, Semi-Final, and Grand Final — with configurable stage thresholds, word limits, and scoring rules.</p>
       </div>
-      <button class="btn-launch" style="background: linear-gradient(135deg, #b45309, #f59e0b);">Launch Tiebreaker</button>
-    </a>
-
-  </div>
-
-  <!-- Network Connectivity Info -->
-  <div class="network-bar">
-    <div>
-      <strong style="color: var(--gold-light);">Auditorium Multi-Device Wi-Fi:</strong>
-      <span style="color: var(--text-muted); font-size: 0.85rem; margin-left: 8px;">
-        Connect laptops, projectors, and tablets to the same hall Wi-Fi to open any screen independently.
-      </span>
-    </div>
-    <div style="font-family: var(--font-mono); font-size: 0.85rem; color: #60a5fa;">
-      Host Port: 3000 • Protocol: WebSockets + PostgreSQL
-    </div>
-  </div>
-
-  <footer class="tech-credit-footer">
-    <div>
-      <b>Jigawa State Inter-School Spelling Bee Championship</b> &bull; Sponsored by <b>Jigawa State Ministry of Education</b>
-    </div>
-    <div style="margin-top: 4px; color: var(--gold-light);">
-      Organized by <b>J-YEDA (Jigawa State Youth Educational Empowerment Association)</b>
-    </div>
-    <div>
-      <div class="kowaguru-badge">
-        <span>⚡</span> Engineered &amp; Developed by KowaguruTech
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <h3>Isolated Secure Data</h3>
+        <p>Your students, word bank, and scores are completely private to your organization. Other schools cannot see your data.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📂</div>
+        <h3>Excel Import & Export</h3>
+        <p>Upload your word bank and contestant roster from an Excel file. Export results and adjudication history at any time.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🌐</div>
+        <h3>Shareable Live Links</h3>
+        <p>Your own unique URL for each screen. Share the projector and leaderboard links with the audience — they open on any device.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⏱️</div>
+        <h3>Configurable Timer & Scoring</h3>
+        <p>Set your own countdown duration, warning seconds, points per word, and word limits per stage.</p>
       </div>
     </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-section">
+    <div class="section-title">How It Works</div>
+    <div class="section-sub">Your competition is live in under 5 minutes.</div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h4>Register Your Organization</h4>
+        <p>Sign up with your school or board name, email, and a password. Takes 60 seconds.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h4>Upload Words & Contestants</h4>
+        <p>Upload your word bank and contestant roster from an Excel file, or type them in directly.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <h4>Configure Your Competition</h4>
+        <p>Set your timer, stages, points per word, and branding. All pre-filled with smart defaults.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <h4>Go Live on Event Day</h4>
+        <p>Open your unique Judge and Projector links on your devices. The competition begins!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCREENS -->
+  <section class="screens-section">
+    <div class="section-title">5 Screens, All Live-Synced</div>
+    <div class="section-sub">Open each link on a different device or browser tab during your event.</div>
+    <div class="screens-row">
+      <div class="screen-pill"><div class="icon">🧑‍⚖️</div><h4>Judges Cockpit</h4><p>Protected judge & pronouncer control panel</p></div>
+      <div class="screen-pill"><div class="icon">🖥️</div><h4>Projector / Stage</h4><p>Big hall display screen</p></div>
+      <div class="screen-pill"><div class="icon">🧑‍🎓</div><h4>Speller Monitor</h4><p>Podium screen for the contestant</p></div>
+      <div class="screen-pill"><div class="icon">📊</div><h4>Leaderboard</h4><p>Live audience score display</p></div>
+      <div class="screen-pill"><div class="icon">⚔️</div><h4>Tiebreaker Arena</h4><p>Dedicated tiebreaker controller</p></div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing-section" id="pricing">
+    <div class="section-title">Simple, Transparent Pricing</div>
+    <div class="section-sub">Start for free. Upgrade when you're ready.</div>
+    <div class="pricing-grid">
+      <div class="plan-card">
+        <div class="plan-name">Free</div>
+        <div class="plan-price">₦0 <small>/ event</small></div>
+        <div class="plan-desc">Perfect for small schools and trials</div>
+        <ul class="plan-features">
+          <li>Up to 20 contestants</li>
+          <li>Up to 100 words</li>
+          <li>All 5 live screens</li>
+          <li>4-stage competition format</li>
+          <li>Basic tiebreaker</li>
+        </ul>
+        <a href="/register" class="btn-cta-secondary" style="display:block; text-align:center; padding:11px 20px;">Start Free</a>
+      </div>
+      <div class="plan-card featured">
+        <div class="plan-badge">Most Popular</div>
+        <div class="plan-name">Standard</div>
+        <div class="plan-price">₦15,000 <small>/ event</small></div>
+        <div class="plan-desc">For LGA and state-level competitions</div>
+        <ul class="plan-features">
+          <li>Unlimited contestants</li>
+          <li>Up to 500 words</li>
+          <li>Custom branding & logo</li>
+          <li>Excel import & export</li>
+          <li>Full tiebreaker engine</li>
+          <li>Results PDF export</li>
+        </ul>
+        <a href="/register" class="btn-cta-primary" style="display:block; text-align:center; padding:11px 20px;">Get Standard</a>
+      </div>
+      <div class="plan-card">
+        <div class="plan-name">Professional</div>
+        <div class="plan-price">₦40,000 <small>/ year</small></div>
+        <div class="plan-desc">For ministries and annual championships</div>
+        <ul class="plan-features">
+          <li>Everything in Standard</li>
+          <li>Unlimited events per year</li>
+          <li>Priority support</li>
+          <li>Custom domain</li>
+          <li>Multi-admin access</li>
+        </ul>
+        <a href="/register" class="btn-cta-secondary" style="display:block; text-align:center; padding:11px 20px;">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="landing-footer">
+    <p style="margin-bottom:8px;">
+      <strong style="color:#fff; font-family:var(--font-title);">E-Guru Spelling Bee Platform</strong>
+    </p>
+    <p>Built & Engineered by <a href="#">KowaguruTech</a> • Powering Schools & Educational Boards Across Nigeria</p>
+    <p style="margin-top:10px;">
+      <a href="/register">Register</a> &nbsp;·&nbsp;
+      <a href="/login">Log In</a> &nbsp;·&nbsp;
+      <a href="mailto:support@kowagurutech.com">Support</a>
+    </p>
   </footer>
 
-  <script src="/js/socket.io.min.js"></script>
 </body>
 </html>
